@@ -11,7 +11,6 @@ namespace Caramel.Models
         {
             Meals = new HashSet<Meal>();
         }
-
         public int Id { get; set; }
         public string CategoryName { get; set; }
         public string ExtraInformation { get; set; }

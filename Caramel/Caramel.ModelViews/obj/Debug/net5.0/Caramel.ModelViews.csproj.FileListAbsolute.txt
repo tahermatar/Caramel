@@ -10,3 +10,8 @@ C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\refint\Caramel.ModelViews.dll
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.pdb
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\ref\Caramel.ModelViews.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.Common.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.DbModel.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.Common.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.DbModel.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.csproj.CopyComplete

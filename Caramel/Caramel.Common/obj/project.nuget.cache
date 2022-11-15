@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KPdR/MNZiAr9iZV35iDVsHFFR/dR86XY+7l5pCUX2AJh62m0aaWo2+4PVcJ90bsl/5Riwty31NUTN0qVxwXqEQ==",
+  "dgSpecHash": "fMd2Nff2xFBEBXKnW/T59mvbFpBMJUZrZLOziAIpdNqhhRCzAR6Zju0FUPEM939iTnmQ11J2TO6GTLDFFY5D7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512"
+  ],
   "logs": []
 }

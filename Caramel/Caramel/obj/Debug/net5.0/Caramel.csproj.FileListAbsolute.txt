@@ -92,3 +92,16 @@ C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\obj\Debug\net5.0\refint\
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\obj\Debug\net5.0\Caramel.pdb
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\obj\Debug\net5.0\Caramel.genruntimeconfig.cache
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\obj\Debug\net5.0\ref\Caramel.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.DbModel.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.Core.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.DbModel.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\BCrypt.Net-Next.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Serilog.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.Common.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.ModelViews.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.Common.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel\bin\Debug\net5.0\Caramel.ModelViews.pdb
