@@ -5391,9 +5391,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
+      "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
       "projectName": "Caramel.ModelViews",
-      "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
+      "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
       "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.ModelViews\\obj\\",
       "projectStyle": "PackageReference",
@@ -5416,11 +5416,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
             },
-            "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
             }
           }
         }

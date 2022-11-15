@@ -5993,11 +5993,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel\\Caramel.csproj",
+      "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel\\Caramel.csproj",
       "projectName": "Caramel",
-      "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel\\Caramel.csproj",
+      "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel\\Caramel.csproj",
       "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel\\obj\\",
+      "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6018,14 +6018,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
             },
-            "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj"
+            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
+              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj"
             },
-            "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
             }
           }
         }

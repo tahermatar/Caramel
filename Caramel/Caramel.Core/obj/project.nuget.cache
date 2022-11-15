@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hXu3qW7SlHFg9wYwu89Slr2IHjJRWeMPG7GkRGa9wHzVNlRWkOscZMiQ2F1McH7XyTzlKRQihL+Ml/08LLyciA==",
+  "dgSpecHash": "Pwx2Y/EqrmLT5RvaouS+f/5GyYQew1hzAvDn4JlAwOLNBulcQLpyoqvFgEnysSC/oUALF+xyIc6ZBBDoWCFN1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+  "projectFilePath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",

@@ -41,18 +41,6 @@ namespace Caramel.Controllers
             return Ok(user);
         }
 
-
-
-
-        [HttpGet]
-        [Authorize]
-        public IActionResult Retrive(string filename)
-        {
-            var folderPath = Directory.GetCurrentDirectory();
-            folderPath = $@"{folderPath}\{filename}";
-            var byteArray = System.IO.File.ReadAllBytes(folderPath);
-            return File(byteArray, "image/jpeg", filename);
-        }
         [HttpDelete]
         [Authorize]
         public IActionResult Delete(int id)

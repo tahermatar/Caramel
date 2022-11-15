@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {}
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
         "projectName": "Caramel.Common",
-        "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
         "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\obj\\",
         "projectStyle": "PackageReference",

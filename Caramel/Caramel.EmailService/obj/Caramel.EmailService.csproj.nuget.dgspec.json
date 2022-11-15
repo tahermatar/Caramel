@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {}
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
         "projectName": "Caramel.EmailService",
-        "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
         "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.EmailService\\obj\\",
         "projectStyle": "PackageReference",
