@@ -1,3 +1,6 @@
+using AutoMapper;
+using Caramel.Data;
+using CarProject.Mapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,9 +19,14 @@ namespace Caramel
 {
     public class Startup
     {
+        private MapperConfiguration _mapperConfiguration;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            _mapperConfiguration = new MapperConfiguration(a => {
+                a.AddProfile(new Mapping());
+            });
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +34,9 @@ namespace Caramel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CaramelDbContext>();
+
+            services.AddSingleton(sp => _mapperConfiguration.CreateMapper());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

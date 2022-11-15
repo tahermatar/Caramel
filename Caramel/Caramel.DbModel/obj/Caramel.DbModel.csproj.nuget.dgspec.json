@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {}
+    "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {}
   },
   "projects": {
-    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+    "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
         "projectName": "Caramel.DbModel",
-        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
-        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
-        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.DbModel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +43,28 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -54,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

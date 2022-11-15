@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9CiNxgkLYTXpd57dceR9OS7h7Tj/CPR+ElsoiXC/LpuXvtpfmz+ztP7xSspZBf3K8puEjeXRGi4q/UEQQCwKug==",
+  "dgSpecHash": "/Fh8voENdxV12CNBApV2RmPpzoRpNC0v+iuzSTOrozmDNDelsq7yI/bsdP8znnIGcmpRCboMLXro0F+08tnmNw==",
   "success": true,
-  "projectFilePath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

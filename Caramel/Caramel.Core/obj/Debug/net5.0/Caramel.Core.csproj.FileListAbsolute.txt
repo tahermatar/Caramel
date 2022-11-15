@@ -1,0 +1,12 @@
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.deps.json
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.AssemblyReference.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfoInputs.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfo.cs
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CoreCompileInputs.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\refint\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\ref\Caramel.Core.dll
