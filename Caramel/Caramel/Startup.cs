@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -43,7 +44,8 @@ namespace Caramel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CaramelDbContext>();
+            services.AddDbContext<CaramelDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("CaramelConnection")));
 
             services.AddScoped<IUserManger, UserManger>();
             services.AddScoped<ICommonManager, CommonManager>();

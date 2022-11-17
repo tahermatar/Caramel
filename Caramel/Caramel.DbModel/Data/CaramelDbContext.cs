@@ -41,10 +41,10 @@ namespace Caramel.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-K722RLO\\SQLEXPRESS;Database=CaramelDb;Trusted_Connection=True;");
-            }
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder.UseSqlServer("Server=DESKTOP-K722RLO\\SQLEXPRESS;Database=CaramelDb;Trusted_Connection=True;");
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -503,29 +503,52 @@ namespace Caramel.Data
             {
                 entity.ToTable("users");
 
-                entity.Property(e => e.ConfirmPassword)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                entity.Property(e => e.Id)
+                  .HasColumnType("int")
+                  .IsUnicode(true);
 
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.UserName)
+                    .HasColumnType("nvarchar(50)")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)")
+                    .IsRequired();
+
+                entity.Property(e => e.ConfirmPassword)
+                   .HasColumnType("nvarchar(255)")
+                   .IsRequired();
+
+
+                entity.Property(e => e.IsSuperAdmin)
+                  .HasColumnType("int")
+                  .IsRequired();
+
+                entity.Property(e => e.CreatedBy)
+                  .HasColumnType("int")
+                  .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate)
+                  .HasColumnType("datetime")
+                  .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdatedBy)
+                  .HasColumnType("int")
+                  .IsUnicode(false);
 
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Archived)
+                 .HasColumnType("int")
+                 .IsRequired();
+
+
             });
 
             modelBuilder.Entity<Userpermissionview>(entity =>
