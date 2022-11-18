@@ -10,3 +10,11 @@ C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\refint\Caramel.ModelViews.dll
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.pdb
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.ModelViews\obj\Debug\net5.0\ref\Caramel.ModelViews.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.csproj.AssemblyReference.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.AssemblyInfoInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.AssemblyInfo.cs
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.csproj.CoreCompileInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\refint\Caramel.ModelViews.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.pdb
