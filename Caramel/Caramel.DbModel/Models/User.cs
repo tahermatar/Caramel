@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caramel.DbModel.Models;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -9,7 +10,8 @@ namespace Caramel.Models
     {
         public User()
         {
-            Userroles = new HashSet<Userrole>();
+            Blogs = new HashSet<Blog>();
+            UserRoles = new HashSet<Userrole>();
         }
 
         public int Id { get; set; }
@@ -24,6 +26,7 @@ namespace Caramel.Models
         public int? UpdatedBy { get; set; }
         public bool Archived { get; set; }
 
-        public virtual ICollection<Userrole> Userroles { get; set; }
+        public virtual ICollection<Blog> Blogs { get; set; }
+        public virtual ICollection<Userrole> UserRoles { get; set; }
     }
 }

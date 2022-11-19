@@ -115,7 +115,7 @@ namespace Caramel.Core.Mangers.UserManger
             _caramelDbContext.SaveChanges();
         }
         #endregion public
-        #region private
+         #region private
         private static string HashPassword(string password)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);

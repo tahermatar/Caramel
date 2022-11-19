@@ -77,7 +77,7 @@ namespace Caramel.Controllers
                 if (ClaimId == null || !int.TryParse(ClaimId.Value, out int id))
                 {
                     throw new ServiceValidationException(401, "Invalid or expired token");
-                }
+        }
 
                 var commonManager = HttpContext.RequestServices.GetService(typeof(ICommonManager)) as ICommonManager;
 

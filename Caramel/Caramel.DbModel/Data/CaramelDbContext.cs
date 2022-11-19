@@ -50,6 +50,27 @@ namespace Caramel.Data
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            modelBuilder.Entity<Blog>(entity =>
+            {
+                entity.ToTable("blogs");
+                entity.HasIndex(e => e.Id);
+                entity.HasIndex(e => e.CreatedId, "FK_blogs_users");
+                entity.Property(e => e.Title)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Content)
+                   .HasMaxLength(255)
+                   .IsUnicode(false);
+                entity.Property(e => e.Status).HasColumnType("int");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+                entity.Property(e => e.Archived).HasColumnType("int");
+
+                entity.HasOne(d => d.User).WithMany(p => p.Blogs).HasConstraintName("FK_blogs_users");
+
+
+            });
             modelBuilder.Entity<Address>(entity =>
             {
                 entity.ToTable("Address");
@@ -495,29 +516,52 @@ namespace Caramel.Data
             {
                 entity.ToTable("users");
 
-                entity.Property(e => e.ConfirmPassword)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                entity.Property(e => e.Id)
+                  .HasColumnType("int")
+                  .IsUnicode(true);
 
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.UserName)
+                    .HasColumnType("nvarchar(50)")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)")
+                    .IsRequired();
+
+                entity.Property(e => e.ConfirmPassword)
+                   .HasColumnType("nvarchar(255)")
+                   .IsRequired();
+
+
+                entity.Property(e => e.IsSuperAdmin)
+                  .HasColumnType("int")
+                  .IsRequired();
+
+                entity.Property(e => e.CreatedBy)
+                  .HasColumnType("int")
+                  .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate)
+                  .HasColumnType("datetime")
+                  .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdatedBy)
+                  .HasColumnType("int")
+                  .IsUnicode(false);
 
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Archived)
+                 .HasColumnType("int")
+                 .IsRequired();
+
+
             });
 
             modelBuilder.Entity<Userpermissionview>(entity =>
@@ -574,7 +618,7 @@ namespace Caramel.Data
                     .HasConstraintName("UserRole_RoleId");
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.Userroles)
+                    .WithMany(p => p.UserRoles)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("UserRole_UserId");
