@@ -107,6 +107,13 @@ namespace Caramel.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.ConfirmationLink)
+                     .IsRequired()
+                     .HasColumnType("varchar(500)")
+                     .UseCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.EmailConfirmed).HasColumnType("int");
+
                 entity.Property(e => e.Email).HasMaxLength(255);
 
                 entity.Property(e => e.Name).HasMaxLength(50);

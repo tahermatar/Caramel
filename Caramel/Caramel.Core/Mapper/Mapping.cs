@@ -3,6 +3,7 @@ using Caramel.Common.Extinsions;
 using Caramel.DbModel.Models;
 using Caramel.Models;
 using Caramel.ModelViews.Blog;
+using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.User;
 
 namespace CarProject.Mapper
@@ -15,6 +16,9 @@ namespace CarProject.Mapper
             CreateMap<User, UserLoginResponseViewModel>().ReverseMap();
             CreateMap<BlogViewModel, Blog>().ReverseMap();
             CreateMap<PagedResult<BlogViewModel>, PagedResult<Blog>>().ReverseMap();
+
+            CreateMap<Customer, CustomerLoginResponseViewModel>().ReverseMap();
+            CreateMap<CustomerResult, Customer>().ReverseMap();
 
         }
     }

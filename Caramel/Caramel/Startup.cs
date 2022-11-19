@@ -3,7 +3,9 @@ using Caramel.Core.Mangers.BlogManger;
 using Caramel.Core.Mangers.CommonManger;
 using Caramel.Core.Mangers.UserManger;
 using Caramel.Data;
+using Caramel.EmailService;
 using Caramel.Extenstions;
+using Caramel.Factory;
 using Caramel.ModelViews.Blog;
 using CarProject.Mapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -30,26 +32,46 @@ namespace Caramel
     public class Startup
     {
         private MapperConfiguration _mapperConfiguration;
+        public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration)
+
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                            .SetBasePath(env.ContentRootPath)
+                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
+
             _mapperConfiguration = new MapperConfiguration(a => {
                 a.AddProfile(new Mapping());
             });
+
+            Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var emailConfig = Configuration
+                               .GetSection("EmailConfiguration")
+                               .Get<EmailConfiguration>();
+
+            services.AddSingleton(emailConfig);
+
             services.AddDbContext<CaramelDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CaramelConnection")));
 
+            /*
             services.AddScoped<IUserManger, UserManger>();
             services.AddScoped<ICommonManager, CommonManager>();
             services.AddScoped<IBlogManager, BlogManager>();
+            */
 
 
             services.AddSingleton(sp => _mapperConfiguration.CreateMapper());
@@ -100,6 +122,9 @@ namespace Caramel
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
+
+            ApiFactory.RegisterDependencies(services);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

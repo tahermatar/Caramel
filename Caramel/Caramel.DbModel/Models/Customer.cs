@@ -22,6 +22,9 @@ namespace Caramel.Models
         public string Phone { get; set; }
         public int? RateId { get; set; }
         public int? OrderId { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string ConfirmationLink { get; set; }
+
 
         public virtual Address Address { get; set; }
         public virtual Order Order { get; set; }
