@@ -89,14 +89,14 @@ namespace Caramel.Core.Mangers.UserManger
 
             _context.SaveChanges();
 
-            var res = new UserModelViewModel
-            {
-                Id = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-            };
-            //return _mapper.Map<UserModelViewModel>(user);
-            return res;
+            //var res = new UserModelViewModel
+            //{
+            //    Id = user.Id,
+            //    UserName = user.UserName,
+            //    Email = user.Email,
+            //};
+            return _mapper.Map<UserModelViewModel>(user);
+            //return res;
         }
         public void DeleteUser(UserModelViewModel currentUser, int id)
         {
