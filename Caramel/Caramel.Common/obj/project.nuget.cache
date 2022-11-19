@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IvBewYimI2ATT/iKv+iz7ugYGjuimg9gVjiAzEcFwcgBPtYw8ZfCn5VEjxHMM9m85G0d7A/dVin3LmmE0iWUEw==",
+  "dgSpecHash": "e3SGNW2bk/Aq2jjW3uHtebCbM7cvTf8CbSXNV07FpIgyXKIWKQJJGAnsq8dhI+3da6GSh6lM1y2KiAOTeumTHA==",
   "success": true,
   "projectFilePath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Almajd-PC\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Almajd-PC\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512"
+  ],
   "logs": []
 }

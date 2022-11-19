@@ -55,7 +55,7 @@ namespace Caramel.Controllers
 
         [Route("api/resturant/Update")]
         [HttpPut]
-        //[Authorize]
+        [Authorize]
         public IActionResult UpdateMyProfile(ResturantModelView request)
         {
             var user = _resturantManager.UpdateProfile(LoggedInResturant, request);

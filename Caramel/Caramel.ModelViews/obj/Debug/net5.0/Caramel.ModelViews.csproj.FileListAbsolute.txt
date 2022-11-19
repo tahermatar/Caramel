@@ -18,3 +18,12 @@ E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Mod
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.dll
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\refint\Caramel.ModelViews.dll
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.ModelViews.deps.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.ModelViews.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.ModelViews.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.DbModel.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.Common.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\bin\Debug\net5.0\Caramel.DbModel.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\Caramel.ModelViews.csproj.CopyComplete
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.ModelViews\obj\Debug\net5.0\ref\Caramel.ModelViews.dll

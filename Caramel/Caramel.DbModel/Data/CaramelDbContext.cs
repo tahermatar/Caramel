@@ -1,4 +1,5 @@
 ﻿using System;
+using Caramel.DbModel.Models;
 using Caramel.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -36,12 +37,13 @@ namespace Caramel.Data
         public virtual DbSet<Rolepermission> Rolepermissions { get; set; }
         public virtual DbSet<Userpermissionview> Userpermissionviews { get; set; }
 
+        public virtual DbSet<Blog> Blogs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-K722RLO\\SQLEXPRESS;Database=CaramelDb;Trusted_Connection=True;");
-            }
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder.UseSqlServer("Server=DESKTOP-K722RLO\\SQLEXPRESS;Database=CaramelDb;Trusted_Connection=True;");
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -331,13 +333,17 @@ namespace Caramel.Data
             {
                 entity.ToTable("Resturant ");
 
-                entity.Property(e => e.Address).HasMaxLength(255);
+                entity.Property(e => e.Id)
+                  .HasColumnType("int")
+                  .IsUnicode(true);
 
-                entity.Property(e => e.Bio).HasMaxLength(255);
+                entity.Property(e => e.Address).HasColumnType("nvarchar(255)");
+
+                entity.Property(e => e.Bio).HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.ConfirmPassword)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
@@ -345,19 +351,19 @@ namespace Caramel.Data
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)");
 
-                entity.Property(e => e.Image).HasMaxLength(255);
+                entity.Property(e => e.Image).HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasColumnType("nvarchar(50)");
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)");
 
-                entity.Property(e => e.Phone).HasMaxLength(50);
+                entity.Property(e => e.Phone).HasColumnType("nvarchar(50)");
 
                 entity.Property(e => e.TotalRate).HasDefaultValueSql("((1))");
 
@@ -367,9 +373,19 @@ namespace Caramel.Data
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasColumnType("nvarchar(50)");
 
-                entity.Property(e => e.WorkingTime).HasMaxLength(255);
+                entity.Property(e => e.WorkingTime).HasColumnType("nvarchar(255)");
+
+                entity.Property(e => e.IsChef).HasColumnType("int");
+
+                entity.Property(e => e.CreatedBy).HasColumnType("int");
+
+                entity.Property(e => e.UpdatedBy).HasColumnType("int");
+
+                entity.Property(e => e.Archived).HasColumnType("int");
+
+                entity.Property(e => e.MealId).HasColumnType("int");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.Resturants)

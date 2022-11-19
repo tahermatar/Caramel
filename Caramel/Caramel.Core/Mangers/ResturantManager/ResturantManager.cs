@@ -35,9 +35,6 @@ namespace Caramel.Core.Mangers.ResturantManager
             var resturant = _caramelDbContext.Resturants
                                              .FirstOrDefault(x => x.Id == id)
                                              ?? throw new ServiceValidationException("User not found");
-            //var resturant = _caramelDbContext.Resturants.FirstOrDefault(x => x.Email == currentResturant.Email
-            //                                                              && x.Password == currentResturant.Password)
-            //                                                              ?? throw new ServiceValidationException("");
 
             resturant.Archived = false;
             _caramelDbContext.SaveChanges();
@@ -141,7 +138,7 @@ namespace Caramel.Core.Mangers.ResturantManager
                 new Claim("Id" , resturant.Id.ToString() ),
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString() ),
             };
-            var issuer = "test.com";
+            var issuer = "Caramel.com";
             var taken = new JwtSecurityToken(
                 issuer,
                 issuer,

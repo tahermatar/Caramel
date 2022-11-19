@@ -134,3 +134,12 @@ E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.DbModel.dll
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.Core.pdb
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.DbModel.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\BCrypt.Net-Next.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Microsoft.IdentityModel.Abstractions.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Serilog.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Serilog.Sinks.File.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.ModelViews.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.Common.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel\bin\Debug\net5.0\Caramel.ModelViews.pdb
