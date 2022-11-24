@@ -20,7 +20,7 @@ namespace Caramel.Models
         public DateTime UpdatedDate { get; set; }
         public int? CreatedBy { get; set; }
         public int? UpdatedBy { get; set; }
-        public int Archived { get; set; }
+        public bool Archived { get; set; }
         public int? CustomerId { get; set; }
         public int? ResturantId { get; set; }
 

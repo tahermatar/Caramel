@@ -15,6 +15,7 @@ using Caramel.Common.Extinsions;
 using Caramel.Common.Exceptions.Logging;
 using Caramel.Core.Mangers.CommonManger;
 using Caramel.ModelViews.User;
+using Caramel.ModelViews.Resturant;
 
 namespace Caramel.Extenstions
 {
@@ -128,6 +129,7 @@ namespace Caramel.Extenstions
                 if (!string.IsNullOrWhiteSpace(ClaimId) && int.TryParse(ClaimId, out int id))
                 {
                     var user = helperManager.GetUserRole(new UserModelViewModel { Id = id });
+                    var resturant = helperManager.GetResturanRole(new ResturantModelView { Id = id });
 
                     if (user != null)
                     {

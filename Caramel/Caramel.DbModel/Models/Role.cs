@@ -15,10 +15,9 @@ namespace Caramel.Models
 
         public int RId { get; set; }
         public string RoleName { get; set; }
-        public int? BusinessUnitId { get; set; }
         public DateTime? CreatedUtc { get; set; }
         public DateTime? LastUpdatedUtc { get; set; }
-        public short Archived { get; set; }
+        public bool Archived { get; set; }
 
         public virtual ICollection<Rolepermission> Rolepermissions { get; set; }
         public virtual ICollection<Userrole> Userroles { get; set; }

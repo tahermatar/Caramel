@@ -3,6 +3,7 @@ using Caramel.Common.Exceptions;
 using Caramel.Common.Extinsions;
 using Caramel.Data;
 using Caramel.ModelViews.Blog;
+using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
 using System;
 using System.Collections.Generic;
@@ -46,5 +47,20 @@ namespace Caramel.Core.Mangers.CommonManger
         //    return res;
         //}
 
+        public ResturantModelView GetResturanRole(ResturantModelView resturant)
+        {
+            var dbresturant = _context.Resturants.FirstOrDefault(x => x.Id == resturant.Id)
+                ?? throw new ServiceValidationException("User Is not valid");
+
+            var mappedUser = new UserModelViewModel
+            {
+                Id = dbresturant.Id,
+                UserName = dbresturant.UserName,
+                Email = dbresturant.Email,
+            };
+            mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == resturant.Id).ToList();
+
+            return _mapper.Map<ResturantModelView>(dbresturant);
+        }
     }
 }

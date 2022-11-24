@@ -19,7 +19,7 @@ namespace Caramel.Models
         public string Description { get; set; }
         public DateTime CreatedUtc { get; set; }
         public DateTime LastUpdatedUtc { get; set; }
-        public short Archived { get; set; }
+        public bool Archived { get; set; }
 
         public virtual Module Module { get; set; }
         public virtual ICollection<Rolepermission> Rolepermissions { get; set; }

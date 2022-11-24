@@ -38,7 +38,6 @@ namespace Caramel.Data
         public virtual DbSet<Userpermissionview> Userpermissionviews { get; set; }
 
         public virtual DbSet<Blog> Blogs { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //if (!optionsBuilder.IsConfigured)
@@ -244,7 +243,9 @@ namespace Caramel.Data
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.Archived).HasDefaultValueSql("('0')");
+                entity.Property(e => e.Archived)
+                .HasColumnType("smallint")
+                .HasDefaultValueSql("('0')");
 
                 entity.Property(e => e.CreatedUtc)
                     .HasPrecision(0)
@@ -304,7 +305,9 @@ namespace Caramel.Data
 
                 entity.Property(e => e.PId).HasColumnName("p_Id");
 
-                entity.Property(e => e.Archived).HasDefaultValueSql("('0')");
+                entity.Property(e => e.Archived)
+                .HasColumnType("smallint")
+                .HasDefaultValueSql("('0')");
 
                 entity.Property(e => e.Code)
                     .IsRequired()
@@ -355,13 +358,17 @@ namespace Caramel.Data
             {
                 entity.ToTable("Resturant ");
 
-                entity.Property(e => e.Address).HasMaxLength(255);
+                entity.Property(e => e.Id)
+                  .HasColumnType("int")
+                  .IsUnicode(true);
 
-                entity.Property(e => e.Bio).HasMaxLength(255);
+                entity.Property(e => e.Address).HasColumnType("nvarchar(255)");
+
+                entity.Property(e => e.Bio).HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.ConfirmPassword)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
@@ -369,19 +376,19 @@ namespace Caramel.Data
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)");
 
-                entity.Property(e => e.Image).HasMaxLength(255);
+                entity.Property(e => e.Image).HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasColumnType("nvarchar(50)");
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasColumnType("nvarchar(255)");
 
-                entity.Property(e => e.Phone).HasMaxLength(50);
+                entity.Property(e => e.Phone).HasColumnType("nvarchar(50)");
 
                 entity.Property(e => e.TotalRate).HasDefaultValueSql("((1))");
 
@@ -391,9 +398,19 @@ namespace Caramel.Data
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasColumnType("nvarchar(50)");
 
-                entity.Property(e => e.WorkingTime).HasMaxLength(255);
+                entity.Property(e => e.WorkingTime).HasColumnType("nvarchar(255)");
+
+                entity.Property(e => e.IsChef).HasColumnType("int");
+
+                entity.Property(e => e.CreatedBy).HasColumnType("int");
+
+                entity.Property(e => e.UpdatedBy).HasColumnType("int");
+
+                entity.Property(e => e.Archived).HasColumnType("int");
+
+                entity.Property(e => e.MealId).HasColumnType("int");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.Resturants)
@@ -423,7 +440,9 @@ namespace Caramel.Data
 
                 entity.Property(e => e.RId).HasColumnName("r_Id");
 
-                entity.Property(e => e.Archived).HasDefaultValueSql("('0')");
+                entity.Property(e => e.Archived)
+                .HasColumnType("smallint")
+                .HasDefaultValueSql("('0')");
 
                 entity.Property(e => e.CreatedUtc)
                     .HasPrecision(0)
@@ -455,7 +474,9 @@ namespace Caramel.Data
 
                 entity.Property(e => e.RpId).HasColumnName("rp_Id");
 
-                entity.Property(e => e.Archived).HasDefaultValueSql("('0')");
+                entity.Property(e => e.Archived)
+                .HasColumnType("smallint")
+                .HasDefaultValueSql("('0')");
 
                 entity.Property(e => e.CreatedUtc)
                     .HasPrecision(0)
@@ -586,7 +607,9 @@ namespace Caramel.Data
 
                 entity.HasIndex(e => e.UserId, "UserRole_UserId_idx");
 
-                entity.Property(e => e.Archived).HasDefaultValueSql("('0')");
+                entity.Property(e => e.Archived)
+                .HasColumnType("smallint")
+                .HasDefaultValueSql("('0')");
 
                 entity.Property(e => e.CreatedUtc)
                     .HasPrecision(0)

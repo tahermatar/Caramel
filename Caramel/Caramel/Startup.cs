@@ -1,6 +1,8 @@
 using AutoMapper;
 using Caramel.Core.Mangers.BlogManger;
 using Caramel.Core.Mangers.CommonManger;
+using Caramel.Core.Mangers.ResturantManager;
+using Caramel.Core.Mangers.RoleManger;
 using Caramel.Core.Mangers.UserManger;
 using Caramel.Data;
 using Caramel.Extenstions;
@@ -11,6 +13,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +37,8 @@ namespace Caramel
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _mapperConfiguration = new MapperConfiguration(a => {
+            _mapperConfiguration = new MapperConfiguration(a =>
+            {
                 a.AddProfile(new Mapping());
             });
         }
@@ -50,7 +54,8 @@ namespace Caramel
             services.AddScoped<IUserManger, UserManger>();
             services.AddScoped<ICommonManager, CommonManager>();
             services.AddScoped<IBlogManager, BlogManager>();
-
+            services.AddScoped<IResturantManager, ResturantManager>();
+            services.AddScoped<IRoleManger, RoleManger>();
 
             services.AddSingleton(sp => _mapperConfiguration.CreateMapper());
 
@@ -61,9 +66,10 @@ namespace Caramel
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Caramel", Version = "v1" });
+                c.OperationFilter<SwaggerDefaultValues>();
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "Please insert taken ",
+                    Description = "Please insert Bearer JWT token into field. Example: 'Bearer {token}'",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
@@ -86,10 +92,17 @@ namespace Caramel
                     }
                 });
             });
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddJwtBearer(option =>
                 {
-                    option.TokenValidationParameters = new TokenValidationParameters
+                    option.SaveToken = true;
+                    option.RequireHttpsMetadata = false;
+                    option.TokenValidationParameters = new TokenValidationParameters()
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
@@ -101,6 +114,36 @@ namespace Caramel
                     };
                 });
         }
+            //services.AddSwaggerGen(options =>
+            //{
+            //    options.AddSecurityDefinition(name: "Caramel", securityScheme: new OpenApiSecurityScheme
+            //    {
+            //        Name = "Authorization",
+            //        Type = SecuritySchemeType.ApiKey,
+            //        Scheme = "Caramel",
+            //        BearerFormat = "JWT",
+            //        In = ParameterLocation.Header,
+            //        Description = "Enter your JWT Key",
+            //    });
+            //    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            //    {
+            //         {
+            //             new OpenApiSecurityScheme
+            //             {
+            //                 Reference =new OpenApiReference
+            //                 {
+            //                     Type = ReferenceType.SecurityScheme,
+            //                     Id ="Bearer",
+            //                 },
+            //                 Name = "Bearer",
+            //                 In = ParameterLocation.Header,
+            //             },
+            //                 new List<string>()
+            //             }
+            //         });
+            //    });
+            //}
+            
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -115,6 +158,19 @@ namespace Caramel
             Log.Logger = new LoggerConfiguration()
                     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Minute)
                     .CreateLogger();
+
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "swagger/{documentName}/swagger.json";
+                c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+                {
+                    swaggerDoc.Servers = new List<OpenApiServer>
+                    {
+                        new OpenApiServer { Url = $"{Configuration.GetSection("Domain").Value}" }
+                    };
+                });
+            });
+
             app.ConfigureExceptionHandler(Log.Logger, env);
 
             app.UseHttpsRedirection();

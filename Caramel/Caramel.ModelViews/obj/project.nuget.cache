@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7+k4W4tbwdSfdG94bD/Ltl/8viF3qfcrl98UzAThGlTgvgjk7X8QAyBPF4ERt29tCPdgE1xIR9IcRHAQv7/Znw==",
+  "dgSpecHash": "8huDVm45Yv703wvoAZ8Pgdjwa0amqLldRye0wrOMLfKxSHULHccp98oxHTJoStBAt++A9JtP2OpfXWZBiONenw==",
   "success": true,
   "projectFilePath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
   "expectedPackageFiles": [
@@ -96,5 +96,12 @@
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

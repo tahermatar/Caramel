@@ -16,7 +16,7 @@ namespace Caramel.DbModel.Models
         public int Status { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
-        public int Archived { get; set; }
+        public bool Archived { get; set; }
         public virtual User User { get; set; }
     }
 }

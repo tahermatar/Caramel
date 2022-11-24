@@ -1,14 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "pQFtbZgDvmq9AK8gI6i/Q/UAwpz+8a0JRJjSapVhem5bLoileTJuW88wD4HfFlpQpbj2LNJSu/wKvqrkrgzN8Q==",
+  "dgSpecHash": "LMbYoBPJmugmL5NEwL4crJYXQmS68suRiAxhkelOD9IP+JE/9tLMcwC8Nvsg4gTN8AwKAwgr1YZa5PKRFkj21A==",
   "success": true,
   "projectFilePath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel\\Caramel.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.17\\microsoft.aspnetcore.authentication.jwtbearer.5.0.17.nupkg.sha512",
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
+    "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.0.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.0.0.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\DiaaAldin\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

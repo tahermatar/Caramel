@@ -16,19 +16,19 @@ namespace Caramel.Core.Mangers.UserManger
 {
     public class UserManger : IUserManger
     {
-        private readonly CaramelDbContext _context;
+        private readonly CaramelDbContext _caramelDbContext;
         private readonly IMapper _mapper;
 
-        public UserManger(CaramelDbContext context , IMapper mapper)
+        public UserManger(CaramelDbContext caramelDbContext, IMapper mapper)
         {
-            _context = context;
+            _caramelDbContext = caramelDbContext;
             _mapper = mapper;
         }
         #region public
         public UserLoginResponseViewModel Login(UserLoginViewModel vm)
         {
 
-            var user = _context.Users.FirstOrDefault(x => x.Email.ToLower().Equals(vm.Email.ToLower()));
+            var user = _caramelDbContext.Users.FirstOrDefault(x => x.Email.ToLower().Equals(vm.Email.ToLower()));
 
             if (user == null || !VerifyHashPassword(vm.Password, user.Password))
             {
@@ -44,13 +44,14 @@ namespace Caramel.Core.Mangers.UserManger
         public UserLoginResponseViewModel Rigester(UserRegisterViewModel vm)
         {
 
-            if (_context.Users.Any(x => x.Email.ToLower() == vm.Email.ToLower()))
+            if (_caramelDbContext.Users.Any(x => x.Email.ToLower() == vm.Email.ToLower()))
             {
                 throw new ServiceValidationException(300, "User Is Exist");
             }
 
             var hashed = HashPassword(vm.Password);
 
+            //var user = _csvdbContext.Users.Add(new User
             var res = new User
             {
                 UserName = vm.UserName,
@@ -61,18 +62,19 @@ namespace Caramel.Core.Mangers.UserManger
                 IsSuperAdmin = vm.IsSuperAdmin,
                 Archived = true,
             };
-            _context.Users.Add(res);
-            _context.SaveChanges();
+            _caramelDbContext.Users.Add(res);
+            _caramelDbContext.SaveChanges();
 
             var result = _mapper.Map<UserLoginResponseViewModel>(res);
             result.Token = $"Bearer {GenerateJwtTaken(res)}";
+
             return result;
         }
 
         public UserModelViewModel UpdateProfile(UserModelViewModel currentUser, UserModelViewModel request)
         {
 
-            var user = _context.Users.FirstOrDefault(x => x.Id == currentUser.Id)
+            var user = _caramelDbContext.Users.FirstOrDefault(x => x.Id == currentUser.Id)
                 ?? throw new ServiceValidationException("User not found");
 
             if (user == null)
@@ -87,7 +89,7 @@ namespace Caramel.Core.Mangers.UserManger
             user.UpdatedDate = DateTime.Now;
             user.IsSuperAdmin = request.IsSuperAdmin;
 
-            _context.SaveChanges();
+            _caramelDbContext.SaveChanges();
 
             //var res = new UserModelViewModel
             //{
@@ -104,13 +106,13 @@ namespace Caramel.Core.Mangers.UserManger
             {
                 throw new ServiceValidationException("you have no access to delete your self");
             }
-            var user = _context.Users
+            var user = _caramelDbContext.Users
                 .FirstOrDefault(x => x.Id == id)
                 ?? throw new ServiceValidationException("User not found");
 
             user.Archived = false;
 
-            _context.SaveChanges();
+            _caramelDbContext.SaveChanges();
         }
         #endregion public
          #region private

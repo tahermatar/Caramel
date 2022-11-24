@@ -10,3 +10,15 @@ C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Common\obj\Debug\net5.0\
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Common\obj\Debug\net5.0\refint\Caramel.Common.dll
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.pdb
 C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Common\obj\Debug\net5.0\ref\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.csproj.AssemblyReference.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.AssemblyInfoInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.AssemblyInfo.cs
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.csproj.CoreCompileInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\refint\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.deps.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\ref\Caramel.Common.dll
