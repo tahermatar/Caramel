@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.CustomerManger
 {
-    public interface ICustomerManger : IManger
+    public interface ICustomerManager : IManger
     {
         public CustomerLoginResponseViewModel Rigester(CustomerRegisterViewModel vm);
         public List<CustomerResult> GetAll();

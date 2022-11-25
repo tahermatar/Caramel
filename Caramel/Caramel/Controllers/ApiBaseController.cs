@@ -117,7 +117,7 @@ namespace Caramel.Controllers
                 }
 
                 var commonManager = HttpContext.RequestServices.GetService(typeof(ICommonManager)) as ICommonManager;
-
+                
                 _loggedInCustomer = commonManager.GetCustomerRole(new CustomerModelViewModel { Id = id });
 
                 return _loggedInCustomer;

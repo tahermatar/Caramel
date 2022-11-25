@@ -13,9 +13,9 @@ namespace Caramel.Controllers
     [ApiController]
     public class CustomerController : ApiBaseController
     {
-        private readonly ICustomerManger _customerManager;
+        private readonly ICustomerManager _customerManager;
 
-        public CustomerController(ICustomerManger customerManager)
+        public CustomerController(ICustomerManager customerManager)
         {
             _customerManager = customerManager;
         }

@@ -16,7 +16,7 @@ namespace Caramel.Core.Factory
 
             Assembly assembly = typeof(DataManagerFactory).GetTypeInfo().Assembly;
 
-            var allManagers = assembly.GetTypes().Where(t => t.Name.EndsWith("Manger"));
+            var allManagers = assembly.GetTypes().Where(t => t.Name.EndsWith("Manager"));
 
             foreach (var type in allManagers)
             {
