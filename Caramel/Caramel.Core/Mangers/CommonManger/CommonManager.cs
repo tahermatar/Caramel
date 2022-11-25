@@ -70,13 +70,13 @@ namespace Caramel.Core.Mangers.CommonManger
             var dbcustomer = _context.Customers.FirstOrDefault(x => x.Id == customer.Id)
                 ?? throw new ServiceValidationException("User Is not valid");
 
-            var mappedUser = new UserModelViewModel
+            var mappedUser = new CustomerModelViewModel
             {
                 Id = dbcustomer.Id,
                 UserName = dbcustomer.UserName,
                 Email = dbcustomer.Email,
             };
-            mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
+           // mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
 
             return _mapper.Map<CustomerModelViewModel>(dbcustomer);
         }

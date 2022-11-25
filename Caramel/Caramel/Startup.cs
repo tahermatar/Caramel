@@ -60,6 +60,7 @@ namespace Caramel
             services.AddDbContext<CaramelDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CaramelConnection")));
 
+
             /*
             services.AddScoped<IUserManger, UserManger>();
             services.AddScoped<ICommonManager, CommonManager>();

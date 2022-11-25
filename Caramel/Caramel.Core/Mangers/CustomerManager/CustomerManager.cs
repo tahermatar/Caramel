@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.CustomerManger
 {
-    public class CustomerManger : ICustomerManger
+    public class CustomerManager : ICustomerManager
     {
 
         private readonly CaramelDbContext _context;
@@ -29,7 +29,7 @@ namespace Caramel.Core.Mangers.CustomerManger
 
 
 
-        public CustomerManger(CaramelDbContext context, IMapper mapper, IEmailSender emailSender, IConfigurationSettings configurationSettings)
+        public CustomerManager(CaramelDbContext context, IMapper mapper, IEmailSender emailSender, IConfigurationSettings configurationSettings)
             {
                 _context = context;
                 _mapper = mapper;
