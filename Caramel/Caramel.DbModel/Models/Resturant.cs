@@ -34,6 +34,8 @@ namespace Caramel.Models
         public int? OrderId { get; set; }
         public int IsChef { get; set; }
         public int? RateId { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string ConfirmationLink { get; set; }
 
         public virtual Order Order { get; set; }
         public virtual Rate Rate { get; set; }

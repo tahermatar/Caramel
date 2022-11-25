@@ -380,6 +380,10 @@ namespace Caramel.Data
                     .IsRequired()
                     .HasColumnType("nvarchar(50)");
 
+                entity.Property(e => e.ConfirmationLink)
+                    .IsRequired()
+                    .HasColumnType("varchar(500)");
+
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasColumnType("nvarchar(255)");
@@ -405,6 +409,8 @@ namespace Caramel.Data
                 entity.Property(e => e.UpdatedBy).HasColumnType("int");
 
                 entity.Property(e => e.Archived).HasColumnType("int");
+
+                entity.Property(e => e.EmailConfirmed).HasColumnType("int");
 
                 entity.Property(e => e.MealId).HasColumnType("int");
 

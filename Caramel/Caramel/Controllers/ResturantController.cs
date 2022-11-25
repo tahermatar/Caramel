@@ -1,4 +1,5 @@
 ﻿using Caramel.Core.Mangers.ResturantManager;
+using Caramel.ModelViews.Order;
 using Caramel.ModelViews.Resturant;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +17,15 @@ namespace Caramel.Controllers
         public ResturantController(IResturantManager resturantManager)
         {
             _resturantManager = resturantManager;
+        }
+
+        [Route("api/resturant/GetAllOrder")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetAllOrder()
+        {
+            var res = _resturantManager.GetAll();
+            return Ok(res);
         }
 
         [Route("api/resturant/signUp")]
@@ -61,5 +71,15 @@ namespace Caramel.Controllers
             var user = _resturantManager.UpdateProfile(LoggedInResturant, request);
             return Ok(user);
         }
+
+        [Route("api/resturant/Confirmation")]
+        [HttpPost]
+        public IActionResult Confirmation(string confirmationLink)
+        {
+            var result = _resturantManager.Confirmation(confirmationLink);
+            return Ok(result);
+        }
+
+        
     }
 }

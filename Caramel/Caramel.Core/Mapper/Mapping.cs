@@ -3,6 +3,7 @@ using Caramel.Common.Extinsions;
 using Caramel.DbModel.Models;
 using Caramel.Models;
 using Caramel.ModelViews.Blog;
+using Caramel.ModelViews.Order;
 using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
 
@@ -20,6 +21,7 @@ namespace CarProject.Mapper
             CreateMap<Resturant, ResturantLoginResponseModelView>().ReverseMap();
             CreateMap<Resturant, ResturantModelView>().ReverseMap();
             CreateMap<Resturant, ResturantRegisterViewModel>().ReverseMap();
+            CreateMap<Order, OrderResult>().ReverseMap(); 
         }
     }
 }

@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel", "Caramel\Caramel.csproj", "{83868F9A-B329-4631-A3E2-123AB41E9BB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel", "Caramel\Caramel.csproj", "{83868F9A-B329-4631-A3E2-123AB41E9BB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.Common", "Caramel.Common\Caramel.Common.csproj", "{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.Common", "Caramel.Common\Caramel.Common.csproj", "{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.Core", "Caramel.Core\Caramel.Core.csproj", "{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.Core", "Caramel.Core\Caramel.Core.csproj", "{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.DbModel", "Caramel.DbModel\Caramel.DbModel.csproj", "{87EF759D-ACF3-4A4A-9C42-9DB245742D01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.DbModel", "Caramel.DbModel\Caramel.DbModel.csproj", "{87EF759D-ACF3-4A4A-9C42-9DB245742D01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.ModelViews", "Caramel.ModelViews\Caramel.ModelViews.csproj", "{7FF2065E-BE66-4535-8AA5-E4922F8F893F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.ModelViews", "Caramel.ModelViews\Caramel.ModelViews.csproj", "{7FF2065E-BE66-4535-8AA5-E4922F8F893F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.EmailService", "Caramel.EmailService\Caramel.EmailService.csproj", "{1374222F-24BF-4A5A-AF51-4CE0EA619314}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.EmailService", "Caramel.EmailService\Caramel.EmailService.csproj", "{1374222F-24BF-4A5A-AF51-4CE0EA619314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.Infrastructure", "Caramel.Infrastructure\Caramel.Infrastructure.csproj", "{F64B2667-807A-44F8-AD71-F0D92D1E2742}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{1374222F-24BF-4A5A-AF51-4CE0EA619314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1374222F-24BF-4A5A-AF51-4CE0EA619314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1374222F-24BF-4A5A-AF51-4CE0EA619314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64B2667-807A-44F8-AD71-F0D92D1E2742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64B2667-807A-44F8-AD71-F0D92D1E2742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64B2667-807A-44F8-AD71-F0D92D1E2742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64B2667-807A-44F8-AD71-F0D92D1E2742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

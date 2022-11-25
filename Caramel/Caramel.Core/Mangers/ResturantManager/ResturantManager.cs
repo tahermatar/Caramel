@@ -2,8 +2,13 @@
 using Caramel.Common.Extinsions;
 using Caramel.Common.Helperr;
 using Caramel.Data;
+using Caramel.EmailService;
+using Caramel.Infrastructure;
 using Caramel.Models;
+using Caramel.ModelViews.Enums;
+using Caramel.ModelViews.Order;
 using Caramel.ModelViews.Resturant;
+using Caramel.ModelViews.Static;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -11,7 +16,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.ResturantManager
 {
@@ -19,11 +23,15 @@ namespace Caramel.Core.Mangers.ResturantManager
     {
         private readonly CaramelDbContext _caramelDbContext;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
+        private readonly IConfigurationSettings _configurationSettings;
 
-        public ResturantManager(CaramelDbContext caramelDbContext, IMapper mapper)
+        public ResturantManager(CaramelDbContext caramelDbContext, IMapper mapper, IEmailSender emailSender, IConfigurationSettings configurationSettings)
         {
             _caramelDbContext = caramelDbContext;
             _mapper = mapper;
+            _emailSender = emailSender;
+            _configurationSettings = configurationSettings;
         }
         public void DeleteResturant(ResturantModelView currentResturant, int id)
         {
@@ -36,7 +44,7 @@ namespace Caramel.Core.Mangers.ResturantManager
                                              .FirstOrDefault(x => x.Id == id)
                                              ?? throw new ServiceValidationException("User not found");
 
-            resturant.Archived = false;
+            resturant.Archived = true;
             _caramelDbContext.SaveChanges();
         }
 
@@ -47,7 +55,7 @@ namespace Caramel.Core.Mangers.ResturantManager
                                                                    .ToLower().Equals(resturantLogin.Email
                                                                                                    .ToLower()));
 
-            if(resturant == null || !VerifyHashPassword(resturantLogin.Password, resturant.Password))
+            if (resturant == null || !VerifyHashPassword(resturantLogin.Password, resturant.Password))
             {
                 throw new ServiceValidationException(300, "Invalid username or password received");
             }
@@ -75,10 +83,21 @@ namespace Caramel.Core.Mangers.ResturantManager
                 Email = resturantReg.Email,
                 Password = hashedPassword,
                 ConfirmPassword = hashedPassword,
-                UserName = resturantReg.UserName
+                UserName = resturantReg.UserName,
+                ConfirmationLink = Guid.NewGuid().ToString().Replace("-", "").ToString()
             }).Entity;
 
             _caramelDbContext.SaveChanges();
+
+            var builder = new EmailBuilder(ActionInvocationTypeEnum.EmailConfirmation,
+                                new Dictionary<string, string>
+                                {
+                                    { "AssigneeName", $"{resturantReg.Name}" },
+                                    { "Link", $"{resturant.ConfirmationLink}" }
+                                }, "https://localhost:44369/");
+
+            var message = new Message(new string[] { resturant.Email }, builder.GetTitle(), builder.GetBody());
+            _emailSender.SendEmail(message);
 
             var result = _mapper.Map<ResturantLoginResponseModelView>(resturant);
             result.Token = $"Bearer {GenerateJwtTaken(resturant)}";
@@ -86,17 +105,31 @@ namespace Caramel.Core.Mangers.ResturantManager
             return result;
         }
 
+        public ResturantModelView Confirmation(string ConfirmationLink)
+        {
+            var resturant = _caramelDbContext.Resturants
+                           .FirstOrDefault(a => a.ConfirmationLink
+                                                    .Equals(ConfirmationLink)
+                                                && !a.EmailConfirmed)
+                       ?? throw new ServiceValidationException("Invalid or expired confirmation link received");
+
+            resturant.EmailConfirmed = true;
+            resturant.ConfirmationLink = string.Empty;
+            _caramelDbContext.SaveChanges();
+            return _mapper.Map<ResturantModelView>(resturant);
+        }
+
         public ResturantModelView UpdateProfile(ResturantModelView currentResturant, ResturantModelView request)
         {
             var resturant = _caramelDbContext.Resturants
                                              .FirstOrDefault(x => x.Id == currentResturant.Id)
-                                             ?? throw new ServiceValidationException("User not found");
+                                             ?? throw new ServiceValidationException("Resturant not found");
 
             var url = "";
 
             if (!string.IsNullOrWhiteSpace(request.ImageString))
             {
-                url = Helper.SaveImage(request.ImageString, "Profile Images");
+                url = Helper.SaveImage(request.ImageString, "ProfileImages");
             }
 
             resturant.Name = request.Name;
@@ -111,6 +144,17 @@ namespace Caramel.Core.Mangers.ResturantManager
 
             _caramelDbContext.SaveChanges();
             return _mapper.Map<ResturantModelView>(resturant);
+        }
+
+        public List<OrderResult> GetAll()
+        {
+            //if(_caramelDbContext.Orders.Any(x => x.ResturantId == )
+            //{
+            //    throw new ServiceValidationException(300, "You don't have access to view all orders for this restaurant");
+            //}
+            var orderList = _caramelDbContext.Orders.ToList();
+            return _mapper.Map<List<OrderResult>>(orderList);
+            
         }
 
         #region private
@@ -128,8 +172,7 @@ namespace Caramel.Core.Mangers.ResturantManager
 
         private string GenerateJwtTaken(Resturant resturant)
         {
-            var jwtKey = "#test.key*j;ljklkjhadfsd";
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configurationSettings.JwtKey));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
@@ -138,10 +181,10 @@ namespace Caramel.Core.Mangers.ResturantManager
                 new Claim("Id" , resturant.Id.ToString() ),
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString() ),
             };
-            var issuer = "Caramel.com";
+
             var taken = new JwtSecurityToken(
-                issuer,
-                issuer,
+                _configurationSettings.Issuer,
+                _configurationSettings.Issuer,
                 claims,
                 expires: DateTime.Now.AddMinutes(60),
                 signingCredentials: credentials);
@@ -149,5 +192,7 @@ namespace Caramel.Core.Mangers.ResturantManager
             return new JwtSecurityTokenHandler().WriteToken(taken);
             #endregion
         }
+
+        
     }
 }

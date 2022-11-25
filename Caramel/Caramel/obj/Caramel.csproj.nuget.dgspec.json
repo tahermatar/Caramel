@@ -4,75 +4,6 @@
     "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel\\Caramel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-        "projectName": "Caramel.Common",
-        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DiaaAldin\\Source\\Repos\\Caramel\\Caramel\\Caramel.Common\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            },
-            "Serilog": {
-              "target": "Package",
-              "version": "[2.12.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
     "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -96,11 +27,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
-                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -170,6 +97,12 @@
               },
               "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
                 "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+              },
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
+              },
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
               },
               "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
                 "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
@@ -278,6 +211,162 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "projectName": "Caramel.EmailService",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
+        "projectName": "Caramel.Infrastructure",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyModel": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.IdentityModel.Protocols": {
+              "target": "Package",
+              "version": "[6.12.2, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -416,6 +505,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
