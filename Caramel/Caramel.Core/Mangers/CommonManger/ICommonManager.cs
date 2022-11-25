@@ -1,4 +1,5 @@
-﻿using Caramel.ModelViews.Resturant;
+﻿using Caramel.ModelViews.Customer;
+using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace Caramel.Core.Mangers.CommonManger
     {
         UserModelViewModel GetUserRole(UserModelViewModel user);
         ResturantModelView GetResturanRole(ResturantModelView resturan);
+        CustomerModelViewModel GetCustomerRole(CustomerModelViewModel customer);
     }
 }
