@@ -114,36 +114,6 @@ namespace Caramel
                     };
                 });
         }
-            //services.AddSwaggerGen(options =>
-            //{
-            //    options.AddSecurityDefinition(name: "Caramel", securityScheme: new OpenApiSecurityScheme
-            //    {
-            //        Name = "Authorization",
-            //        Type = SecuritySchemeType.ApiKey,
-            //        Scheme = "Caramel",
-            //        BearerFormat = "JWT",
-            //        In = ParameterLocation.Header,
-            //        Description = "Enter your JWT Key",
-            //    });
-            //    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            //    {
-            //         {
-            //             new OpenApiSecurityScheme
-            //             {
-            //                 Reference =new OpenApiReference
-            //                 {
-            //                     Type = ReferenceType.SecurityScheme,
-            //                     Id ="Bearer",
-            //                 },
-            //                 Name = "Bearer",
-            //                 In = ParameterLocation.Header,
-            //             },
-            //                 new List<string>()
-            //             }
-            //         });
-            //    });
-            //}
-            
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
