@@ -2,7 +2,9 @@
 using Caramel.Common.Exceptions;
 using Caramel.Common.Extinsions;
 using Caramel.Data;
+using Caramel.Models;
 using Caramel.ModelViews.Blog;
+using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
 using System;
@@ -62,5 +64,23 @@ namespace Caramel.Core.Mangers.CommonManger
 
             return _mapper.Map<ResturantModelView>(dbresturant);
         }
+
+        public CustomerModelViewModel GetCustomerRole(CustomerModelViewModel customer)
+        {
+            var dbcustomer = _context.Customers.FirstOrDefault(x => x.Id == customer.Id)
+                ?? throw new ServiceValidationException("User Is not valid");
+
+            var mappedUser = new UserModelViewModel
+            {
+                Id = dbcustomer.Id,
+                UserName = dbcustomer.UserName,
+                Email = dbcustomer.Email,
+            };
+            mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
+
+            return _mapper.Map<CustomerModelViewModel>(dbcustomer);
+        }
+
+       
     }
 }

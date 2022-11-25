@@ -28,3 +28,18 @@ E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.DbM
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.pdb
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.genruntimeconfig.cache
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.DbModel\obj\Debug\net5.0\ref\Caramel.DbModel.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.deps.json
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.runtimeconfig.json
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.runtimeconfig.dev.json
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.AssemblyInfo.cs
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\refint\Caramel.DbModel.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.genruntimeconfig.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\ref\Caramel.DbModel.dll
