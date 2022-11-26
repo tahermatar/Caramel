@@ -110,9 +110,9 @@ namespace Caramel.Controllers
         [Route("api/Customer/viewProfile")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "View_Profile")]
-        public IActionResult ViewProfile()
+        public IActionResult ViewProfile( int id)
         {
-            var res = _customerManager.ViewProfile(LoggedInUser);
+            var res = _customerManager.ViewProfile(LoggedInUser,id);
             return Ok(res);
         }
     }

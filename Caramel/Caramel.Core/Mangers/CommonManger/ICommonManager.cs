@@ -12,8 +12,7 @@ namespace Caramel.Core.Mangers.CommonManger
     public interface ICommonManager : IManager
     {
         UserModelViewModel GetUserRole(UserModelViewModel user);
-        ResturantModelView GetResturanRole(ResturantModelView resturan);
-        CustomerModelViewModel GetCustomerRole(CustomerModelViewModel customer);
+        UserModelViewModel GetResturanRole(UserModelViewModel resturan);
         public UserModelViewModel GetCustomerRole(UserModelViewModel customer);
     }
 }

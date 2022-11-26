@@ -129,7 +129,7 @@ namespace Caramel.Extenstions
                 if (!string.IsNullOrWhiteSpace(ClaimId) && int.TryParse(ClaimId, out int id))
                 {
                     var user = helperManager.GetUserRole(new UserModelViewModel { Id = id });
-                    var resturant = helperManager.GetResturanRole(new ResturantModelView { Id = id });
+                    //var resturant = helperManager.GetResturanRole(new ResturantModelView { Id = id });
 
                     if (user != null)
                     {

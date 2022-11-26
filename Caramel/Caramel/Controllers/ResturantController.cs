@@ -1,5 +1,7 @@
-﻿using Caramel.Core.Mangers.ResturantManager;
+﻿using Caramel.Attributes;
+using Caramel.Core.Mangers.ResturantManager;
 using Caramel.ModelViews.Resturant;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +41,7 @@ namespace Caramel.Controllers
         [Authorize]
         public IActionResult Delete(int id)
         {
-            _resturantManager.DeleteResturant(LoggedInResturant, id);
+            _resturantManager.DeleteResturant(LoggedInUser, id);
             return Ok();
         }
 
@@ -58,8 +60,18 @@ namespace Caramel.Controllers
         [Authorize]
         public IActionResult UpdateMyProfile(ResturantModelView request)
         {
-            var user = _resturantManager.UpdateProfile(LoggedInResturant, request);
+            var user = _resturantManager.UpdateProfile(LoggedInUser, request);
             return Ok(user);
+        }
+
+
+        [HttpGet]
+        [Route("api/Resturant/viewProfile")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult ViewProfile()
+        {
+            var res = _resturantManager.ViewProfile(LoggedInUser);
+            return Ok(res);
         }
     }
 }

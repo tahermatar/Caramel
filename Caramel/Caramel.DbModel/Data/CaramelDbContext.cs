@@ -358,13 +358,17 @@ namespace Caramel.Data
 
             modelBuilder.Entity<Resturant>(entity =>
             {
-                entity.ToTable("Resturant ");
-
-                entity.Property(e => e.Id)
-                  .HasColumnType("int")
-                  .IsUnicode(true);
+                entity.ToTable("Resturant");
 
                 entity.Property(e => e.Address).HasColumnType("nvarchar(255)");
+
+                entity.Property(e => e.ConfirmationLink)
+                    .IsRequired()
+                    .HasColumnType("varchar(500)")
+                    .UseCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.EmailConfirmed).HasColumnType("int");
+                entity.Property(e => e.RoleId).HasColumnType("int");
 
                 entity.Property(e => e.Bio).HasColumnType("nvarchar(255)");
 
