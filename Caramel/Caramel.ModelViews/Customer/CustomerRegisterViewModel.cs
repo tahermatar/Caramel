@@ -11,5 +11,6 @@ namespace Caramel.ModelViews.Customer
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
 
+
     }
 }

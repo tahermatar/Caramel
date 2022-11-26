@@ -106,6 +106,7 @@ namespace Caramel.Data
                     .UseCollation("latin1_swedish_ci");
 
                 entity.Property(e => e.EmailConfirmed).HasColumnType("int");
+                entity.Property(e => e.RoleId).HasColumnType("int");
 
                 entity.Property(e => e.Email).HasMaxLength(255);
 
