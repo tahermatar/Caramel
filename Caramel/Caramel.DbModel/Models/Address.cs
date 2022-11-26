@@ -16,11 +16,7 @@ namespace Caramel.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Road { get; set; }
-        public string ExtraInformation { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public int? CreatedBy { get; set; }
-        public int? UpdatedBy { get; set; }
+        public string ExtraInformation { get; set; } 
 
         public virtual ICollection<Customer> Customers { get; set; }
     }

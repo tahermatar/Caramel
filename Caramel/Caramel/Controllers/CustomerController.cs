@@ -1,7 +1,9 @@
-﻿using Caramel.Core.Mangers.CustomerManger;
+﻿using Caramel.Attributes;
+using Caramel.Core.Mangers.CustomerManger;
 using Caramel.Core.Mangers.UserManger;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.User;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -24,20 +26,20 @@ namespace Caramel.Controllers
         // GET: api/<CustomerController>
         [HttpGet]
         [Route("api/Customer/GetAll")]
-        [Authorize]
-        public IActionResult GetAll()
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "customer_all_view")]
+        public IActionResult GetAll(int page = 1,
+                                      int pageSize = 5,
+                                      string sortColumn = "",
+                                      string sortDirection = "ascending",
+                                      string searchText = "")
         {
-            return Ok(_customerManager.GetAll());
+            return Ok(_customerManager.GetAll(LoggedInUser, page, pageSize,
+                                               sortColumn,
+                                               sortDirection,
+                                               searchText));
         }
 
-        // GET api/<CustomerController>/5
-        [HttpGet]
-        [Route("api/Customer/Get")]
-
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/<CustomerController>
         [HttpPost]
@@ -49,20 +51,15 @@ namespace Caramel.Controllers
             return Ok(res);
         }
 
-        // PUT api/<CustomerController>/5
-        [HttpPut]
-        [Route("api/Customer/Update")]
 
-        public void Put(int id, [FromBody] string value)
-        {
-        }
 
-        // DELETE api/<CustomerController>/5
         [HttpDelete]
         [Route("api/Customer/Delete")]
-
-        public void Delete(int id)
+        [Authorize]
+        public IActionResult Delete( int id)
         {
+            _customerManager.DeleteCustomer(LoggedInUser, id);
+            return Ok();
         }
 
 
@@ -92,6 +89,25 @@ namespace Caramel.Controllers
         {
             var user = _customerManager.UpdateProfile(LoggedInCustomer, vm);
             return Ok(user);
+        }
+
+        [Route("api/Customer/PutAddress")]
+        [HttpPut]
+        [Authorize]
+        public IActionResult PutAddress(AddressResult itemRequest)
+        {
+            var result = _customerManager.PutAddress(LoggedInCustomer, itemRequest);
+            return Ok(result);
+        }
+
+
+        [HttpGet]
+        [Route("api/Customer/viewProfile")]
+        [Authorize]
+        public IActionResult ViewProfile()
+        {
+            var res = _customerManager.ViewProfile(LoggedInCustomer);
+            return Ok(res);
         }
     }
 }

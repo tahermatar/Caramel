@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.UserManger
 {
-    public class UserManger : IUserManger
+    public class UserManager : IUserManager
     {
         private readonly CaramelDbContext _caramelDbContext;
         private readonly IMapper _mapper;
 
-        public UserManger(CaramelDbContext caramelDbContext, IMapper mapper)
+        public UserManager(CaramelDbContext caramelDbContext, IMapper mapper)
         {
             _caramelDbContext = caramelDbContext;
             _mapper = mapper;

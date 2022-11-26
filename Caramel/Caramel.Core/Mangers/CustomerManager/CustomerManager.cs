@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Caramel.Common.Extinsions;
+using Caramel.Common.Helperr;
 using Caramel.Data;
 using Caramel.EmailService;
 using Caramel.Infrastructure;
@@ -15,7 +16,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.CustomerManger
 {
@@ -39,11 +39,55 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         #region public
 
-        public List<CustomerResult> GetAll()
+        public CustomerResponse GetAll(UserModelViewModel currentUser,
+                                           int page = 1,
+                                           int pageSize = 5,
+                                           string sortColumn = "",
+                                           string sortDirection = "ascending",
+                                           string searchText = "")
             {
-                var customerList = _context.Customers.ToList();
-                return _mapper.Map<List<CustomerResult>>(customerList);
+               /* var customerList = _context.Customers.ToList();
+                return _mapper.Map<List<CustomerResponse>>(customerList);
+               */
+
+            var queryRes = _context.Customers
+                                    .Where(a => (string.IsNullOrWhiteSpace(searchText)
+                                                || (a.UserName.Contains(searchText)
+                                                || a.Email.Contains(searchText))));
+
+            if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
+            {
+                queryRes = queryRes.OrderBy(sortColumn);
             }
+            else if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("descending", StringComparison.InvariantCultureIgnoreCase))
+            {
+                queryRes = queryRes.OrderByDescending(sortColumn);
+            }
+
+            var res = queryRes.GetPaged(page, pageSize);
+
+            /*
+            var Address = res.Data
+                             .Select(a => a.AddressId)
+                             .Distinct()
+                             .ToList();
+
+            var users = _context.Addresses
+                                 .Where(a => Address.Contains(a.Id))
+                                 .ToDictionary(a => a.Id, x => _mapper.Map<AddressResult>(x));
+            */
+            var data = new CustomerResponse
+            {
+                customers = _mapper.Map<PagedResult<CustomerResult>>(res),
+                //address = users
+            };
+
+            data.customers.Sortable.Add("Title", "Title");
+            data.customers.Sortable.Add("CreatedDate", "Created Date");
+
+            return data;
+
+        }
 
         public CustomerLoginResponseViewModel Rigester(CustomerRegisterViewModel vm)
         {
@@ -139,6 +183,95 @@ namespace Caramel.Core.Mangers.CustomerManger
             return _mapper.Map<CustomerUpdateModelView>(customer);
         }
 
+        public void DeleteCustomer(UserModelViewModel currentUser, int id)
+        {
+            if (currentUser.Id == id)
+            {
+                throw new ServiceValidationException("you have no access to delete your self");
+            }
+            var user = _context.Customers
+                .FirstOrDefault(x => x.Id == id)
+                ?? throw new ServiceValidationException("User not found");
+
+            user.Archived = 1;
+        
+
+            _context.SaveChanges();
+        }
+
+
+        public CustomerResult GetCustomer(int id)
+        {
+            var res = _context.Customers
+                                   .FirstOrDefault(a => a.Id == id)
+                                    ?? throw new ServiceValidationException("Invalid User id received");
+
+            return _mapper.Map<CustomerResult>(res);
+        }
+
+
+        public AddressResult PutAddress(CustomerModelViewModel currentUser,
+                                        AddressResult request)
+        {
+            var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                ?? throw new ServiceValidationException("User not found");
+
+            if (customer == null)
+            {
+                throw new ServiceValidationException("User not found");
+            }
+
+            Address item = null;
+
+            if (request.Id > 0)
+            {
+                item = _context.Addresses
+                                .FirstOrDefault(a => a.Id == request.Id)
+                                 ?? throw new ServiceValidationException("Invalid Address id received");
+
+
+                item.City = request.City;
+                item.Country = request.Country;
+                item.Road = request.Road;
+                item.ExtraInformation = request.ExtraInformation;
+
+            }
+            else
+            {
+
+                item = _context.Addresses.Add(new Address
+                {
+                    City = request.City,
+                    Country = request.Country,
+                    Road = request.Road,
+                    ExtraInformation = request.ExtraInformation,
+                    Id = request.Id
+
+                }).Entity;
+
+            }
+
+            customer.AddressId = request.Id;
+            customer.Address = item;
+
+            _context.SaveChanges();
+            return _mapper.Map<AddressResult>(item);
+        }
+
+
+        public CustomerResult ViewProfile(CustomerModelViewModel currentUser)
+        {
+            var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                ?? throw new ServiceValidationException("User not found");
+
+            if (customer == null)
+            {
+                throw new ServiceValidationException("User not found");
+            }
+
+            return _mapper.Map<CustomerResult>(customer);   
+        }
+
         #endregion
 
 
@@ -180,6 +313,7 @@ namespace Caramel.Core.Mangers.CustomerManger
         }
 
         
+
         #endregion private
     }
 }

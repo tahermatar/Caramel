@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.UserManger
 {
-    public interface IUserManger : IManager
+    public interface IUserManager : IManager
     {
         public UserModelViewModel UpdateProfile(UserModelViewModel currentUser, UserModelViewModel request);
         public UserLoginResponseViewModel Login(UserLoginViewModel vm);
