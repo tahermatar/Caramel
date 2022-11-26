@@ -10,6 +10,7 @@ using Caramel.ModelViews.Enums;
 using Caramel.ModelViews.Static;
 using Caramel.ModelViews.User;
 using Microsoft.IdentityModel.Tokens;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -89,7 +90,7 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         }
 
-        public CustomerLoginResponseViewModel Rigester(CustomerRegisterViewModel vm)
+        public CustomerLoginResponseViewModel Rigester(UserModelViewModel currentUser,CustomerRegisterViewModel vm)
         {
             if (_context.Customers
                               .Any(a => a.Email.ToLower().Equals(vm.Email.ToLower())))
@@ -98,6 +99,12 @@ namespace Caramel.Core.Mangers.CustomerManger
             }
 
             var hashedPassword = HashPassword(vm.Password);
+
+            var cretorId = 0;
+            if (currentUser != null)
+            {
+                cretorId = currentUser.Id;
+            }
 
             var customer = _context.Customers.Add(new Customer
             {
@@ -108,10 +115,14 @@ namespace Caramel.Core.Mangers.CustomerManger
                 ConfirmPassword = hashedPassword,
                 AddressId = 1,
                 Phone = "",
+                RoleId = 1,
+                CreatedBy = cretorId,
+                CreatedDate = DateTime.Now,
                 ConfirmationLink = Guid.NewGuid().ToString().Replace("-", "").ToString()
             }).Entity;
 
             _context.SaveChanges();
+
             
             var builder = new EmailBuilder(ActionInvocationTypeEnum.EmailConfirmation,
                                 new Dictionary<string, string>
@@ -162,7 +173,7 @@ namespace Caramel.Core.Mangers.CustomerManger
         }
 
 
-        public CustomerUpdateModelView UpdateProfile(CustomerModelViewModel currentUser, CustomerUpdateModelView request)
+        public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser, CustomerUpdateModelView request)
         {
             var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
                 ?? throw new ServiceValidationException("User not found");
@@ -175,13 +186,14 @@ namespace Caramel.Core.Mangers.CustomerManger
             customer.UserName = request.UserName;
             customer.UpdatedDate = DateTime.Now;
             customer.UpdatedBy = currentUser.Id;
-            customer.Email = request.Email; 
-            customer.Phone = request.Phone; 
-            
+            customer.Email = request.Email;
+            customer.Phone = request.Phone;
+
 
             _context.SaveChanges();
             return _mapper.Map<CustomerUpdateModelView>(customer);
         }
+
 
         public void DeleteCustomer(UserModelViewModel currentUser, int id)
         {
@@ -210,7 +222,7 @@ namespace Caramel.Core.Mangers.CustomerManger
         }
 
 
-        public AddressResult PutAddress(CustomerModelViewModel currentUser,
+        public AddressResult PutAddress(UserModelViewModel currentUser,
                                         AddressResult request)
         {
             var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
@@ -259,7 +271,7 @@ namespace Caramel.Core.Mangers.CustomerManger
         }
 
 
-        public CustomerResult ViewProfile(CustomerModelViewModel currentUser)
+        public CustomerResult ViewProfile(UserModelViewModel currentUser)
         {
             var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
                 ?? throw new ServiceValidationException("User not found");

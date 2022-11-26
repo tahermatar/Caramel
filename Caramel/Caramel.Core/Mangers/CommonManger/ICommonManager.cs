@@ -14,5 +14,6 @@ namespace Caramel.Core.Mangers.CommonManger
         UserModelViewModel GetUserRole(UserModelViewModel user);
         ResturantModelView GetResturanRole(ResturantModelView resturan);
         CustomerModelViewModel GetCustomerRole(CustomerModelViewModel customer);
+        public UserModelViewModel GetCustomerRole(UserModelViewModel customer);
     }
 }
