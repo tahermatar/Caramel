@@ -27,7 +27,12 @@ namespace CarProject.Mapper
             CreateMap<CustomerModelViewModel, Customer>().ReverseMap();
             CreateMap<CustomerLoginResponseViewModel, Customer>().ReverseMap();
             CreateMap<CustomerUpdateModelView, Customer>().ReverseMap();
+            CreateMap<PagedResult<CustomerResult>, PagedResult<Customer>>().ReverseMap();
+
+            CreateMap<AddressResult, Address>().ReverseMap();
+
             
+
 
 
         }

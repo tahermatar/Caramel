@@ -17,8 +17,8 @@ namespace Caramel.Controllers
     [Authorize]
     public class RoleController : ApiBaseController
     {
-        private readonly IRoleManger _roleManger;
-        public RoleController(IRoleManger roleManger)
+        private readonly IRoleManager _roleManger;
+        public RoleController(IRoleManager roleManger)
         {
             _roleManger = roleManger;
         }

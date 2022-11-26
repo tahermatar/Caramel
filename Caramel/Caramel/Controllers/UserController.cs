@@ -11,9 +11,9 @@ namespace Caramel.Controllers
     [ApiController]
     public class UserController : ApiBaseController
     {
-        private readonly IUserManger _userManager;
+        private readonly IUserManager _userManager;
 
-        public UserController(IUserManger userManager)
+        public UserController(IUserManager userManager)
         {
             _userManager = userManager;
         }

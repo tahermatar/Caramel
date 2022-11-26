@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.RoleManger
 {
-    public class RoleManger : IRoleManger
+    public class RoleManager : IRoleManager
     {
         private readonly CaramelDbContext _context;
 
-        public RoleManger(CaramelDbContext context)
+        public RoleManager(CaramelDbContext context)
         {
             _context = context;
         }
