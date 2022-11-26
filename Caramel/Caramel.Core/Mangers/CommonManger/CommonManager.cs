@@ -43,16 +43,12 @@ namespace Caramel.Core.Mangers.CommonManger
             return _mapper.Map<UserModelViewModel>(dbuser);
         }
 
-        //public UserModelViewModel GetUserBlogs(UserModelViewModel user)
-        //{
-        //    var res = _blogManager.GetBlog(user, 1);
-        //    return res;
-        //}
 
-        public ResturantModelView GetResturanRole(ResturantModelView resturant)
+        public UserModelViewModel GetResturanRole(UserModelViewModel resturant)
         {
             var dbresturant = _context.Resturants.FirstOrDefault(x => x.Id == resturant.Id)
                 ?? throw new ServiceValidationException("User Is not valid");
+            
 
             var mappedUser = new UserModelViewModel
             {
@@ -60,25 +56,10 @@ namespace Caramel.Core.Mangers.CommonManger
                 UserName = dbresturant.UserName,
                 Email = dbresturant.Email,
             };
-            mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == resturant.Id).ToList();
+            //mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == resturant.Id).ToList();
+            mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 4).ToList());
 
-            return _mapper.Map<ResturantModelView>(dbresturant);
-        }
-
-        public CustomerModelViewModel GetCustomerRole(CustomerModelViewModel customer)
-        {
-            var dbcustomer = _context.Customers.FirstOrDefault(x => x.Id == customer.Id)
-                ?? throw new ServiceValidationException("User Is not valid");
-
-            var mappedUser = new CustomerModelViewModel
-            {
-                Id = dbcustomer.Id,
-                UserName = dbcustomer.UserName,
-                Email = dbcustomer.Email,
-            };
-           // mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
-
-            return _mapper.Map<CustomerModelViewModel>(dbcustomer);
+            return _mapper.Map<UserModelViewModel>(dbresturant);
         }
 
 
@@ -94,7 +75,7 @@ namespace Caramel.Core.Mangers.CommonManger
                 Email = dbcustomer.Email,
             };
 
-            mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 3).ToList());
+            mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 1).ToList());
             // mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
 
             return mappedUser;

@@ -33,10 +33,11 @@ namespace CarProject.Mapper
             CreateMap<Userpermissionview, Rolepermission>().ReverseMap();
 
             CreateMap<UserModelViewModel, User>().ReverseMap();
+            CreateMap<UserModelViewModel, Resturant>().ReverseMap();
 
 
 
-
+            
 
 
 

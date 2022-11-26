@@ -12,10 +12,9 @@ namespace Caramel.Core.Mangers.CustomerManger
         CustomerResult Confirmation(string ConfirmationLink);
         public CustomerLoginResponseViewModel Login(CustomerLoginViewModel vm);
         public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser, CustomerUpdateModelView request);
-        
         public void DeleteCustomer(UserModelViewModel currentUser, int id);
         public CustomerResult GetCustomer(int id);
-        public CustomerResult ViewProfile(UserModelViewModel currentUser);
+        public CustomerResult ViewProfile(UserModelViewModel currentUserm,int id);
         public AddressResult PutAddress(UserModelViewModel currentUser, AddressResult request);
 
 

@@ -271,7 +271,7 @@ namespace Caramel.Core.Mangers.CustomerManger
         }
 
 
-        public CustomerResult ViewProfile(UserModelViewModel currentUser)
+        public CustomerResult ViewProfile(UserModelViewModel currentUser, int id)
         {
             var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
                 ?? throw new ServiceValidationException("User not found");
@@ -281,7 +281,10 @@ namespace Caramel.Core.Mangers.CustomerManger
                 throw new ServiceValidationException("User not found");
             }
 
-            return _mapper.Map<CustomerResult>(customer);   
+            var customer1 = _context.Customers.FirstOrDefault(x => x.Id == id)
+                ?? throw new ServiceValidationException("User not found");
+
+            return _mapper.Map<CustomerResult>(customer1);   
         }
 
         #endregion
