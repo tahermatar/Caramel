@@ -146,53 +146,168 @@ namespace Caramel.Core.Mangers.ResturantManager
             return _mapper.Map<ResturantModelView>(resturant);
         }
 
-        public List<OrderResult> GetAll()
+        public MealCategoryModelView PutMealCategory(ResturantModelView currentResturant, CategoryRequest categoryRequest)
         {
-            //if(_caramelDbContext.Orders.Any(x => x.ResturantId == )
-            //{
-            //    throw new ServiceValidationException(300, "You don't have access to view all orders for this restaurant");
-            //}
-            var orderList = _caramelDbContext.Orders.ToList();
-            return _mapper.Map<List<OrderResult>>(orderList);
-            
+            MealCategory mealCategory = null;
+
+            if (categoryRequest.Id > 0)
+            {
+                mealCategory = _caramelDbContext.MealCategories
+                                    .FirstOrDefault(a => a.Id == mealCategory.Id)
+                                    ?? throw new ServiceValidationException("Invalid meal category id received");
+
+                mealCategory.CategoryName = categoryRequest.CategoryName;
+                mealCategory.ExtraInformation = categoryRequest.ExtraInformation;
+            }
+            else
+            {
+                mealCategory = _caramelDbContext.MealCategories.Add(new MealCategory
+                {
+                    CategoryName = categoryRequest.CategoryName,
+                    ExtraInformation = categoryRequest.ExtraInformation
+                }).Entity;
+            }
+
+            _caramelDbContext.SaveChanges();
+            return _mapper.Map<MealCategoryModelView>(mealCategory);
+        }
+        public MealModelView PutMeal(ResturantModelView currentResturant, MealRequest mealRequest)
+        {
+            Meal meal = null;
+
+            if (mealRequest.Id > 0)
+            {
+                meal = _caramelDbContext.Meals
+                                    .FirstOrDefault(a => a.Id == mealRequest.Id)
+                                    ?? throw new ServiceValidationException("Invalid meal id received");
+
+                meal.MealName = mealRequest.MealName;
+                meal.ServiceCategoryId = mealRequest.ServiceCategoryId;
+                meal.MealCategoryId = mealRequest.MealCategoryId;
+                meal.Price = mealRequest.Price;
+                meal.Quantity = mealRequest.Quantity;
+                meal.Component = mealRequest.Component;
+                meal.IsAvailable = mealRequest.IsAvailable;
+                meal.ImageId = mealRequest.ImageId;
+            }
+            else
+            {
+                meal = _caramelDbContext.Meals.Add(new Meal
+                {
+                    MealName = mealRequest.MealName,
+                    MealCategoryId = mealRequest.MealCategoryId,
+                    ServiceCategoryId = mealRequest.ServiceCategoryId,
+                    ImageId = mealRequest.ImageId,
+                    Price = mealRequest.Price,
+                    Quantity = mealRequest.Quantity,
+                    Component = mealRequest.Component,
+                    IsAvailable = mealRequest.IsAvailable
+                }).Entity;
+            }
+
+            _caramelDbContext.SaveChanges();
+            return _mapper.Map<MealModelView>(meal);
+        }
+        public ImageModelView PutImage(ResturantModelView currentResturant, ImageRequest imageRequest)
+        {
+            Image image = null;
+            var url = "";
+
+            if (!string.IsNullOrWhiteSpace(imageRequest.ImageString))
+            {
+                url = Helper.SaveImage(imageRequest.ImageString, "ProfileImages");
+            }
+
+            if (imageRequest.Id > 0)
+            {
+                image = _caramelDbContext.Images
+                                    .FirstOrDefault(a => a.Id == imageRequest.Id)
+                                    ?? throw new ServiceValidationException("Invalid image id received");
+
+                image.Image1 = imageRequest.Image1;
+                image.Title = imageRequest.Title;
+                image.ExtraInformation = imageRequest.ExtraInformation; 
+            }
+            else
+            {
+                image = _caramelDbContext.Images.Add(new Image
+                {
+                    Image1 = imageRequest.Image1,
+                    Title = imageRequest.Title,
+                    ExtraInformation = imageRequest.ExtraInformation
+                }).Entity;
+            }
+
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                var baseURL = "https://localhost:44309/";
+                image.Image1 = @$"{baseURL}/api/resturant/fileretrive/profilepic?filename={url}";
+            }
+
+            _caramelDbContext.SaveChanges();
+            return _mapper.Map<ImageModelView>(image);
+        }
+
+        public ServiceCategoryModelView PutServiceCategory(ResturantModelView currentResturant, ServiceCategoryRequest serviceCategoryRequest)
+        {
+            ServiceCategory service = null;
+
+            if (serviceCategoryRequest.Id > 0)
+            {
+                service = _caramelDbContext.ServiceCategories
+                                    .FirstOrDefault(a => a.Id == serviceCategoryRequest.Id)
+                                    ?? throw new ServiceValidationException("Invalid service id received");
+
+                service.CategoryName = serviceCategoryRequest.CategoryName;
+                service.ExtraInformation = serviceCategoryRequest.ExtraInformation;
+            }
+            else
+            {
+                service = _caramelDbContext.ServiceCategories.Add(new ServiceCategory
+                {
+                    CategoryName = serviceCategoryRequest.CategoryName,
+                    ExtraInformation = serviceCategoryRequest.ExtraInformation
+            }).Entity;
+            }
+
+            _caramelDbContext.SaveChanges();
+            return _mapper.Map<ServiceCategoryModelView>(service);
         }
 
         #region private
         private static string HashPassword(string password)
-        {
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-
-            return hashedPassword;
-        }
-
-        private static bool VerifyHashPassword(string password, string HashedPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(password, HashedPassword);
-        }
-
-        private string GenerateJwtTaken(Resturant resturant)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configurationSettings.JwtKey));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var claims = new[]
             {
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+                return hashedPassword;
+            }
+
+            private static bool VerifyHashPassword(string password, string HashedPassword)
+            {
+                return BCrypt.Net.BCrypt.Verify(password, HashedPassword);
+            }
+
+            private string GenerateJwtTaken(Resturant resturant)
+            {
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configurationSettings.JwtKey));
+                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+                var claims = new[]
+                {
                 new Claim(JwtRegisteredClaimNames.Sub , $"{resturant.UserName}"),
                 new Claim(JwtRegisteredClaimNames.Email , resturant.Email ),
                 new Claim("Id" , resturant.Id.ToString() ),
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString() ),
-            };
+                };
 
-            var taken = new JwtSecurityToken(
-                _configurationSettings.Issuer,
-                _configurationSettings.Issuer,
-                claims,
-                expires: DateTime.Now.AddMinutes(60),
-                signingCredentials: credentials);
+                var taken = new JwtSecurityToken(
+                    _configurationSettings.Issuar,
+                    _configurationSettings.Issuar,
+                    claims,
+                    expires: DateTime.Now.AddMinutes(60),
+                    signingCredentials: credentials);
 
-            return new JwtSecurityTokenHandler().WriteToken(taken);
-            #endregion
-        }
-
-        
+                return new JwtSecurityTokenHandler().WriteToken(taken);
+                #endregion private
+            }
     }
-}
+    }

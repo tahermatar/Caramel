@@ -19,9 +19,9 @@ namespace Caramel.Infrastructure.Implementation
 
         public string JwtKey => _config["Jwt:Key"];
 
-        public string Issuer => _config["Jwt:Issuer"];
+        public string Issuar => _config["Jwt:Issuar"];
 
-        public string WebSiteURl => _config["URL:WebSiteURl"];
+        //public string WebSiteURl => _config["URL:WebSiteURl"];
 
     }
 }

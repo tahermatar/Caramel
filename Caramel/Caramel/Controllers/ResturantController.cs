@@ -19,15 +19,6 @@ namespace Caramel.Controllers
             _resturantManager = resturantManager;
         }
 
-        [Route("api/resturant/GetAllOrder")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult GetAllOrder()
-        {
-            var res = _resturantManager.GetAll();
-            return Ok(res);
-        }
-
         [Route("api/resturant/signUp")]
         [HttpPost]
         public IActionResult SignUp([FromBody] ResturantRegisterViewModel restReg)
@@ -80,6 +71,40 @@ namespace Caramel.Controllers
             return Ok(result);
         }
 
+        [Route("api/resturant/PutServiceCategory")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutServiceCategory(ServiceCategoryRequest serviceCategoryRequest)
+        {
+            var result = _resturantManager.PutServiceCategory(LoggedInResturant, serviceCategoryRequest);
+            return Ok(result);
+        }
         
+        [Route("api/resturant/PutMealCategory")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutMealCategory(CategoryRequest categoryRequest)
+        {
+            var result = _resturantManager.PutMealCategory(LoggedInResturant, categoryRequest);
+            return Ok(result);
+        }
+
+        [Route("api/resturant/PutMeal")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutMeal(MealRequest mealRequest)
+        {
+            var result = _resturantManager.PutMeal(LoggedInResturant, mealRequest);
+            return Ok(result);
+        }
+
+        [Route("api/resturant/PutImage")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutImage(ImageRequest imageRequest)
+        {
+            var result = _resturantManager.PutImage(LoggedInResturant, imageRequest);
+            return Ok(result);
+        }
     }
 }

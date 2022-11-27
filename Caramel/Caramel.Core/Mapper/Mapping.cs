@@ -21,7 +21,15 @@ namespace CarProject.Mapper
             CreateMap<Resturant, ResturantLoginResponseModelView>().ReverseMap();
             CreateMap<Resturant, ResturantModelView>().ReverseMap();
             CreateMap<Resturant, ResturantRegisterViewModel>().ReverseMap();
-            CreateMap<Order, OrderResult>().ReverseMap(); 
+            CreateMap<Order, OrderResult>().ReverseMap();
+            CreateMap<Meal, MealRequest>().ReverseMap();
+            CreateMap<Meal, MealModelView>().ReverseMap();
+            CreateMap<MealCategory, MealCategoryModelView>().ReverseMap();
+            CreateMap<MealCategory, CategoryRequest>().ReverseMap();
+            CreateMap<Image, ImageModelView>().ReverseMap();
+            CreateMap<MealCategory, ImageRequest>().ReverseMap();
+            CreateMap<ServiceCategory, ServiceCategoryModelView>().ReverseMap();
+            CreateMap<ServiceCategory, ServiceCategoryRequest>().ReverseMap();
         }
     }
 }

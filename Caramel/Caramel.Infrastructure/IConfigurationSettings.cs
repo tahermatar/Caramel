@@ -4,7 +4,7 @@
     {
         string JwtKey { get; }
 
-        string Issuer { get; }
+        string Issuar { get; }
 
         // string WebSiteURl { get; }
     }
