@@ -5,10 +5,17 @@ using Caramel.Data;
 using Caramel.EmailService;
 using Caramel.Infrastructure;
 using Caramel.Models;
+<<<<<<< HEAD
 using Caramel.ModelViews.Enums;
 using Caramel.ModelViews.Order;
 using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.Static;
+=======
+using Caramel.ModelViews.Customer;
+using Caramel.ModelViews.Resturant;
+using Caramel.ModelViews.User;
+using Microsoft.EntityFrameworkCore;
+>>>>>>> development
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -33,7 +40,7 @@ namespace Caramel.Core.Mangers.ResturantManager
             _emailSender = emailSender;
             _configurationSettings = configurationSettings;
         }
-        public void DeleteResturant(ResturantModelView currentResturant, int id)
+        public void DeleteResturant(UserModelViewModel currentResturant, int id)
         {
             if (currentResturant.Id != id)
             {
@@ -80,10 +87,23 @@ namespace Caramel.Core.Mangers.ResturantManager
             var resturant = _caramelDbContext.Resturants.Add(new Resturant
             {
                 Name = resturantReg.Name,
-                Email = resturantReg.Email,
+                UserName = resturantReg.UserName,
+                Email = resturantReg.Email.ToLower(),
                 Password = hashedPassword,
                 ConfirmPassword = hashedPassword,
+<<<<<<< HEAD
                 UserName = resturantReg.UserName,
+=======
+                Address = "",
+                Image = "",
+                Bio = "",
+                Phone = "",
+                RoleId = 4,
+                CreatedBy = 1,
+                CreatedDate = DateTime.Now,
+                TotalRate = 1,
+                IsChef = 0,
+>>>>>>> development
                 ConfirmationLink = Guid.NewGuid().ToString().Replace("-", "").ToString()
             }).Entity;
 
@@ -105,6 +125,7 @@ namespace Caramel.Core.Mangers.ResturantManager
             return result;
         }
 
+<<<<<<< HEAD
         public ResturantModelView Confirmation(string ConfirmationLink)
         {
             var resturant = _caramelDbContext.Resturants
@@ -120,6 +141,9 @@ namespace Caramel.Core.Mangers.ResturantManager
         }
 
         public ResturantModelView UpdateProfile(ResturantModelView currentResturant, ResturantModelView request)
+=======
+        public ResturantModelView UpdateProfile(UserModelViewModel currentResturant, ResturantModelView request)
+>>>>>>> development
         {
             var resturant = _caramelDbContext.Resturants
                                              .FirstOrDefault(x => x.Id == currentResturant.Id)
@@ -146,6 +170,7 @@ namespace Caramel.Core.Mangers.ResturantManager
             return _mapper.Map<ResturantModelView>(resturant);
         }
 
+<<<<<<< HEAD
         public MealCategoryModelView PutMealCategory(ResturantModelView currentResturant, CategoryRequest categoryRequest)
         {
             MealCategory mealCategory = null;
@@ -310,4 +335,61 @@ namespace Caramel.Core.Mangers.ResturantManager
                 #endregion private
             }
     }
+=======
+        public ResturantModelView ViewProfile(UserModelViewModel currentUser)
+        {
+            var res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
+                ?? throw new ServiceValidationException("User not found");
+
+            if (res == null)
+            {
+                throw new ServiceValidationException("User not found");
+            }
+
+
+            return _mapper.Map<ResturantModelView>(res);
+        }
+
+
+
+        #region private
+        private static string HashPassword(string password)
+        {
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+            return hashedPassword;
+        }
+
+        private static bool VerifyHashPassword(string password, string HashedPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, HashedPassword);
+        }
+
+        private string GenerateJwtTaken(Resturant user)
+        {
+            var jwtKey = "#test.key*j;ljklkjhadfsd";
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub , $"{user.UserName}"),
+                new Claim(JwtRegisteredClaimNames.Email , user.Email ),
+                new Claim("Id" , user.Id.ToString() ),
+                new Claim("Resturant_Name", user.Name),
+                new Claim("DateOfJoining", user.CreatedDate.ToString("yyyy-MM-dd")),
+                new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString() ),
+            };
+            var issuer = "test.com";
+            var taken = new JwtSecurityToken(
+                issuer,
+                issuer,
+                claims,
+                expires: DateTime.Now.AddMinutes(60),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(taken);
+
+        }
+        #endregion
+>>>>>>> development
     }

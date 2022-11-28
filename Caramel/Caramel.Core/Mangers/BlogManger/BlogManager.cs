@@ -36,7 +36,7 @@ namespace Caramel.Core.Mangers.BlogManger
             var data = _context.Blogs
                                     .FirstOrDefault(a => a.Id == id)
                                     ?? throw new ServiceValidationException("Invalid blog id received");
-            data.Archived = 1;
+            data.Archived = true;
             _context.SaveChanges();
         }
 

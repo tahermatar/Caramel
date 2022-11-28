@@ -2,6 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
+<<<<<<< HEAD
       "Autofac/5.0.0": {
         "type": "package",
         "compile": {
@@ -24,6 +25,8 @@
           "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
+=======
+>>>>>>> development
       "MailKit/2.6.0": {
         "type": "package",
         "dependencies": {
@@ -33,10 +36,21 @@
           "System.Runtime.Serialization.Primitives": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "lib/netstandard2.0/MailKit.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MailKit.dll": {}
+=======
+          "lib/netstandard2.0/MailKit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MailKit.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "Microsoft.Extensions.DependencyInjection/3.1.4": {
@@ -45,19 +59,54 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4"
         },
         "compile": {
+<<<<<<< HEAD
           "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
+=======
+          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.4": {
         "type": "package",
         "compile": {
+<<<<<<< HEAD
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+=======
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyModel/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -86,7 +135,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "MimeKit/2.6.0": {
@@ -99,10 +154,21 @@
           "System.Text.Encoding.CodePages": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "lib/netstandard2.0/MimeKit.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MimeKit.dll": {}
+=======
+          "lib/netstandard2.0/MimeKit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MimeKit.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "NETCore.MailKit/2.0.3": {
@@ -121,19 +187,41 @@
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
+<<<<<<< HEAD
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+=======
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "Portable.BouncyCastle/1.8.5": {
         "type": "package",
         "compile": {
+<<<<<<< HEAD
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+=======
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -315,7 +403,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Collections.Concurrent/4.3.0": {
@@ -333,7 +427,13 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.Collections.Concurrent.dll": {}
@@ -352,7 +452,13 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.2/System.Data.Common.dll": {}
+=======
+          "ref/netstandard1.2/System.Data.Common.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.2/System.Data.Common.dll": {}
@@ -366,7 +472,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Diagnostics.Tracing/4.3.0": {
@@ -377,7 +489,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.5/_._": {}
+=======
+          "ref/netstandard1.5/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Globalization/4.3.0": {
@@ -388,7 +506,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Globalization.dll": {}
+=======
+          "ref/netstandard1.3/System.Globalization.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Globalization.Calendars/4.3.0": {
@@ -400,7 +524,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Globalization.Extensions/4.3.0": {
@@ -414,7 +544,13 @@
           "System.Runtime.InteropServices": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Globalization.Extensions.dll": {}
+=======
+          "ref/netstandard1.3/System.Globalization.Extensions.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Globalization.Extensions.dll": {
@@ -437,7 +573,13 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.5/System.IO.dll": {}
+=======
+          "ref/netstandard1.5/System.IO.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.IO.FileSystem/4.3.0": {
@@ -453,7 +595,13 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.IO.FileSystem.Primitives/4.3.0": {
@@ -462,7 +610,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
@@ -478,7 +632,13 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.6/_._": {}
+=======
+          "ref/netstandard1.6/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.6/System.Linq.dll": {}
@@ -503,7 +663,13 @@
           "runtime.native.System": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Net.NameResolution.dll": {}
+=======
+          "ref/netstandard1.3/System.Net.NameResolution.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Net.NameResolution.dll": {
@@ -525,7 +691,13 @@
           "System.Runtime.Handles": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Net.Primitives.dll": {}
+=======
+          "ref/netstandard1.3/System.Net.Primitives.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Net.Security/4.3.2": {
@@ -584,7 +756,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.5/System.Reflection.dll": {}
+=======
+          "ref/netstandard1.5/System.Reflection.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Reflection.Primitives/4.3.0": {
@@ -595,7 +773,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.0/System.Reflection.Primitives.dll": {}
+=======
+          "ref/netstandard1.0/System.Reflection.Primitives.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Reflection.TypeExtensions/4.3.0": {
@@ -605,7 +789,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
+=======
+          "ref/netstandard1.5/System.Reflection.TypeExtensions.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
@@ -621,7 +811,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.0/_._": {}
+=======
+          "ref/netstandard1.0/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Runtime/4.3.0": {
@@ -631,7 +827,13 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.5/System.Runtime.dll": {}
+=======
+          "ref/netstandard1.5/System.Runtime.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Runtime.Extensions/4.3.0": {
@@ -642,7 +844,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.5/System.Runtime.Extensions.dll": {}
+=======
+          "ref/netstandard1.5/System.Runtime.Extensions.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Runtime.Handles/4.3.0": {
@@ -653,7 +861,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Runtime.Handles.dll": {}
+=======
+          "ref/netstandard1.3/System.Runtime.Handles.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Runtime.InteropServices/4.3.0": {
@@ -679,7 +893,13 @@
           "System.Runtime.Extensions": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.1/_._": {}
+=======
+          "ref/netstandard1.1/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.Runtime.Numerics.dll": {}
@@ -692,7 +912,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
+=======
+          "ref/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
@@ -710,7 +936,13 @@
           "System.Security.Principal": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.Security.Claims.dll": {}
@@ -829,7 +1061,13 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Security.Cryptography.Encoding.dll": {}
+=======
+          "ref/netstandard1.3/System.Security.Cryptography.Encoding.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.Encoding.dll": {
@@ -920,7 +1158,13 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.4/System.Security.Cryptography.X509Certificates.dll": {}
+=======
+          "ref/netstandard1.4/System.Security.Cryptography.X509Certificates.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.X509Certificates.dll": {
@@ -939,7 +1183,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.0/System.Security.Principal.dll": {}
+=======
+          "ref/netstandard1.0/System.Security.Principal.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.0/System.Security.Principal.dll": {}
@@ -964,7 +1214,13 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Principal.Windows.dll": {
@@ -985,7 +1241,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
+=======
+          "ref/netstandard1.3/System.Text.Encoding.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Text.Encoding.CodePages/4.3.0": {
@@ -1005,7 +1267,13 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Text.Encoding.CodePages.dll": {}
+=======
+          "ref/netstandard1.3/System.Text.Encoding.CodePages.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
@@ -1037,7 +1305,13 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.Threading.dll": {}
@@ -1051,7 +1325,13 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
+=======
+          "ref/netstandard1.3/System.Threading.Tasks.dll": {
+            "related": ".xml"
+          }
+>>>>>>> development
         }
       },
       "System.Threading.ThreadPool/4.3.0": {
@@ -1061,7 +1341,13 @@
           "System.Runtime.Handles": "4.3.0"
         },
         "compile": {
+<<<<<<< HEAD
           "ref/netstandard1.3/_._": {}
+=======
+          "ref/netstandard1.3/_._": {
+            "related": ".xml"
+          }
+>>>>>>> development
         },
         "runtime": {
           "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
@@ -1070,6 +1356,7 @@
     }
   },
   "libraries": {
+<<<<<<< HEAD
     "Autofac/5.0.0": {
       "sha512": "U1aCHUMXuG7DDJ5JmTXF2kInXpad3Fuow+voSXEVunDHW4OkD8GDWJjleHpJPanpP+3dUQYLAM9R2lftGiQSbA==",
       "type": "package",
@@ -1108,6 +1395,8 @@
         "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.xml"
       ]
     },
+=======
+>>>>>>> development
     "MailKit/2.6.0": {
       "sha512": "fY2ulWfn5xzulQfqTW66pLOrL26Puzmhl+VsXuqrVBhv5dWFwwKerxQM4HmMwr5Pd/ak9/5xSiFhIeXeD+HC2w==",
       "type": "package",
@@ -1172,6 +1461,35 @@
         "microsoft.extensions.dependencyinjection.abstractions.nuspec"
       ]
     },
+<<<<<<< HEAD
+=======
+    "Microsoft.Extensions.DependencyModel/5.0.0": {
+      "sha512": "umBECCoMC+sOUgm083yFr8SxTobUOcPFH4AXigdO2xJiszCHAnmeDl4qPphJt+oaJ/XIfV1wOjIts2nRnki61Q==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencymodel/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net451/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net451/Microsoft.Extensions.DependencyModel.xml",
+        "lib/net461/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net461/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.xml",
+        "microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencymodel.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+>>>>>>> development
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -3853,25 +4171,29 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+<<<<<<< HEAD
       "Autofac.Extensions.DependencyInjection >= 6.0.0",
+=======
+      "Microsoft.Extensions.DependencyModel >= 5.0.0",
+>>>>>>> development
       "NETCore.MailKit >= 2.0.3",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Almajd-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
       "projectName": "Caramel.EmailService",
-      "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
-      "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
-      "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\obj\\",
+      "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3897,9 +4219,15 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+<<<<<<< HEAD
           "Autofac.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[6.0.0, )"
+=======
+          "Microsoft.Extensions.DependencyModel": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+>>>>>>> development
           },
           "NETCore.MailKit": {
             "target": "Package",
@@ -3916,7 +4244,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -3925,7 +4254,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

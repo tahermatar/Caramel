@@ -12,7 +12,7 @@ namespace Caramel.Models
         public int UserId { get; set; }
         public DateTime CreatedUtc { get; set; }
         public DateTime LastUpdatedUtc { get; set; }
-        public short Archived { get; set; }
+        public bool Archived { get; set; }
 
         public virtual Role Role { get; set; }
         public virtual User User { get; set; }

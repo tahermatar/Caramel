@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿using Caramel.EmailService.Factory;
+=======
+﻿
+using Caramel.EmailService.Factory;
+>>>>>>> development
 using Caramel.Infrastructure.Factory;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
@@ -27,5 +32,9 @@ namespace Caramel.Core.Factory
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
     }
 }

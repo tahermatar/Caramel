@@ -12,14 +12,14 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caramel.Core.Mangers.UserManger
+namespace Caramel.Core.Mangers.UserManager
 {
-    public class UserManger : IUserManger
+    public class UserManager : IUserManager
     {
         private readonly CaramelDbContext _caramelDbContext;
         private readonly IMapper _mapper;
 
-        public UserManger(CaramelDbContext caramelDbContext, IMapper mapper)
+        public UserManager(CaramelDbContext caramelDbContext, IMapper mapper)
         {
             _caramelDbContext = caramelDbContext;
             _mapper = mapper;
@@ -91,14 +91,14 @@ namespace Caramel.Core.Mangers.UserManger
 
             _caramelDbContext.SaveChanges();
 
-            var res = new UserModelViewModel
-            {
-                Id = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-            };
-            //return _mapper.Map<UserModelViewModel>(user);
-            return res;
+            //var res = new UserModelViewModel
+            //{
+            //    Id = user.Id,
+            //    UserName = user.UserName,
+            //    Email = user.Email,
+            //};
+            return _mapper.Map<UserModelViewModel>(user);
+            //return res;
         }
         public void DeleteUser(UserModelViewModel currentUser, int id)
         {

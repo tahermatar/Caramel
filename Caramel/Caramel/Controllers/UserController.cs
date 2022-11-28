@@ -1,4 +1,4 @@
-﻿using Caramel.Core.Mangers.UserManger;
+﻿using Caramel.Core.Mangers.UserManager;
 using Caramel.ModelViews.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -11,9 +11,9 @@ namespace Caramel.Controllers
     [ApiController]
     public class UserController : ApiBaseController
     {
-        private readonly IUserManger _userManager;
+        private readonly IUserManager _userManager;
 
-        public UserController(IUserManger userManager)
+        public UserController(IUserManager userManager)
         {
             _userManager = userManager;
         }

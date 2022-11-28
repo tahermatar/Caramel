@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 ﻿using MimeKit;
 using System.Collections.Generic;
 using System.Linq;
+=======
+﻿using System.Collections.Generic;
+using System.Linq;
+using MimeKit;
+
+>>>>>>> development
 
 namespace Caramel.EmailService
 {

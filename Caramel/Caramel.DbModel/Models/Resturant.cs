@@ -41,5 +41,12 @@ namespace Caramel.Models
         public virtual Rate Rate { get; set; }
         public virtual ServiceCategory ServiceCategory { get; set; }
         public virtual ICollection<Meal> Meals { get; set; }
+
+
+
+        public bool EmailConfirmed { get; set; }
+        public string ConfirmationLink { get; set; }
+        public int RoleId { get; set; }
+
     }
 }

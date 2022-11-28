@@ -2,14 +2,21 @@ using AutoMapper;
 using Caramel.Core.Mangers.BlogManger;
 using Caramel.Core.Mangers.CommonManger;
 using Caramel.Core.Mangers.ResturantManager;
-using Caramel.Core.Mangers.UserManger;
+using Caramel.Core.Mangers.RoleManger;
+using Caramel.Core.Mangers.RoleManager;
 using Caramel.Data;
 using Caramel.EmailService;
+<<<<<<< HEAD
 using Caramel.EmailService.Implementation;
 using Caramel.Extenstions;
 using Caramel.Factory;
 using Caramel.ModelViews.Blog;
 using CarProject.Mapper;
+=======
+using Caramel.EmailService;
+using Caramel.Extenstions;
+using Caramel.Factory;
+>>>>>>> development
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,9 +35,29 @@ namespace Caramel
     public class Startup
     {
         private MapperConfiguration _mapperConfiguration;
+<<<<<<< HEAD
         public IConfiguration Configuration { get; }
+=======
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+>>>>>>> development
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            var builder = new ConfigurationBuilder()
+                            .SetBasePath(env.ContentRootPath)
+                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
+
+<<<<<<< HEAD
+            _mapperConfiguration = new MapperConfiguration(a => {
+                a.AddProfile(new Mapping());
+            });
+=======
+            _mapperConfiguration = new MapperConfiguration(a => {
             var builder = new ConfigurationBuilder()
                             .SetBasePath(env.ContentRootPath)
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -46,13 +73,25 @@ namespace Caramel
 
             Configuration = configuration;
         }
+>>>>>>> development
+
+            Configuration = configuration;
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var emailConfig = Configuration
+                              .GetSection("EmailConfiguration")
+                              .Get<EmailConfiguration>();
+
+            services.AddSingleton(emailConfig);
+
             services.AddDbContext<CaramelDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CaramelConnection")));
 
+<<<<<<< HEAD
             var emailConfig = Configuration
                                .GetSection("EmailConfiguration")
                                .Get<EmailConfiguration>();
@@ -64,6 +103,15 @@ namespace Caramel
             //services.AddScoped<IBlogManager, BlogManager>();
             //services.AddScoped<IResturantManager, ResturantManager>();
             //services.AddScoped<IEmailSender, EmailSender>();
+=======
+
+            /*
+            services.AddScoped<IUserManger, UserManger>();
+            services.AddScoped<ICommonManager, CommonManager>();
+            services.AddScoped<IBlogManager, BlogManager>();
+            services.AddScoped<IResturantManager, ResturantManager>();
+            services.AddScoped<IRoleManger, RoleManger>();*/
+>>>>>>> development
 
             services.AddSingleton(sp => _mapperConfiguration.CreateMapper());
 
@@ -74,9 +122,10 @@ namespace Caramel
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Caramel", Version = "v1" });
+                c.OperationFilter<SwaggerDefaultValues>();
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "Please insert taken ",
+                    Description = "Please insert Bearer JWT token into field. Example: 'Bearer {token}'",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
@@ -99,10 +148,17 @@ namespace Caramel
                     }
                 });
             });
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddJwtBearer(option =>
                 {
-                    option.TokenValidationParameters = new TokenValidationParameters
+                    option.SaveToken = true;
+                    option.RequireHttpsMetadata = false;
+                    option.TokenValidationParameters = new TokenValidationParameters()
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
@@ -115,6 +171,15 @@ namespace Caramel
                 });
 
             ApiFactory.RegisterDependencies(services);
+<<<<<<< HEAD
+=======
+
+
+
+            ApiFactory.RegisterDependencies(services);
+
+
+>>>>>>> development
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -130,6 +195,18 @@ namespace Caramel
             Log.Logger = new LoggerConfiguration()
                     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Minute)
                     .CreateLogger();
+
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "swagger/{documentName}/swagger.json";
+                c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+                {
+                    swaggerDoc.Servers = new List<OpenApiServer>
+                    {
+                        new OpenApiServer { Url = $"{Configuration.GetSection("Domain").Value}" }
+                    };
+                });
+            });
 
             app.ConfigureExceptionHandler(Log.Logger, env);
 
