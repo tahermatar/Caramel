@@ -15,6 +15,7 @@ namespace Caramel.Models
 
         public int Id { get; set; }
         public int CustomerId { get; set; }
+        public int Quantity { get; set; }
         public double TotalPrice { get; set; }
         public DateTime DateOfOrder { get; set; }
         public DateTime DateOfExecution { get; set; }
@@ -23,7 +24,7 @@ namespace Caramel.Models
         public DateTime UpdatedDate { get; set; }
         public int? CreatedBy { get; set; }
         public int? UpdatedBy { get; set; }
-        public int Archived { get; set; }
+        public bool Archived { get; set; }
         public int ResturantId { get; set; }
         public int Status { get; set; }
 

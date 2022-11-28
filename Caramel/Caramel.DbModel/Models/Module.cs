@@ -17,7 +17,7 @@ namespace Caramel.Models
         public string Key { get; set; }
         public DateTime CreatedUtc { get; set; }
         public DateTime LastUpdatedUtc { get; set; }
-        public short Archived { get; set; }
+        public bool Archived { get; set; }
 
         public virtual ICollection<Permission> Permissions { get; set; }
     }
