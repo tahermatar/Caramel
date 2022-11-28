@@ -1,4 +1,4 @@
-﻿using Caramel.Core.Mangers.UserManger;
+﻿using Caramel.Core.Mangers.UserManager;
 using Caramel.ModelViews.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

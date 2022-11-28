@@ -17,6 +17,7 @@ namespace Caramel.Controllers
     {
         private UserModelViewModel _loggedInUser;
         private ResturantModelView _loggedInResturant;
+        private CustomerModelViewModel _loggedInCustomer;
         public ApiBaseController()
         {
         }

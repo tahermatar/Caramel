@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caramel.Core.Mangers.UserManger
+namespace Caramel.Core.Mangers.UserManager
 {
     public interface IUserManager : IManager
     {

@@ -1,5 +1,5 @@
 ﻿using Caramel.Attributes;
-using Caramel.Core.Mangers.RoleManger;
+using Caramel.Core.Mangers.RoleManager;
 using Caramel.Data;
 using Caramel.Models;
 using Caramel.ModelViews.Role;

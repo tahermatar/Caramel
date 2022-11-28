@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caramel.Core.Mangers.RoleManger
+namespace Caramel.Core.Mangers.RoleManager
 {
     public interface IRoleManager
     {

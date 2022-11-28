@@ -122,7 +122,6 @@ namespace Caramel.Core.Mangers.CustomerManger
             }).Entity;
 
             _context.SaveChanges();
-
             
             var builder = new EmailBuilder(ActionInvocationTypeEnum.EmailConfirmation,
                                 new Dictionary<string, string>
@@ -193,7 +192,6 @@ namespace Caramel.Core.Mangers.CustomerManger
             _context.SaveChanges();
             return _mapper.Map<CustomerUpdateModelView>(customer);
         }
-
 
         public void DeleteCustomer(UserModelViewModel currentUser, int id)
         {

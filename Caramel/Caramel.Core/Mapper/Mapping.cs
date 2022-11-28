@@ -15,6 +15,7 @@ namespace CarProject.Mapper
         public Mapping()
         {
             CreateMap<User, UserLoginResponseViewModel>().ReverseMap();
+            CreateMap<User, UserModelViewModel>().ReverseMap();
             CreateMap<BlogViewModel, Blog>().ReverseMap();
             CreateMap<PagedResult<BlogViewModel>, PagedResult<Blog>>().ReverseMap();
             CreateMap<Resturant, ResturantLoginModelView>().ReverseMap();
@@ -29,6 +30,12 @@ namespace CarProject.Mapper
             CreateMap<CustomerUpdateModelView, Customer>().ReverseMap();
             CreateMap<PagedResult<CustomerResult>, PagedResult<Customer>>().ReverseMap();
 
+            CreateMap<AddressResult, Address>().ReverseMap();
+
+
+            CreateMap<ViewOrderViewModel, Order>().ReverseMap();
+            CreateMap<CreateOrderViewModel, Order>().ReverseMap();
+            CreateMap<ViewOrderViewModel, ShowOrdersViewModel>().ReverseMap();
             CreateMap<AddressResult, Address>().ReverseMap(); 
             CreateMap<Userpermissionview, Rolepermission>().ReverseMap();
 

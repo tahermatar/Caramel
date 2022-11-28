@@ -3,11 +3,12 @@ using Caramel.Core.Mangers.BlogManger;
 using Caramel.Core.Mangers.CommonManger;
 using Caramel.Core.Mangers.ResturantManager;
 using Caramel.Core.Mangers.RoleManger;
+using Caramel.Core.Mangers.RoleManager;
 using Caramel.Data;
+using Caramel.EmailService;
 using Caramel.EmailService;
 using Caramel.Extenstions;
 using Caramel.Factory;
-using CarProject.Mapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,18 @@ namespace Caramel
         private MapperConfiguration _mapperConfiguration;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            var builder = new ConfigurationBuilder()
+                            .SetBasePath(env.ContentRootPath)
+                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
+
+            _mapperConfiguration = new MapperConfiguration(a => {
             var builder = new ConfigurationBuilder()
                             .SetBasePath(env.ContentRootPath)
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -128,37 +140,11 @@ namespace Caramel
             ApiFactory.RegisterDependencies(services);
 
 
-        }
-        //services.AddSwaggerGen(options =>
-        //{
-        //    options.AddSecurityDefinition(name: "Caramel", securityScheme: new OpenApiSecurityScheme
-        //    {
-        //        Name = "Authorization",
-        //        Type = SecuritySchemeType.ApiKey,
-        //        Scheme = "Caramel",
-        //        BearerFormat = "JWT",
-        //        In = ParameterLocation.Header,
-        //        Description = "Enter your JWT Key",
-        //    });
-        //    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-        //    {
-        //         {
-        //             new OpenApiSecurityScheme
-        //             {
-        //                 Reference =new OpenApiReference
-        //                 {
-        //                     Type = ReferenceType.SecurityScheme,
-        //                     Id ="Bearer",
-        //                 },
-        //                 Name = "Bearer",
-        //                 In = ParameterLocation.Header,
-        //             },
-        //                 new List<string>()
-        //             }
-        //         });
-        //    });
-        //}
 
+            ApiFactory.RegisterDependencies(services);
+
+
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

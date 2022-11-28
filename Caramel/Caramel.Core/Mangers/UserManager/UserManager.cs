@@ -12,7 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caramel.Core.Mangers.UserManger
+namespace Caramel.Core.Mangers.UserManager
 {
     public class UserManager : IUserManager
     {

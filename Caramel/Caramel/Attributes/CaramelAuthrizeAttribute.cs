@@ -1,6 +1,6 @@
 ﻿using Autofac.Core;
 using Caramel.Common.Extinsions;
-using Caramel.Core.Mangers.RoleManger;
+using Caramel.Core.Mangers.RoleManager;
 using Caramel.ModelViews.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;

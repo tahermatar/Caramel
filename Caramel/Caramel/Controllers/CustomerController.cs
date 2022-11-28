@@ -1,5 +1,6 @@
 ﻿using Caramel.Attributes;
 using Caramel.Core.Mangers.CustomerManger;
+using Caramel.Core.Mangers.UserManager;
 using Caramel.Core.Mangers.UserManger;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.User;
