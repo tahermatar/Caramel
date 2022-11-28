@@ -9,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caramel.Core.Mangers.RoleManger
+namespace Caramel.Core.Mangers.RoleManager
 {
-    public class RoleManger : IRoleManger
+    public class RoleManager : IRoleManager
     {
         private readonly CaramelDbContext _context;
 
-        public RoleManger(CaramelDbContext context)
+        public RoleManager(CaramelDbContext context)
         {
             _context = context;
         }

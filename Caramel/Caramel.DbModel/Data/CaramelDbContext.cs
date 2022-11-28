@@ -36,6 +36,7 @@ namespace Caramel.Data
         public virtual DbSet<Userrole> Userroles { get; set; }
         public virtual DbSet<Rolepermission> Rolepermissions { get; set; }
         public virtual DbSet<Userpermissionview> Userpermissionviews { get; set; }
+        public virtual DbSet<ViewOrderViewModel> ViewOrderViewModel { get; set; }
 
         public virtual DbSet<Blog> Blogs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -83,17 +84,11 @@ namespace Caramel.Data
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.ExtraInformation).HasMaxLength(255);
 
                 entity.Property(e => e.Road).HasMaxLength(50);
 
-                entity.Property(e => e.UpdatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -105,6 +100,13 @@ namespace Caramel.Data
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.ConfirmationLink)
+                    .IsRequired()
+                    .HasColumnType("varchar(500)")
+                    .UseCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.EmailConfirmed).HasColumnType("int");
 
                 entity.Property(e => e.Email).HasMaxLength(255);
 
@@ -268,6 +270,10 @@ namespace Caramel.Data
             {
                 entity.ToTable("Order");
 
+                entity.Property(e => e.Quantity)
+                    .HasColumnType("int")
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
@@ -279,6 +285,7 @@ namespace Caramel.Data
                 entity.Property(e => e.DateOfOrder)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+                
 
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
@@ -597,6 +604,34 @@ namespace Caramel.Data
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+            });
+            modelBuilder.Entity<ViewOrderViewModel>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ViewOrderViewModel");
+
+                entity.Property(e => e.OrderId)
+               .HasColumnType("int");
+
+                entity.Property(e => e.CustomerName)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.MealName)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.ResturantName)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.DateOfOrder)
+                   .HasColumnType("datetime");
+
+                entity.Property(e => e.DateOfExcution)
+                   .HasColumnType("datetime");
+
             });
 
             modelBuilder.Entity<Userrole>(entity =>

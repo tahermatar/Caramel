@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caramel.Core.Mangers.RoleManger
+namespace Caramel.Core.Mangers.RoleManager
 {
-    public interface IRoleManger
+    public interface IRoleManager
     {
 
         List<Module> GetModule();
