@@ -4,7 +4,6 @@ using Caramel.DbModel.Models;
 using Caramel.Models;
 using Caramel.ModelViews.Blog;
 using Caramel.ModelViews.Customer;
-using Caramel.ModelViews.Order;
 using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
 
@@ -37,6 +36,11 @@ namespace CarProject.Mapper
             CreateMap<ViewOrderViewModel, Order>().ReverseMap();
             CreateMap<CreateOrderViewModel, Order>().ReverseMap();
             CreateMap<ViewOrderViewModel, ShowOrdersViewModel>().ReverseMap();
+            CreateMap<AddressResult, Address>().ReverseMap(); 
+            CreateMap<Userpermissionview, Rolepermission>().ReverseMap();
+
+            CreateMap<UserModelViewModel, User>().ReverseMap();
+            CreateMap<UserModelViewModel, Resturant>().ReverseMap();
 
 
 

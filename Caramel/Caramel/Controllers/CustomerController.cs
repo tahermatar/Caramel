@@ -1,6 +1,7 @@
 ﻿using Caramel.Attributes;
 using Caramel.Core.Mangers.CustomerManger;
 using Caramel.Core.Mangers.UserManager;
+using Caramel.Core.Mangers.UserManger;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -27,7 +28,7 @@ namespace Caramel.Controllers
         [HttpGet]
         [Route("api/Customer/GetAll")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        //[CaramelAuthrize(Permissions = "customer_all_view")]
+        [CaramelAuthrize(Permissions = "View_All_Customer")]
         public IActionResult GetAll(int page = 1,
                                       int pageSize = 5,
                                       string sortColumn = "",
@@ -44,10 +45,10 @@ namespace Caramel.Controllers
         // POST api/<CustomerController>
         [HttpPost]
         [Route("api/Customer/Create")]
-
+        [AllowAnonymous]
         public IActionResult Rigester([FromBody] CustomerRegisterViewModel vm)
         {
-            var res = _customerManager.Rigester(vm);
+            var res = _customerManager.Rigester(LoggedInUser,vm);
             return Ok(res);
         }
 
@@ -55,7 +56,8 @@ namespace Caramel.Controllers
 
         [HttpDelete]
         [Route("api/Customer/Delete")]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Delete_Customer")]
         public IActionResult Delete( int id)
         {
             _customerManager.DeleteCustomer(LoggedInUser, id);
@@ -65,6 +67,8 @@ namespace Caramel.Controllers
 
         [Route("api/Customer/Confirmation")]
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Confirmation_Customer")]
         public IActionResult Confirmation(string confirmationLink)
         {
             var result = _customerManager.Confirmation(confirmationLink);
@@ -84,29 +88,32 @@ namespace Caramel.Controllers
 
         [Route("api/Customer/UpdateProfile")]
         [HttpPut]
-        [AllowAnonymous]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Update_Profile")]
         public IActionResult UpdateMyProfile([FromBody] CustomerUpdateModelView vm)
         {
-            var user = _customerManager.UpdateProfile(LoggedInCustomer, vm);
+            var user = _customerManager.UpdateProfile(LoggedInUser, vm);
             return Ok(user);
         }
 
         [Route("api/Customer/PutAddress")]
         [HttpPut]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Update_Customer_Address")]
         public IActionResult PutAddress(AddressResult itemRequest)
         {
-            var result = _customerManager.PutAddress(LoggedInCustomer, itemRequest);
+            var result = _customerManager.PutAddress(LoggedInUser, itemRequest);
             return Ok(result);
         }
 
 
         [HttpGet]
         [Route("api/Customer/viewProfile")]
-        [Authorize]
-        public IActionResult ViewProfile()
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "View_Profile")]
+        public IActionResult ViewProfile( int id)
         {
-            var res = _customerManager.ViewProfile(LoggedInCustomer);
+            var res = _customerManager.ViewProfile(LoggedInUser,id);
             return Ok(res);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caramel.DbModel.Models;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -7,6 +8,7 @@ namespace Caramel.Models
 {
     public partial class Customer
     {
+       
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -29,5 +31,7 @@ namespace Caramel.Models
         public virtual Address Address { get; set; }
         public virtual Order Order { get; set; }
         public virtual Rate Rate { get; set; }
+        public int RoleId { get; set; }
+
     }
 }

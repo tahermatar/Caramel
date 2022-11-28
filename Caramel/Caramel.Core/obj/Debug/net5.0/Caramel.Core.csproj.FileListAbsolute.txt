@@ -59,7 +59,10 @@ C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caram
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.pdb
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CopyComplete
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\ref\Caramel.Core.dll
+<<<<<<< HEAD
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.EmailService.dll
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Infrastructure.dll
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.EmailService.pdb
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Infrastructure.pdb
+=======
+>>>>>>> development

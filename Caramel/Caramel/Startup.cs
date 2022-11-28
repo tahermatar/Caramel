@@ -2,12 +2,13 @@ using AutoMapper;
 using Caramel.Core.Mangers.BlogManger;
 using Caramel.Core.Mangers.CommonManger;
 using Caramel.Core.Mangers.ResturantManager;
+using Caramel.Core.Mangers.RoleManger;
 using Caramel.Core.Mangers.RoleManager;
 using Caramel.Data;
 using Caramel.EmailService;
+using Caramel.EmailService;
 using Caramel.Extenstions;
 using Caramel.Factory;
-using CarProject.Mapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,18 @@ namespace Caramel
         private MapperConfiguration _mapperConfiguration;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            var builder = new ConfigurationBuilder()
+                            .SetBasePath(env.ContentRootPath)
+                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
+
+            _mapperConfiguration = new MapperConfiguration(a => {
             var builder = new ConfigurationBuilder()
                             .SetBasePath(env.ContentRootPath)
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -124,6 +136,10 @@ namespace Caramel
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
+
+            ApiFactory.RegisterDependencies(services);
+
+
 
             ApiFactory.RegisterDependencies(services);
 
