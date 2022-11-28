@@ -3,6 +3,7 @@ using Caramel.Data;
 using Caramel.Models;
 using Caramel.ModelViews.Role;
 using Caramel.ModelViews.User;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.RoleManger
 {
-    public class RoleManger : IRoleManger
+    public class RoleManager : IRoleManager
     {
         private readonly CaramelDbContext _context;
 
-        public RoleManger(CaramelDbContext context)
+        public RoleManager(CaramelDbContext context)
         {
             _context = context;
         }
@@ -354,18 +355,32 @@ namespace Caramel.Core.Mangers.RoleManger
 
         public bool CheckAccess(UserModelViewModel userModel, List<string> permissions)
         {
+            if (userModel.Id > 1000) { 
+            var p =  _context.Rolepermissions.Where(x => x.RoleId == 1).
+                                              ToList();
+                var r = new List<Permission>();
 
-            var userTest = _context.Users.FirstOrDefault(x => x.Id == userModel.Id)
-                         ?? throw new ServiceValidationException("Invalid User Id"); ;
+                foreach (var item in p) {
+                   r.Add(_context.Permissions.FirstOrDefault(x => x.PId == item.PermissionId));
+                }
+             
 
-            if (userTest.IsSuperAdmin == true)
-            {
-                return true;
+                var ee = r.Any(x => permissions.Contains(x.Code));
+                return ee;
             }
+            else { 
+                    var userTest = _context.Users.FirstOrDefault(x => x.Id == userModel.Id)
+                                 ?? throw new ServiceValidationException("Invalid User Id"); 
 
+                    if (userTest.IsSuperAdmin == true)
+                    {
+                        return true;
+                    }
+            
             var userPermission = _context.Userpermissionviews.Where(x => x.UserId == userModel.Id).ToList();
 
             return userPermission.Any(x => permissions.Contains(x.Code));
+            }
         }
     }
 }

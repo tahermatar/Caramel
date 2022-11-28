@@ -18,7 +18,7 @@ namespace Caramel.Attributes
         {
             try
             {
-                var roleManager = context.HttpContext.RequestServices.GetService(typeof(IRoleManger)) as IRoleManger;
+                var roleManager = context.HttpContext.RequestServices.GetService(typeof(IRoleManager)) as IRoleManager;
 
                 var stringId = context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value;
 
@@ -26,6 +26,7 @@ namespace Caramel.Attributes
 
                 var user = new UserModelViewModel { Id = id };
 
+               
                 if (roleManager.CheckAccess(user, Permissions.Split(",").ToList()))
                 {
                     return;

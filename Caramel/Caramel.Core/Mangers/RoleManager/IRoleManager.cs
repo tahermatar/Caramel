@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.RoleManger
 {
-    public interface IRoleManger
+    public interface IRoleManager
     {
 
         List<Module> GetModule();

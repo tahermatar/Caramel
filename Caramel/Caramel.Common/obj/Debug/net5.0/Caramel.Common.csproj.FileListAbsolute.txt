@@ -22,3 +22,15 @@ E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Com
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.dll
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.pdb
 E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Common\obj\Debug\net5.0\ref\Caramel.Common.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.deps.json
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\bin\Debug\net5.0\Caramel.Common.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.AssemblyInfo.cs
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\refint\Caramel.Common.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\Caramel.Common.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Common\obj\Debug\net5.0\ref\Caramel.Common.dll
