@@ -17,5 +17,6 @@ namespace Caramel.ModelViews.Resturant
         public string ImageString { get; set; }
         public string Bio { get; set; }
         public string Email { get; set; }
+
     }
 }

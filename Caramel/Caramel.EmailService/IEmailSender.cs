@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+﻿namespace Caramel.EmailService
+{
+    public interface IEmailSender 
+    {
+      void SendEmail(Message message);
+    }
+}
+=======
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IEmail.cs" company="JustProtect">
 //   Copyright (C) 2017. All rights reserved.
@@ -15,3 +24,4 @@ namespace Caramel.EmailService
         void SendEmail(Message message);
     }
 }
+>>>>>>> development

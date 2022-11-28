@@ -18,7 +18,7 @@ namespace Caramel.Models
         public double Price { get; set; }
         public int Quantity { get; set; }
         public string Component { get; set; }
-        public int IsAvailable { get; set; }
+        public bool IsAvailable { get; set; }
         public int ImageId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }

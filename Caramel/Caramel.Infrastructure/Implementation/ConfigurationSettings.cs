@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+
+
+=======
 ﻿
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
+>>>>>>> development
 namespace Caramel.Infrastructure.Implementation
 {
     public class ConfigurationSettings : IConfigurationSettings
@@ -19,9 +26,15 @@ namespace Caramel.Infrastructure.Implementation
 
         public string JwtKey => _config["Jwt:Key"];
 
+<<<<<<< HEAD
+        public string Issuar => _config["Jwt:Issuar"];
+
+        //public string WebSiteURl => _config["URL:WebSiteURl"];
+=======
         public string Issuer => _config["Jwt:Issuer"];
 
         public string WebSiteURl => _config["URL:WebSiteURl"];
+>>>>>>> development
 
     }
 }

@@ -1,8 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+<<<<<<< HEAD
+	<ItemGroup>
+		<PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+=======
 	
 	<ItemGroup>
 		<PackageReference Include="NETCore.MailKit" Version="2.0.3" />
@@ -10,5 +15,8 @@
 
 		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="5.0.0" />
 	</ItemGroup>
+>>>>>>> development
 
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+	</ItemGroup>
 </Project>

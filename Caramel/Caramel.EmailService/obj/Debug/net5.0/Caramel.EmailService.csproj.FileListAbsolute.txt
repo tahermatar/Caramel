@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.deps.json
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.AssemblyReference.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfoInputs.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfo.cs
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.CoreCompileInputs.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\refint\Caramel.EmailService.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\ref\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.deps.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.AssemblyReference.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfoInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfo.cs
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.CoreCompileInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\refint\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.EmailService\obj\Debug\net5.0\ref\Caramel.EmailService.dll
+=======
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.AssemblyReference.cache
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfoInputs.cache
@@ -24,4 +50,5 @@ C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\n
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.pdb
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\ref\Caramel.EmailService.dll
 =======
+>>>>>>> development
 >>>>>>> development

@@ -40,9 +40,15 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+<<<<<<< HEAD
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+=======
             "Microsoft.Extensions.DependencyModel": {
               "target": "Package",
               "version": "[5.0.0, )"
+>>>>>>> development
             },
             "NETCore.MailKit": {
               "target": "Package",

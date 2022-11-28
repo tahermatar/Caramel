@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel\\Caramel.csproj": {}
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel\\Caramel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
         "projectName": "Caramel.Common",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -65,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
         "projectName": "Caramel.Core",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,20 +92,20 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
               }
             }
           }
@@ -144,8 +143,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -154,21 +152,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
         "projectName": "Caramel.DbModel",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -221,8 +219,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -231,21 +228,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
         "projectName": "Caramel.EmailService",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.EmailService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -271,9 +268,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.Extensions.DependencyModel": {
+            "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
             },
             "NETCore.MailKit": {
               "target": "Package",
@@ -290,8 +287,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -300,21 +296,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
         "projectName": "Caramel.Infrastructure",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -346,7 +342,15 @@
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.DependencyModel": {
               "target": "Package",
@@ -371,8 +375,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -381,21 +384,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
         "projectName": "Caramel.ModelViews",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -409,11 +412,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
               }
             }
           }
@@ -433,8 +436,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -443,21 +445,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel\\Caramel.csproj": {
+    "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel\\Caramel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel\\Caramel.csproj",
+        "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel\\Caramel.csproj",
         "projectName": "Caramel",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel\\Caramel.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel\\obj\\",
+        "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel\\Caramel.csproj",
+        "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -471,20 +473,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.Core\\Caramel.Core.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
-              },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
+              "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
+                "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelRepo\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
               }
             }
           }
@@ -514,10 +513,6 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.17, )"
-            },
-            "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": {
-              "target": "Package",
-              "version": "[5.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -566,17 +561,10 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.17, 5.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -585,7 +573,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

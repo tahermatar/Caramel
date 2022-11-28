@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+﻿using Caramel.Core.Mangers.ResturantManager;
+using Caramel.ModelViews.Order;
+=======
 ﻿using Caramel.Attributes;
 using Caramel.Core.Mangers.ResturantManager;
+>>>>>>> development
 using Caramel.ModelViews.Resturant;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -64,6 +69,50 @@ namespace Caramel.Controllers
             return Ok(user);
         }
 
+<<<<<<< HEAD
+        [Route("api/resturant/Confirmation")]
+        [HttpPost]
+        public IActionResult Confirmation(string confirmationLink)
+        {
+            var result = _resturantManager.Confirmation(confirmationLink);
+            return Ok(result);
+        }
+
+        [Route("api/resturant/PutServiceCategory")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutServiceCategory(ServiceCategoryRequest serviceCategoryRequest)
+        {
+            var result = _resturantManager.PutServiceCategory(LoggedInResturant, serviceCategoryRequest);
+            return Ok(result);
+        }
+        
+        [Route("api/resturant/PutMealCategory")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutMealCategory(CategoryRequest categoryRequest)
+        {
+            var result = _resturantManager.PutMealCategory(LoggedInResturant, categoryRequest);
+            return Ok(result);
+        }
+
+        [Route("api/resturant/PutMeal")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutMeal(MealRequest mealRequest)
+        {
+            var result = _resturantManager.PutMeal(LoggedInResturant, mealRequest);
+            return Ok(result);
+        }
+
+        [Route("api/resturant/PutImage")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult PutImage(ImageRequest imageRequest)
+        {
+            var result = _resturantManager.PutImage(LoggedInResturant, imageRequest);
+            return Ok(result);
+=======
 
         [HttpGet]
         [Route("api/Resturant/viewProfile")]
@@ -72,6 +121,7 @@ namespace Caramel.Controllers
         {
             var res = _resturantManager.ViewProfile(LoggedInUser);
             return Ok(res);
+>>>>>>> development
         }
     }
 }

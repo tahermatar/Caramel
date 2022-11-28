@@ -6,7 +6,10 @@ namespace Caramel.EmailService.Implementation
     public class EmailSender : IEmailSender
     {
         private readonly EmailConfiguration _emailConfig;
+<<<<<<< HEAD
+=======
         
+>>>>>>> development
         public EmailSender(EmailConfiguration emailConfig)
         {
             _emailConfig = emailConfig;
@@ -49,4 +52,8 @@ namespace Caramel.EmailService.Implementation
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> development

@@ -8,7 +8,11 @@
     ".NETCoreApp,Version=v5.0": {
       "Caramel.EmailService/1.0.0": {
         "dependencies": {
+<<<<<<< HEAD
+          "Autofac.Extensions.DependencyInjection": "6.0.0",
+=======
           "Microsoft.Extensions.DependencyModel": "5.0.0",
+>>>>>>> development
           "NETCore.MailKit": "2.0.3",
           "Newtonsoft.Json": "13.0.1"
         },
@@ -16,6 +20,29 @@
           "Caramel.EmailService.dll": {}
         }
       },
+<<<<<<< HEAD
+      "Autofac/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Autofac.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/6.0.0": {
+        "dependencies": {
+          "Autofac": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+=======
+>>>>>>> development
       "MailKit/2.6.0": {
         "dependencies": {
           "MimeKit": "2.6.0",
@@ -49,6 +76,8 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
       "Microsoft.Extensions.DependencyModel/5.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
@@ -57,6 +86,7 @@
           }
         }
       },
+>>>>>>> development
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -609,6 +639,23 @@
       "serviceable": false,
       "sha512": ""
     },
+<<<<<<< HEAD
+    "Autofac/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U1aCHUMXuG7DDJ5JmTXF2kInXpad3Fuow+voSXEVunDHW4OkD8GDWJjleHpJPanpP+3dUQYLAM9R2lftGiQSbA==",
+      "path": "autofac/5.0.0",
+      "hashPath": "autofac.5.0.0.nupkg.sha512"
+    },
+    "Autofac.Extensions.DependencyInjection/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+1WNYENm4s/bSBrmTy2sD0zs6MCiCAlUaEbHJ+y7fKpXKqnFl4oTkIkUoDKlp05dl1VoAASBUJocaKKJa1KPCw==",
+      "path": "autofac.extensions.dependencyinjection/6.0.0",
+      "hashPath": "autofac.extensions.dependencyinjection.6.0.0.nupkg.sha512"
+    },
+=======
+>>>>>>> development
     "MailKit/2.6.0": {
       "type": "package",
       "serviceable": true,
@@ -630,6 +677,8 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.4",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.4.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
     "Microsoft.Extensions.DependencyModel/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -637,6 +686,7 @@
       "path": "microsoft.extensions.dependencymodel/5.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512"
     },
+>>>>>>> development
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
