@@ -44,20 +44,7 @@ namespace CarProject.Mapper
             CreateMap<PagedResult<MealResult>, PagedResult<Meal>>().ReverseMap();
 
 
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
+            CreateMap<MealModelView, Meal>().ReverseMap();
 
         }
     }

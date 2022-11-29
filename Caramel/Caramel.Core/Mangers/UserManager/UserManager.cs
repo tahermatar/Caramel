@@ -82,8 +82,6 @@ namespace Caramel.Core.Mangers.UserManger
                 throw new ServiceValidationException("User not found");
             }
 
-            var url = "";
-
 
             user.UserName = request.UserName;
             user.UpdatedDate = DateTime.Now;
