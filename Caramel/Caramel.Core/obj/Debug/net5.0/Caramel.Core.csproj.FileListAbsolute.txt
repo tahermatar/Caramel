@@ -1,0 +1,61 @@
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.deps.json
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.AssemblyReference.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfoInputs.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfo.cs
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CoreCompileInputs.cache
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\refint\Caramel.Core.dll
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.pdb
+C:\Users\DiaaAldin\Source\Repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\ref\Caramel.Core.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.deps.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.AssemblyReference.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfoInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfo.cs
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CoreCompileInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\refint\Caramel.Core.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\ref\Caramel.Core.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Common.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.DbModel.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Common.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.DbModel.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelRepo\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CopyComplete
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Common.dll
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.DbModel.dll
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.dll
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Common.pdb
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.DbModel.pdb
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.pdb
+C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CopyComplete
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.AssemblyInfo.cs
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\refint\Caramel.Core.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.deps.json
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Core.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Common.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.DbModel.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.EmailService.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Infrastructure.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.dll
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Common.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.DbModel.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.EmailService.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.Infrastructure.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\bin\Debug\net5.0\Caramel.ModelViews.pdb
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\Caramel.Core.csproj.CopyComplete
+C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.Core\obj\Debug\net5.0\ref\Caramel.Core.dll

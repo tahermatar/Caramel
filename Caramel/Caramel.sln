@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel", "Caramel\Caramel.csproj", "{83868F9A-B329-4631-A3E2-123AB41E9BB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.Common", "Caramel.Common\Caramel.Common.csproj", "{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.Core", "Caramel.Core\Caramel.Core.csproj", "{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.DbModel", "Caramel.DbModel\Caramel.DbModel.csproj", "{87EF759D-ACF3-4A4A-9C42-9DB245742D01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caramel.ModelViews", "Caramel.ModelViews\Caramel.ModelViews.csproj", "{7FF2065E-BE66-4535-8AA5-E4922F8F893F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.EmailService", "Caramel.EmailService\Caramel.EmailService.csproj", "{E6CF2343-3AAD-43B4-8677-E802A893AC7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caramel.Infrastructure", "Caramel.Infrastructure\Caramel.Infrastructure.csproj", "{2D6C4942-9375-43B4-80A4-6C4C6CBA4A10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83868F9A-B329-4631-A3E2-123AB41E9BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83868F9A-B329-4631-A3E2-123AB41E9BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83868F9A-B329-4631-A3E2-123AB41E9BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83868F9A-B329-4631-A3E2-123AB41E9BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9B6E79-ADF5-4161-AC82-2ACC66A7AA07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9CF26E-E70C-4131-ACF9-25EE381ECA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87EF759D-ACF3-4A4A-9C42-9DB245742D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87EF759D-ACF3-4A4A-9C42-9DB245742D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87EF759D-ACF3-4A4A-9C42-9DB245742D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87EF759D-ACF3-4A4A-9C42-9DB245742D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FF2065E-BE66-4535-8AA5-E4922F8F893F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF2065E-BE66-4535-8AA5-E4922F8F893F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF2065E-BE66-4535-8AA5-E4922F8F893F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF2065E-BE66-4535-8AA5-E4922F8F893F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6CF2343-3AAD-43B4-8677-E802A893AC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6CF2343-3AAD-43B4-8677-E802A893AC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6CF2343-3AAD-43B4-8677-E802A893AC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6CF2343-3AAD-43B4-8677-E802A893AC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6C4942-9375-43B4-80A4-6C4C6CBA4A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6C4942-9375-43B4-80A4-6C4C6CBA4A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6C4942-9375-43B4-80A4-6C4C6CBA4A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6C4942-9375-43B4-80A4-6C4C6CBA4A10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02EEA9F7-D71E-46DA-92BA-4684C6EC27E1}
+	EndGlobalSection
+EndGlobal
