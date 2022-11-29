@@ -70,7 +70,7 @@ namespace Caramel.Controllers
         [CaramelAuthrize(Permissions = "Confirmation_Customer")]
         public IActionResult Confirmation(string confirmationLink)
         {
-            var result = _customerManager.Confirmation(confirmationLink);
+            var result = _customerManager.Confirmation(LoggedInUser,confirmationLink);
             return Ok(result);
         }
 

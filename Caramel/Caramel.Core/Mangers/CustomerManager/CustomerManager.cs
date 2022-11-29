@@ -141,7 +141,7 @@ namespace Caramel.Core.Mangers.CustomerManger
             return res;
         }
 
-        public CustomerResult Confirmation(string ConfirmationLink)
+        public CustomerResult Confirmation(UserModelViewModel currentUser, string ConfirmationLink)
         {
             var customer = _context.Customers
                            .FirstOrDefault(a => a.ConfirmationLink
@@ -197,17 +197,20 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         public void DeleteCustomer(UserModelViewModel currentUser, int id)
         {
-            if (currentUser.Id == id)
+            var user = new Customer();
+
+            if (currentUser.IsSuperAdmin) {
+                   user = _context.Customers
+                                            .FirstOrDefault(x => x.Id == id)
+                                             ?? throw new ServiceValidationException("User not found");
+            }
+            else
             {
                 throw new ServiceValidationException("you have no access to delete your self");
             }
-            var user = _context.Customers
-                .FirstOrDefault(x => x.Id == id)
-                ?? throw new ServiceValidationException("User not found");
+            
 
             user.Archived = 1;
-        
-
             _context.SaveChanges();
         }
 

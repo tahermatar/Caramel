@@ -51,9 +51,10 @@ namespace Caramel.Controllers
         }
 
 
-        [Route("api/resturant/Delete")]
         [HttpDelete]
-        [Authorize]
+        [Route("api/Resturant/Delete")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Delete_Resturant")]
         public IActionResult Delete(int id)
         {
             _resturantManager.DeleteResturant(LoggedInUser, id);
@@ -109,10 +110,39 @@ namespace Caramel.Controllers
         [Route("api/Resturant/viewProfile")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "View_Resturant_Profile")]
-        public IActionResult ViewProfile()
+        public IActionResult ViewProfile(int id)
         {
-            var res = _resturantManager.ViewProfile(LoggedInUser);
+            var res = _resturantManager.ViewProfile(LoggedInUser,id);
             return Ok(res);
+        }
+
+
+        [Route("api/Resturant/Confirmation")]
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Confirmation_Resturant")]
+        public IActionResult Confirmation(string confirmationLink)
+        {
+            var result = _resturantManager.Confirmation(LoggedInUser,confirmationLink);
+            return Ok(result);
+        }
+
+
+
+        [HttpGet]
+        [Route("api/Resturant/GetAll")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "View_All_Resturant")]
+        public IActionResult GetAll(int page = 1,
+                                      int pageSize = 5,
+                                      string sortColumn = "",
+                                      string sortDirection = "ascending",
+                                      string searchText = "")
+        {
+            return Ok(_resturantManager.GetAll(LoggedInUser, page, pageSize,
+                                               sortColumn,
+                                               sortDirection,
+                                               searchText));
         }
 
 

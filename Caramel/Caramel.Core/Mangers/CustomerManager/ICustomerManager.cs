@@ -9,7 +9,7 @@ namespace Caramel.Core.Mangers.CustomerManger
     {
         public CustomerLoginResponseViewModel Rigester(UserModelViewModel currentUser, CustomerRegisterViewModel vm);
         public CustomerResponse GetAll(UserModelViewModel currentUser, int page = 1, int pageSize = 10, string sortColumn = "", string sortDirection = "ascending", string searchText = "");
-        CustomerResult Confirmation(string ConfirmationLink);
+        CustomerResult Confirmation(UserModelViewModel currentUser,string ConfirmationLink);
         public CustomerLoginResponseViewModel Login(CustomerLoginViewModel vm);
         public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser, CustomerUpdateModelView request);
         public void DeleteCustomer(UserModelViewModel currentUser, int id);

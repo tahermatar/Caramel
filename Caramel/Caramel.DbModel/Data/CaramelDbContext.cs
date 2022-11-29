@@ -21,7 +21,6 @@ namespace Caramel.Data
 
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Meal> Meals { get; set; }
         public virtual DbSet<MealCategory> MealCategories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -141,27 +140,6 @@ namespace Caramel.Data
                     .HasConstraintName("FK_Customer_Rate");
             });
 
-            modelBuilder.Entity<Image>(entity =>
-            {
-                entity.ToTable("Image");
-
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.ExtraInformation).HasMaxLength(255);
-
-                entity.Property(e => e.Image1)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("Image");
-
-                entity.Property(e => e.Title).HasMaxLength(50);
-
-                entity.Property(e => e.UpdatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-            });
 
             modelBuilder.Entity<Meal>(entity =>
             {
@@ -172,6 +150,8 @@ namespace Caramel.Data
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Image).HasColumnType("nvarchar(255)");
+
 
                 entity.Property(e => e.IsAvailable).HasDefaultValueSql("((1))");
 
@@ -183,11 +163,6 @@ namespace Caramel.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.HasOne(d => d.Image)
-                    .WithMany(p => p.Meals)
-                    .HasForeignKey(d => d.ImageId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Meal_Image");
 
                 entity.HasOne(d => d.MealCategory)
                     .WithMany(p => p.Meals)

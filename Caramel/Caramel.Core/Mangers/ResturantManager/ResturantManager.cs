@@ -36,16 +36,21 @@ namespace Caramel.Core.Mangers.ResturantManager
 
         public void DeleteResturant(UserModelViewModel currentResturant, int id)
         {
-            if (currentResturant.Id != id)
+            var user = new Resturant();
+
+            if (currentResturant.IsSuperAdmin)
             {
-                throw new ServiceValidationException("you have no access to delete this resturant");
+                user = _caramelDbContext.Resturants
+                                         .FirstOrDefault(x => x.Id == id)
+                                          ?? throw new ServiceValidationException("User not found");
+            }
+            else
+            {
+                throw new ServiceValidationException("you have no access to delete your self");
             }
 
-            var resturant = _caramelDbContext.Resturants
-                                             .FirstOrDefault(x => x.Id == id)
-                                             ?? throw new ServiceValidationException("User not found");
 
-            resturant.Archived = false;
+            user.Archived = true;
             _caramelDbContext.SaveChanges();
         }
 
@@ -183,16 +188,24 @@ namespace Caramel.Core.Mangers.ResturantManager
             return _mapper.Map<ResturantViewAllModelView>(resturant);
         }
 
-        public ResturantViewAllModelView ViewProfile(UserModelViewModel currentUser)
+        public ResturantViewAllModelView ViewProfile(UserModelViewModel currentUser, int id)
         {
-            var res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
-                ?? throw new ServiceValidationException("User not found");
-
-            if (res == null)
+            var res = new Resturant();
+            if (currentUser.IsSuperAdmin)
             {
-                throw new ServiceValidationException("User not found");
-            }
+                res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == id)
+                                                   ?? throw new ServiceValidationException("User not found");
 
+                if (res == null)
+                {
+                    throw new ServiceValidationException("User not found");
+                }
+            }
+            else
+            {
+                res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
+                                                    ?? throw new ServiceValidationException("User not found");
+            }
             return _mapper.Map<ResturantViewAllModelView>(res);
         }
 
@@ -287,6 +300,63 @@ namespace Caramel.Core.Mangers.ResturantManager
 
 
         }
+
+
+        public ResturantRegViewModel Confirmation(UserModelViewModel currentUser, string ConfirmationLink)
+        {
+            var res = _caramelDbContext.Resturants
+                                                       .FirstOrDefault(a => a.ConfirmationLink
+                                                       .Equals(ConfirmationLink)
+                                                        && !a.EmailConfirmed)
+                                                        ?? throw new ServiceValidationException("Invalid or expired confirmation link received");
+
+            res.EmailConfirmed = true;
+            res.ConfirmationLink = string.Empty;
+            _caramelDbContext.SaveChanges();
+            return _mapper.Map<ResturantRegViewModel>(res);
+        }
+
+
+
+        public ResturantResponse GetAll(UserModelViewModel currentUser,
+                                         int page = 1,
+                                         int pageSize = 10,
+                                         string sortColumn = "",
+                                         string sortDirection = "ascending",
+                                         string searchText = "") {
+
+            var queryRes = _caramelDbContext.Resturants
+                                                      .Where(a => (string.IsNullOrWhiteSpace(searchText)
+                                                            || (a.UserName.Contains(searchText)
+                                                            || a.Email.Contains(searchText))));
+
+            if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
+            {
+                queryRes = queryRes.OrderBy(sortColumn);
+            }
+            else if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("descending", StringComparison.InvariantCultureIgnoreCase))
+            {
+                queryRes = queryRes.OrderByDescending(sortColumn);
+            }
+
+            var res = queryRes.GetPaged(page, pageSize);
+
+            var data = new ResturantResponse
+            {
+                Resturants = _mapper.Map<PagedResult<ResturantModelView>>(res)
+            };
+
+            data.Resturants.Sortable.Add("Title", "Title");
+            data.Resturants.Sortable.Add("CreatedDate", "Created Date");
+
+            return data;
+
+
+        }
+
+
+
+
 
 
         #region private
