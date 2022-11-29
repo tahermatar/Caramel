@@ -225,12 +225,22 @@ namespace Caramel.Core.Mangers.CustomerManger
         public AddressResult PutAddress(UserModelViewModel currentUser,
                                         AddressResult request)
         {
-            var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
-                ?? throw new ServiceValidationException("User not found");
 
-            if (customer == null)
-            {
-                throw new ServiceValidationException("User not found");
+            var customer = new Customer();
+            if (currentUser.IsSuperAdmin)
+                { 
+                     customer = _context.Customers.FirstOrDefault(x => x.Id == request.UserId)
+                                 ?? throw new ServiceValidationException("Customer not found");
+
+                if (customer == null)
+                {
+                    throw new ServiceValidationException("User not found");
+                }
+            }
+
+            else {
+                 customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                             ?? throw new ServiceValidationException("Customer not found");
             }
 
             Address item = null;
@@ -256,15 +266,18 @@ namespace Caramel.Core.Mangers.CustomerManger
                     City = request.City,
                     Country = request.Country,
                     Road = request.Road,
-                    ExtraInformation = request.ExtraInformation,
-                    Id = request.Id
+                    ExtraInformation = request.ExtraInformation
 
                 }).Entity;
 
+                _context.SaveChanges();
+
             }
 
-            customer.AddressId = request.Id;
+            customer.AddressId = item.Id;
             customer.Address = item;
+            customer.UpdatedDate = DateTime.UtcNow;
+            customer.UpdatedBy = currentUser.Id;
 
             _context.SaveChanges();
             return _mapper.Map<AddressResult>(item);
@@ -273,18 +286,21 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         public CustomerResult ViewProfile(UserModelViewModel currentUser, int id)
         {
-            var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
-                ?? throw new ServiceValidationException("User not found");
+            var customer = new Customer();
+            if (currentUser.IsSuperAdmin) { 
+               customer = _context.Customers.FirstOrDefault(x => x.Id == id)
+                    ?? throw new ServiceValidationException("User not found");
 
-            if (customer == null)
-            {
-                throw new ServiceValidationException("User not found");
+                if (customer == null)
+                {
+                    throw new ServiceValidationException("User not found");
+                }
             }
-
-            var customer1 = _context.Customers.FirstOrDefault(x => x.Id == id)
-                ?? throw new ServiceValidationException("User not found");
-
-            return _mapper.Map<CustomerResult>(customer1);   
+            else { 
+                customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                    ?? throw new ServiceValidationException("User not found");
+            }
+            return _mapper.Map<CustomerResult>(customer);   
         }
 
         #endregion

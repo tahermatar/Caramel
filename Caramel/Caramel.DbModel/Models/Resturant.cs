@@ -26,7 +26,7 @@ namespace Caramel.Models
         public int? CreatedBy { get; set; }
         public int? UpdatedBy { get; set; }
         public bool Archived { get; set; }
-        public string Address { get; set; }
+        public int Address { get; set; }
         public string Phone { get; set; }
         public int? MealId { get; set; }
         public int? ServiceCategoryId { get; set; }

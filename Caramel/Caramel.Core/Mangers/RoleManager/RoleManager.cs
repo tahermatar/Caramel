@@ -355,8 +355,8 @@ namespace Caramel.Core.Mangers.RoleManger
 
         public bool CheckAccess(UserModelViewModel userModel, List<string> permissions)
         {
-            if (userModel.Id > 1000) { 
-            var p =  _context.Rolepermissions.Where(x => x.RoleId == 1).
+            if (userModel.Id > 1000 && userModel.Id < 10000) { 
+             var p =  _context.Rolepermissions.Where(x => x.RoleId == 1).
                                               ToList();
                 var r = new List<Permission>();
 
@@ -368,6 +368,21 @@ namespace Caramel.Core.Mangers.RoleManger
                 var ee = r.Any(x => permissions.Contains(x.Code));
                 return ee;
             }
+            else if (userModel.Id > 10000)
+            {
+                    var p = _context.Rolepermissions.Where(x => x.RoleId == 4).
+                                                     ToList();
+                    var r = new List<Permission>();
+
+                    foreach (var item in p)
+                    {
+                        r.Add(_context.Permissions.FirstOrDefault(x => x.PId == item.PermissionId));
+                    }
+
+
+                    var ee = r.Any(x => permissions.Contains(x.Code));
+                    return ee;
+                }
             else { 
                     var userTest = _context.Users.FirstOrDefault(x => x.Id == userModel.Id)
                                  ?? throw new ServiceValidationException("Invalid User Id"); 

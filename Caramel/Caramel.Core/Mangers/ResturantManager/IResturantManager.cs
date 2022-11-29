@@ -6,12 +6,17 @@ namespace Caramel.Core.Mangers.ResturantManager
 {
     public interface IResturantManager : IManager
     {
-        public ResturantLoginResponseModelView SignUp(ResturantRegisterViewModel resturantReg);
+        public ResturantLoginResponseModelView SignUp(UserModelViewModel currentUser, ResturantRegisterViewModel resturantReg);
         public ResturantLoginResponseModelView Login(ResturantLoginModelView resturantLogin);
-        public ResturantModelView UpdateProfile(UserModelViewModel currentResturant, ResturantModelView request);
+
         public void DeleteResturant(UserModelViewModel currentResturant, int id);
 
-        public ResturantModelView ViewProfile(UserModelViewModel currentUser );
+        public ResturantViewAllModelView ViewProfile(UserModelViewModel currentUser );
+
+        public ResturantRegViewModel UpdateRegistrationData(UserModelViewModel currentUser, ResturantRegViewModel reg );
+        public ResturantModelView UpdateResturantAddress(UserModelViewModel currentUser, AddressResult reg );
+        public ResturantViewAllModelView UpdateProfile(UserModelViewModel currentResturant, ResturantModelView request);
+
 
     }
 }

@@ -360,7 +360,7 @@ namespace Caramel.Data
             {
                 entity.ToTable("Resturant");
 
-                entity.Property(e => e.Address).HasColumnType("nvarchar(255)");
+                entity.Property(e => e.Address).HasColumnType("int");
 
                 entity.Property(e => e.ConfirmationLink)
                     .IsRequired()

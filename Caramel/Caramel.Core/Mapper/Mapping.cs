@@ -34,10 +34,13 @@ namespace CarProject.Mapper
 
             CreateMap<UserModelViewModel, User>().ReverseMap();
             CreateMap<UserModelViewModel, Resturant>().ReverseMap();
-
+            CreateMap<ResturantRegViewModel, Resturant>().ReverseMap();
+            CreateMap<ResturantViewAllModelView, Resturant>().ReverseMap();
 
 
             
+
+
 
 
 

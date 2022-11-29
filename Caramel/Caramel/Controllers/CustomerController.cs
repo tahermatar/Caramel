@@ -89,7 +89,7 @@ namespace Caramel.Controllers
         [HttpPut]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "Update_Profile")]
-        public IActionResult UpdateMyProfile([FromBody] CustomerUpdateModelView vm)
+        public IActionResult UpdateProfile([FromBody] CustomerUpdateModelView vm)
         {
             var user = _customerManager.UpdateProfile(LoggedInUser, vm);
             return Ok(user);
