@@ -129,12 +129,32 @@ namespace Caramel.Core.Mangers.MealManager
                                         string sortDirection = "ascending",
                                         string searchText = "")
         {
-            var queryRes = _context.Meals
-                                         .Where(a => (string.IsNullOrWhiteSpace(searchText)
+
+            IQueryable<Meal> queryRes;
+
+            if (ResturantId > 0)
+            {
+
+                var resturantt = _context.Meals
+                                    .FirstOrDefault(a => a.Id == ResturantId)
+                                     ?? throw new ServiceValidationException(300,"Invalid Resturant id received");
+
+                queryRes = _context.Meals
+                                         .Where(a => ((string.IsNullOrWhiteSpace(searchText)
                                            || (a.MealName.Contains(searchText)
-                                           || a.Price.ToString().Contains(searchText)
-                                           || a.MealCategory.ToString().Contains(searchText)
-                                           )));
+                                           || a.Price.ToString().Contains(searchText)))
+                                           && (a.ResturantId == ResturantId)
+                                           ));
+            }
+            else {
+                queryRes = _context.Meals
+                                            .Where(a => ((string.IsNullOrWhiteSpace(searchText)
+                                              || (a.MealName.Contains(searchText)
+                                              || a.Price.ToString().Contains(searchText)))
+                                              ));
+            }
+
+           
 
             if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -158,6 +178,37 @@ namespace Caramel.Core.Mangers.MealManager
             return data;
 
         }
+
+
+        public MealModelView viewMeal(int id)
+        {
+            var meal = _context.Meals
+                                    .FirstOrDefault(a => a.Id == id)
+                                     ?? throw new ServiceValidationException("Invalid Meal id received");
+
+            return _mapper.Map<MealModelView>(meal);
+        }
+
+
+        public bool DeleteMeal(UserModelViewModel currentUser, int id)
+        {
+
+            var res = _context.Meals
+                                    .FirstOrDefault(x => x.Id == id)
+                                    ?? throw new ServiceValidationException("Meal not found");
+
+            if (currentUser.IsSuperAdmin || (res.ResturantId == currentUser.Id))
+            {
+                res.Archived = 1;
+                _context.SaveChanges();
+                return true;
+            }
+
+            throw new ServiceValidationException(300 ,"you have no access to delete Other Resturant Meals");
+            
+        }
+
+
         #endregion
     }
 }

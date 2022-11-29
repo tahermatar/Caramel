@@ -24,8 +24,7 @@ namespace Caramel.Controllers
 
         [HttpGet]
         [Route("api/Meal/GetResturantAllMeal")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "View_All_Resturant_Meals")]
+        [AllowAnonymous]
         public IActionResult GetResturantAllMeal(int ResturantId,
                                       int page = 1,
                                       int pageSize = 5,
@@ -48,6 +47,26 @@ namespace Caramel.Controllers
         {
             var result = _mealManager.PutMeal(LoggedInUser, itemRequest);
             return Ok(result);
+        }
+
+
+        [HttpGet]
+        [Route("api/Meal/viewMeal")]
+        [AllowAnonymous]
+        public IActionResult ViewProfile(int id)
+        {
+            var res = _mealManager.viewMeal(id);
+            return Ok(res);
+        }
+
+
+        [HttpDelete]
+        [Route("api/Meal/Delete")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Delete_Meal")]
+        public IActionResult Delete(int id)
+        {
+            return Ok(_mealManager.DeleteMeal(LoggedInUser, id));
         }
     }
 }

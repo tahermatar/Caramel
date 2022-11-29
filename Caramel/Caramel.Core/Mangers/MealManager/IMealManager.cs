@@ -13,5 +13,8 @@ namespace Caramel.Core.Mangers.MealManager
                                         string sortColumn = "",
                                         string sortDirection = "ascending",
                                         string searchText = "");
+
+        public MealModelView viewMeal(int id);
+        public bool DeleteMeal(UserModelViewModel currentUser, int id);
     }
 }
