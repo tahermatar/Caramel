@@ -22,7 +22,7 @@ namespace Caramel.Data
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Meal> Meals { get; set; }
-        public virtual DbSet<MealCategory> MealCategories { get; set; }
+       // public virtual DbSet<MealCategory> MealCategories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Rate> Rates { get; set; }
         public virtual DbSet<Resturant> Resturants { get; set; }
@@ -164,11 +164,6 @@ namespace Caramel.Data
                     .HasDefaultValueSql("(getdate())");
 
 
-                entity.HasOne(d => d.MealCategory)
-                    .WithMany(p => p.Meals)
-                    .HasForeignKey(d => d.MealCategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Meal_MealCategory");
 
                 entity.HasOne(d => d.Resturant)
                     .WithMany(p => p.Meals)
@@ -182,24 +177,6 @@ namespace Caramel.Data
                     .HasConstraintName("FK_Meal_ServiceCategory");
             });
 
-            modelBuilder.Entity<MealCategory>(entity =>
-            {
-                entity.ToTable("MealCategory");
-
-                entity.Property(e => e.CategoryName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.ExtraInformation).HasMaxLength(255);
-
-                entity.Property(e => e.UpdatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-            });
 
             modelBuilder.Entity<Module>(entity =>
             {

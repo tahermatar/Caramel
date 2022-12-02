@@ -5,6 +5,7 @@ using Caramel.Data;
 using Caramel.EmailService;
 using Caramel.Infrastructure;
 using Caramel.Models;
+using Caramel.ModelViews;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Meal;
 using Caramel.ModelViews.Resturant;
@@ -87,9 +88,9 @@ namespace Caramel.Core.Mangers.MealManager
                 item.Quantity = vm.Quantity;
                 item.UpdatedBy = currentUser.Id;
                 item.UpdatedDate = DateTime.UtcNow;
-                item.MealCategoryId = vm.MealCategoryId;
                 item.ServiceCategoryId = vm.ServiceCategoryId;  
                 item.Image = image;
+                item.MealCategoryId = (int)vm.MealCat;
 
             }
             else
@@ -104,9 +105,9 @@ namespace Caramel.Core.Mangers.MealManager
                     Quantity = vm.Quantity,
                     CreatedBy = res.Id,
                     CreatedDate = DateTime.UtcNow,
-                    MealCategoryId = vm.MealCategoryId,
                     ServiceCategoryId = vm.ServiceCategoryId,
-                    Image = image
+                    Image = image,
+                    MealCategoryId = (int)vm.MealCat
             }).Entity;
                 _context.SaveChanges();
 
@@ -122,12 +123,13 @@ namespace Caramel.Core.Mangers.MealManager
         }
 
         public MealResponse GetResturantAllMeal(UserModelViewModel currentUser,
-                                        int ResturantId,
-                                        int page = 1,
-                                        int pageSize = 10,
-                                        string sortColumn = "",
-                                        string sortDirection = "ascending",
-                                        string searchText = "")
+                                                int ResturantId,
+                                                MealCategoryEnum MealCat = MealCategoryEnum.All,
+                                                int page = 1,
+                                                int pageSize = 10,
+                                                string sortColumn = "",
+                                                string sortDirection = "ascending",
+                                                string searchText = "")
         {
 
             IQueryable<Meal> queryRes;
@@ -144,6 +146,8 @@ namespace Caramel.Core.Mangers.MealManager
                                            || (a.MealName.Contains(searchText)
                                            || a.Price.ToString().Contains(searchText)))
                                            && (a.ResturantId == ResturantId)
+                                           && (MealCat == MealCategoryEnum.All
+                                            || a.MealCategoryId == (int)MealCat)
                                            ));
             }
             else {
@@ -151,6 +155,8 @@ namespace Caramel.Core.Mangers.MealManager
                                             .Where(a => ((string.IsNullOrWhiteSpace(searchText)
                                               || (a.MealName.Contains(searchText)
                                               || a.Price.ToString().Contains(searchText)))
+                                              && (MealCat == MealCategoryEnum.All
+                                              || a.MealCategoryId == (int)MealCat)
                                               ));
             }
 
@@ -174,6 +180,17 @@ namespace Caramel.Core.Mangers.MealManager
 
             data.Meals.Sortable.Add("Title", "Title");
             data.Meals.Sortable.Add("CreatedDate", "Created Date");
+            data.Meals.Filterable.Add("MealCategoryId", new FilterableKeyModel
+            {
+                Title = "MealCategory",
+                Values = ((MealCategoryEnum[])Enum.GetValues(typeof(MealCategoryEnum)))
+                            .Select(c => new FilterableValueModel
+                            {
+                                Id = (int)c,
+                                Title = c.GetDescription().ToString()
+                            })
+                            .ToList()
+            });
 
             return data;
 
