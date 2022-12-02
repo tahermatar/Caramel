@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {}
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
         "projectName": "Caramel.Common",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -65,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
         "projectName": "Caramel.Core",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Core\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,20 +92,20 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
               }
             }
           }
@@ -144,8 +143,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -154,21 +152,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
         "projectName": "Caramel.DbModel",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -221,8 +219,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -231,21 +228,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
         "projectName": "Caramel.EmailService",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -290,8 +287,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -300,21 +296,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
         "projectName": "Caramel.Infrastructure",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -371,8 +367,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -381,21 +376,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
         "projectName": "Caramel.ModelViews",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.ModelViews\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -409,11 +404,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
               },
-              "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-                "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+              "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+                "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
               }
             }
           }
@@ -433,8 +428,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -443,7 +437,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

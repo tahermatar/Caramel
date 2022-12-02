@@ -15,7 +15,8 @@ namespace Caramel.Models
 
         public int Id { get; set; }
         public int CustomerId { get; set; }
-        public double TotalPrice { get; set; }
+        public float TotalPrice { get; set; }
+        public int Quantity { get; set; }
         public DateTime DateOfOrder { get; set; }
         public DateTime DateOfExecution { get; set; }
         public int MealId { get; set; }

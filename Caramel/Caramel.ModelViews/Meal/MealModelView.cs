@@ -22,6 +22,7 @@ namespace Caramel.ModelViews.Meal
         public string Image { get; set; }
         public virtual MealCategory MealCategory { get; set; }
         public virtual ServiceCategory ServiceCategory { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+
+
     }
 }

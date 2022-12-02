@@ -35,6 +35,8 @@ namespace Caramel.Data
         public virtual DbSet<Userrole> Userroles { get; set; }
         public virtual DbSet<Rolepermission> Rolepermissions { get; set; }
         public virtual DbSet<Userpermissionview> Userpermissionviews { get; set; }
+        public virtual DbSet<ViewOrderViewModel> ViewOrderViewModel { get; set; }
+
 
         public virtual DbSet<Blog> Blogs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -70,6 +72,7 @@ namespace Caramel.Data
 
 
             });
+
             modelBuilder.Entity<Address>(entity =>
             {
                 entity.ToTable("Address");
@@ -140,7 +143,6 @@ namespace Caramel.Data
                     .HasConstraintName("FK_Customer_Rate");
             });
 
-
             modelBuilder.Entity<Meal>(entity =>
             {
                 entity.ToTable("Meal");
@@ -176,7 +178,6 @@ namespace Caramel.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Meal_ServiceCategory");
             });
-
 
             modelBuilder.Entity<Module>(entity =>
             {
@@ -221,6 +222,10 @@ namespace Caramel.Data
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.ToTable("Order");
+
+                entity.Property(e => e.Quantity)
+                   .HasColumnType("int")
+                   .HasDefaultValueSql("0");
 
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
@@ -320,6 +325,7 @@ namespace Caramel.Data
                     .UseCollation("latin1_swedish_ci");
 
                 entity.Property(e => e.EmailConfirmed).HasColumnType("int");
+
                 entity.Property(e => e.RoleId).HasColumnType("int");
 
                 entity.Property(e => e.Bio).HasColumnType("nvarchar(255)");
@@ -555,6 +561,50 @@ namespace Caramel.Data
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ViewOrderViewModel>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ViewOrderViewModel");
+
+                entity.Property(e => e.OrderId)
+                  .HasColumnType("int"); 
+
+                entity.Property(e => e.CustomerId)
+                  .HasColumnType("int");
+
+                entity.Property(e => e.CustomerName)
+                 .HasColumnType("nvarchar(255)")
+                 .IsRequired()
+                 .HasMaxLength(255);
+
+                entity.Property(e => e.MealName)
+                 .HasColumnType("nvarchar(255)")
+                .IsRequired()
+                .HasMaxLength(255);
+
+                entity.Property(e => e.RestorantId)
+                  .HasColumnType("int");
+
+                entity.Property(e => e.ResturantName)
+                 .HasColumnType("nvarchar(255)")
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.TotalPrice)
+                    .HasColumnType("float");
+
+                entity.Property(e => e.DateOfOrder)
+                   .HasColumnType("datetime");
+
+                entity.Property(e => e.DateOfExcution)
+                   .HasColumnType("datetime");
+
+                entity.Property(e => e.Status)
+                   .HasColumnType("nvarchar(255)");
+
             });
 
             modelBuilder.Entity<Userrole>(entity =>

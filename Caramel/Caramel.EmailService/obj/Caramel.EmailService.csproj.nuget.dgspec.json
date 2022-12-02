@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {}
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+    "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
         "projectName": "Caramel.EmailService",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CaramelProj\\Caramel\\Caramel.EmailService\\obj\\",
+        "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj",
+        "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,8 +59,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -69,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
