@@ -12,7 +12,6 @@ namespace Caramel.ModelViews.Meal
 
         public int Id { get; set; }
         public string MealName { get; set; }
-        public int MealCategoryId { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
         public string Component { get; set; }
@@ -21,6 +20,7 @@ namespace Caramel.ModelViews.Meal
         public string Image { get; set; }
         public int ServiceCategoryId { get; set; }
         public int? ResturantId { get; set; }
+        public MealCategoryEnum MealCat { get; set; }
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Caramel.Attributes;
 using Caramel.Core.Mangers.CustomerManger;
 using Caramel.Core.Mangers.MealManager;
+using Caramel.ModelViews;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Meal;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -25,17 +26,21 @@ namespace Caramel.Controllers
         [HttpGet]
         [Route("api/Meal/GetResturantAllMeal")]
         [AllowAnonymous]
-        public IActionResult GetResturantAllMeal(int ResturantId,
-                                      int page = 1,
-                                      int pageSize = 5,
-                                      string sortColumn = "",
-                                      string sortDirection = "ascending",
-                                      string searchText = "")
+        public IActionResult GetResturantAllMeal( int ResturantId, MealCategoryEnum MealCat = MealCategoryEnum.All,
+                                                  int page = 1,
+                                                  int pageSize = 5,
+                                                  string sortColumn = "",
+                                                  string sortDirection = "ascending",
+                                                  string searchText = "")
         {
-            return Ok(_mealManager.GetResturantAllMeal(LoggedInUser, ResturantId, page, pageSize,
-                                               sortColumn,
-                                               sortDirection,
-                                               searchText));
+            return Ok(_mealManager.GetResturantAllMeal(LoggedInUser, 
+                                                       ResturantId,
+                                                       MealCat, 
+                                                       page,
+                                                       pageSize,
+                                                       sortColumn,
+                                                       sortDirection,
+                                                       searchText));
         }
 
 
