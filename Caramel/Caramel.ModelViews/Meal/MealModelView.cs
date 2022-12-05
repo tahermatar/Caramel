@@ -20,8 +20,8 @@ namespace Caramel.ModelViews.Meal
         public int ServiceCategoryId { get; set; }
         public int? ResturantId { get; set; }
         public string Image { get; set; }
-        public virtual MealCategory MealCategory { get; set; }
-        public virtual ServiceCategory ServiceCategory { get; set; }
+        //public virtual MealCategory MealCategory { get; set; }
+        //public virtual ServiceCategory ServiceCategory { get; set; }
 
 
     }

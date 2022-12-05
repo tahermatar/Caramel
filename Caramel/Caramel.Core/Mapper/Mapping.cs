@@ -5,6 +5,8 @@ using Caramel.Models;
 using Caramel.ModelViews.Blog;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Meal;
+using Caramel.ModelViews.Order;
+using Caramel.ModelViews.Rate;
 using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
 
@@ -38,14 +40,18 @@ namespace CarProject.Mapper
             CreateMap<ResturantRegViewModel, Resturant>().ReverseMap();
             CreateMap<ResturantViewAllModelView, Resturant>().ReverseMap();
 
+            //CreateMap<CreateOrderViewModel, Order>().ReverseMap();
 
             CreateMap<MealCreateModelView, Meal>().ReverseMap();
             CreateMap<MealResult, Meal>().ReverseMap();
             CreateMap<PagedResult<MealResult>, PagedResult<Meal>>().ReverseMap();
-
-
             CreateMap<MealModelView, Meal>().ReverseMap();
 
+            CreateMap<UserModelViewModel, Rate>().ReverseMap();
+            CreateMap<AddRateModelView, Rate>().ReverseMap();
+            CreateMap<RateResponse, Rate>().ReverseMap();
+            CreateMap<RateResult, Rate>().ReverseMap();
+            CreateMap<PagedResult<RateResult>, PagedResult<Rate>>().ReverseMap();
         }
     }
 }

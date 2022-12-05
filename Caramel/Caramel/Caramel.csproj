@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Profile Images\**" />
+    <Content Remove="Profile Images\**" />
+    <EmbeddedResource Remove="Profile Images\**" />
+    <None Remove="Profile Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -33,10 +40,6 @@
     <ProjectReference Include="..\Caramel.DbModel\Caramel.DbModel.csproj" />
     <ProjectReference Include="..\Caramel.EmailService\Caramel.EmailService.csproj" />
     <ProjectReference Include="..\Caramel.ModelViews\Caramel.ModelViews.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Profile Images\" />
   </ItemGroup>
 
 </Project>

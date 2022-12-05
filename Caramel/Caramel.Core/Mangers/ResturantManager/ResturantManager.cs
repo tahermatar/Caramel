@@ -2,9 +2,13 @@
 using Caramel.Common.Extinsions;
 using Caramel.Common.Helperr;
 using Caramel.Data;
+using Caramel.EmailService;
+using Caramel.Infrastructure;
 using Caramel.Models;
 using Caramel.ModelViews.Customer;
+using Caramel.ModelViews.Enums;
 using Caramel.ModelViews.Resturant;
+using Caramel.ModelViews.Static;
 using Caramel.ModelViews.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -25,33 +29,48 @@ namespace Caramel.Core.Mangers.ResturantManager
     {
         private readonly CaramelDbContext _caramelDbContext;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
+        private readonly IConfigurationSettings _configurationSettings;
 
-        public ResturantManager(CaramelDbContext caramelDbContext, IMapper mapper)
+        public ResturantManager(CaramelDbContext caramelDbContext, IMapper mapper, IEmailSender emailSender, IConfigurationSettings configurationSettings)
         {
             _caramelDbContext = caramelDbContext;
             _mapper = mapper;
+            _emailSender = emailSender;
+            _configurationSettings = configurationSettings;
         }
 
 
 
         public void DeleteResturant(UserModelViewModel currentResturant, int id)
         {
-            var user = new Resturant();
-
-            if (currentResturant.IsSuperAdmin)
+            if (currentResturant.Id != id)
             {
-                user = _caramelDbContext.Resturants
-                                         .FirstOrDefault(x => x.Id == id)
-                                          ?? throw new ServiceValidationException("User not found");
-            }
-            else
-            {
-                throw new ServiceValidationException("you have no access to delete your self");
+                throw new ServiceValidationException("you have no access to delete this resturant");
             }
 
+            var resturant = _caramelDbContext.Resturants
+                                             .FirstOrDefault(x => x.Id == id)
+                                             ?? throw new ServiceValidationException("Resturant not found");
 
-            user.Archived = true;
+            resturant.Archived = true;
             _caramelDbContext.SaveChanges();
+            //var user = new Resturant();
+
+            //if (currentResturant.IsSuperAdmin)
+            //{
+            //    user = _caramelDbContext.Resturants
+            //                             .FirstOrDefault(x => x.Id == id)
+            //                              ?? throw new ServiceValidationException("User not found");
+            //}
+            //else
+            //{
+            //    throw new ServiceValidationException("you have no access to delete your self");
+            //}
+
+
+            //user.Archived = true;
+            //_caramelDbContext.SaveChanges();
         }
 
         public ResturantLoginResponseModelView Login(ResturantLoginModelView resturantLogin)
@@ -129,6 +148,16 @@ namespace Caramel.Core.Mangers.ResturantManager
 
             _caramelDbContext.SaveChanges();
 
+            var builder = new EmailBuilder(ActionInvocationTypeEnum.EmailConfirmation,
+                                new Dictionary<string, string>
+                                {
+                                    { "AssigneeName", $"{resturantReg.Name}" },
+                                    { "Link", $"{resturant.ConfirmationLink}" }
+                                }, "https://localhost:44369/");
+
+            var message = new Message(new string[] { resturant.Email }, builder.GetTitle(), builder.GetBody());
+            _emailSender.SendEmail(message);
+
             var result = _mapper.Map<ResturantLoginResponseModelView>(resturant);
             result.Token = $"Bearer {GenerateJwtTaken(resturant)}";
 
@@ -137,11 +166,11 @@ namespace Caramel.Core.Mangers.ResturantManager
 
 
         public ResturantViewAllModelView UpdateProfile(UserModelViewModel currentResturant,
-                                                ResturantModelView request)
+                                                       ResturantModelView request)
         {
-            var user = _caramelDbContext.Resturants
-                                             .FirstOrDefault(x => x.Id == currentResturant.Id)
-                                             ?? throw new ServiceValidationException("User not found");
+            //var user = _caramelDbContext.Resturants
+            //                                 .FirstOrDefault(x => x.Id == currentResturant.Id)
+            //                                 ?? throw new ServiceValidationException("User not found");
 
             var resturant = _caramelDbContext.Resturants
                                              .FirstOrDefault(x => x.Id == request.Id)
@@ -151,7 +180,7 @@ namespace Caramel.Core.Mangers.ResturantManager
 
             if (!string.IsNullOrWhiteSpace(request.ImageString))
             {
-                url = Helper.SaveImage(request.ImageString, "Profile Images");
+                url = Helper.SaveImage(request.ImageString, "profileimages");
             }
 
             var image = "";
@@ -190,29 +219,41 @@ namespace Caramel.Core.Mangers.ResturantManager
 
         public ResturantViewAllModelView ViewProfile(UserModelViewModel currentUser, int id)
         {
-            var res = new Resturant();
-            if (currentUser.IsSuperAdmin)
+            if (currentUser.Id != id)
             {
-                res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == id)
-                                                   ?? throw new ServiceValidationException("User not found");
+                throw new ServiceValidationException("Resturant not found");
+            }
 
-                if (res == null)
-                {
-                    throw new ServiceValidationException("User not found");
-                }
-            }
-            else
-            {
-                res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
-                                                    ?? throw new ServiceValidationException("User not found");
-            }
-            return _mapper.Map<ResturantViewAllModelView>(res);
+            var resturant = _caramelDbContext.Resturants
+                                             .FirstOrDefault(x => x.Id == id)
+                                             ?? throw new ServiceValidationException("Resturant not found");
+
+            return _mapper.Map<ResturantViewAllModelView>(resturant);
+
+            //var res = new Resturant();
+            //if (currentUser.IsSuperAdmin)
+            //{
+            //    res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == id)
+            //                                       ?? throw new ServiceValidationException("User not found");
+
+            //    if (res == null)
+            //    {
+            //        throw new ServiceValidationException("User not found");
+            //    }
+            //}
+            //else
+            //{
+            //    res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
+            //                                        ?? throw new ServiceValidationException("User not found");
+            //}
+            //return _mapper.Map<ResturantViewAllModelView>(res);
         }
 
-        public ResturantRegViewModel UpdateRegistrationData(UserModelViewModel currentUser, ResturantRegViewModel reg)
+        public ResturantRegViewModel UpdateRegistrationData(UserModelViewModel currentUser,
+                                                            ResturantRegViewModel reg)
         {
             var res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
-                ?? throw new ServiceValidationException("User not found");
+                                                  ?? throw new ServiceValidationException("User not found");
 
             if (res == null)
             {
@@ -220,9 +261,9 @@ namespace Caramel.Core.Mangers.ResturantManager
             }
 
 
-            var res1 = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id ==
-            reg.Id)
-                ?? throw new ServiceValidationException("User not found");
+            var res1 = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == reg.Id)
+                                                   ?? throw new ServiceValidationException("User not found");
+
             var hashedPassword = HashPassword(reg.Password);
 
             res1.UserName = reg.UserName;
@@ -233,30 +274,30 @@ namespace Caramel.Core.Mangers.ResturantManager
             res1.Password = hashedPassword;
             res1.ConfirmPassword = hashedPassword;
 
-
             _caramelDbContext.SaveChanges();
             return _mapper.Map<ResturantRegViewModel>(res1);
         }
 
         public ResturantModelView UpdateResturantAddress(UserModelViewModel currentUser,
-                                                    AddressResult reg)
+                                                         AddressResult reg)
         {
 
             var res = new Resturant();
             if (currentUser.IsSuperAdmin) { 
                     res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == reg.UserId)
-                              ?? throw new ServiceValidationException("Customer not found");
+                              ?? throw new ServiceValidationException("Resturant not found");
 
                     if (res == null)
                     {
                         throw new ServiceValidationException("User not found");
                     }
-            }else { 
+            }
+            
+            else { 
                 res = _caramelDbContext.Resturants.FirstOrDefault(x => x.Id == currentUser.Id)
-                              ?? throw new ServiceValidationException("Customer not found");}
+                              ?? throw new ServiceValidationException("Resturant not found");}
 
             Address item = null;
-
 
             if (reg.Id > 0)
             {
@@ -297,26 +338,20 @@ namespace Caramel.Core.Mangers.ResturantManager
             c.ExtraAddressInformation = item.ExtraInformation;  
 
             return c;
-
-
         }
-
 
         public ResturantRegViewModel Confirmation(UserModelViewModel currentUser, string ConfirmationLink)
         {
-            var res = _caramelDbContext.Resturants
-                                                       .FirstOrDefault(a => a.ConfirmationLink
-                                                       .Equals(ConfirmationLink)
-                                                        && !a.EmailConfirmed)
-                                                        ?? throw new ServiceValidationException("Invalid or expired confirmation link received");
+            var res = _caramelDbContext.Resturants.FirstOrDefault(a => a.ConfirmationLink
+                                                  .Equals(ConfirmationLink)
+                                                  && !a.EmailConfirmed)
+                                                  ?? throw new ServiceValidationException("Invalid or expired confirmation link received");
 
             res.EmailConfirmed = true;
             res.ConfirmationLink = string.Empty;
             _caramelDbContext.SaveChanges();
             return _mapper.Map<ResturantRegViewModel>(res);
         }
-
-
 
         public ResturantResponse GetAll(UserModelViewModel currentUser,
                                          int page = 1,
@@ -350,14 +385,7 @@ namespace Caramel.Core.Mangers.ResturantManager
             data.Resturants.Sortable.Add("CreatedDate", "Created Date");
 
             return data;
-
-
         }
-
-
-
-
-
 
         #region private
         private static string HashPassword(string password)

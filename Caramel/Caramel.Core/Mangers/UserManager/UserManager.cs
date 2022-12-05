@@ -41,7 +41,7 @@ namespace Caramel.Core.Mangers.UserManger
             return res;
         }
 
-        public UserLoginResponseViewModel Rigester(UserRegisterViewModel vm)
+        public UserLoginResponseViewModel SignUp(UserRegisterViewModel vm)
         {
 
             if (_caramelDbContext.Users.Any(x => x.Email.ToLower() == vm.Email.ToLower()))
@@ -104,6 +104,7 @@ namespace Caramel.Core.Mangers.UserManger
             {
                 throw new ServiceValidationException("you have no access to delete your self");
             }
+
             var user = _caramelDbContext.Users
                 .FirstOrDefault(x => x.Id == id)
                 ?? throw new ServiceValidationException("User not found");

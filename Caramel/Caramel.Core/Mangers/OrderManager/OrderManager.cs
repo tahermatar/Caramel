@@ -28,7 +28,9 @@ namespace Caramel.Core.Mangers.OrderManager
         public List<ViewOrderViewModel> ViewMealOrder(UserModelViewModel currentUser)
         {
             var IsCustomer = _context.Customers.FirstOrDefault(x => x.Email == currentUser.Email);
-            var IsRestorant = _context.Resturants.FirstOrDefault(x => x.Email == currentUser.Email);
+
+            var IsResturant = _context.Resturants.FirstOrDefault(x => x.Email == currentUser.Email);
+
             var User = _context.Users.FirstOrDefault(x => x.Email == currentUser.Email);
 
             //var OrderInfo = _context.Orders.Include(x => x.Resturants).ToList();
@@ -39,13 +41,14 @@ namespace Caramel.Core.Mangers.OrderManager
 
             if (IsCustomer != null)
             {
-                queryRes = _context.ViewOrderViewModel.ToList();
+                queryRes = _context.ViewOrderViewModel.Where(x => x.CustomerId == IsCustomer.Id).ToList();
             }
-            else
-            if (IsRestorant != null)
+
+            else if (IsResturant != null)
             {
-                queryRes = _context.ViewOrderViewModel.Where(x => x.RestorantId == IsRestorant.Id).ToList();
+                queryRes = _context.ViewOrderViewModel.Where(x => x.RestorantId == IsResturant.Id).ToList();
             }
+
             else if (true)
             {
                 queryRes = _context.ViewOrderViewModel.Where(x => x.OrderId >= 1).ToList();
@@ -54,22 +57,23 @@ namespace Caramel.Core.Mangers.OrderManager
             return queryRes;
         }
 
-            public CreateOrderViewModel CreateMealOrder(UserModelViewModel currentUser, CreateOrderViewModel vm)
+        public CreateOrderViewModel CreateMealOrder(UserModelViewModel currentUser, CreateOrderViewModel vm)
         {
             var checkCustomer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id) 
-                ?? throw new ServiceValidationException("Order just for customer");
+                                ?? throw new ServiceValidationException("Order just for customer");
 
             var checkMealExist = _context.Meals.FirstOrDefault(x => x.Id == vm.MealId)
-                ?? throw new ServiceValidationException("Meal not Exist");
+                                 ?? throw new ServiceValidationException("Meal not Exist");
 
             var checkResturuntExist = _context.Resturants.FirstOrDefault(x => x.Id == vm.ResturantId)
-                ?? throw new ServiceValidationException("Resturaant not Exist");
+                                      ?? throw new ServiceValidationException("Resturaant not Exist");
 
             var Meal = _context.Meals.Where(x => x.Id == vm.MealId).FirstOrDefault();
+
             float TotalPrice =  (float)(Meal.Price * vm.Quantity);
+
             var data = new Order
             {
-
                 CustomerId = currentUser.Id,
                 Quantity = vm.Quantity,
                 TotalPrice = TotalPrice,
@@ -78,28 +82,26 @@ namespace Caramel.Core.Mangers.OrderManager
                 MealId = vm.MealId,
                 CreatedDate = DateTime.Now,
                 CreatedBy = currentUser.Id,
-                Archived = true,
+                Archived = false,
                 ResturantId = vm.ResturantId,
                 Status = Convert.ToInt16(StatusEnum.InProgress)
             };
 
             _context.Orders.Add(data);
+            //var res = _mapper.Map<CreateOrderViewModel>(data);
             _context.SaveChanges();
 
             return vm;
-
-
         }
 
         public void DeleteMealOrder(UserModelViewModel currentUser ,int id)
         {
            var order = _context.Orders.FirstOrDefault(x => x.Id == id)
-                ?? throw new ServiceValidationException("Order not found");
-
+                       ?? throw new ServiceValidationException("Order not found");
 
             if (order != null)
             {
-                order.Archived = false;
+                order.Archived = true;
                 order.UpdatedBy = currentUser.Id;
                 order.UpdatedDate = DateTime.Now;
 
@@ -117,12 +119,11 @@ namespace Caramel.Core.Mangers.OrderManager
             {
                 order.Status = Convert.ToInt16(StatusEnum.Completed);
                 order.UpdatedBy = currentUser.Id;
+                order.Archived = true;
                 order.UpdatedDate = DateTime.Now;
 
                 _context.SaveChanges();
             }
         }
-
-    
     }
 }

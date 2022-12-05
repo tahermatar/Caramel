@@ -10,6 +10,7 @@ namespace Caramel.Data
 {
     public partial class CaramelDbContext : DbContext
     {
+        private bool IgnoreFilter { get; set; }
         public CaramelDbContext()
         {
         }
@@ -26,7 +27,7 @@ namespace Caramel.Data
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Rate> Rates { get; set; }
         public virtual DbSet<Resturant> Resturants { get; set; }
-        public virtual DbSet<ServiceCategory> ServiceCategories { get; set; }
+        //public virtual DbSet<ServiceCategory> ServiceCategories { get; set; }
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
@@ -124,6 +125,8 @@ namespace Caramel.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.Archived).HasColumnType("int");
+
                 entity.Property(e => e.UserName).HasMaxLength(50);
 
                 entity.HasOne(d => d.Address)
@@ -165,18 +168,12 @@ namespace Caramel.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-
+                entity.Property(e => e.Archived).HasColumnType("int");
 
                 entity.HasOne(d => d.Resturant)
                     .WithMany(p => p.Meals)
                     .HasForeignKey(d => d.ResturantId)
                     .HasConstraintName("FK_Meal_Resturant ");
-
-                entity.HasOne(d => d.ServiceCategory)
-                    .WithMany(p => p.Meals)
-                    .HasForeignKey(d => d.ServiceCategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Meal_ServiceCategory");
             });
 
             modelBuilder.Entity<Module>(entity =>
@@ -227,6 +224,9 @@ namespace Caramel.Data
                    .HasColumnType("int")
                    .HasDefaultValueSql("0");
 
+                entity.Property(e => e.TotalPrice)
+                      .HasColumnType("float");
+
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
@@ -242,6 +242,9 @@ namespace Caramel.Data
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Archived)
+                    .HasColumnType("int");
 
                 entity.HasOne(d => d.Meal)
                     .WithMany(p => p.Orders)
@@ -311,6 +314,13 @@ namespace Caramel.Data
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Archived).HasColumnType("int");
+
+                entity.HasOne(d => d.Resturant)
+                      .WithMany(p => p.Rates)
+                      .HasForeignKey(d => d.ResturantId)
+                      .HasConstraintName("FK_Resturant_Rate");
             });
 
             modelBuilder.Entity<Resturant>(entity =>
@@ -381,15 +391,15 @@ namespace Caramel.Data
                     .HasForeignKey(d => d.OrderId)
                     .HasConstraintName("FK_Resturant _Order1");
 
-                entity.HasOne(d => d.Rate)
-                    .WithMany(p => p.Resturants)
-                    .HasForeignKey(d => d.RateId)
-                    .HasConstraintName("FK_Resturant _Rate");
+                //entity.HasOne(d => d.Rate)
+                //    .WithMany(p => p.Resturants)
+                //    .HasForeignKey(d => d.RateId)
+                //    .HasConstraintName("FK_Resturant _Rate");
 
-                entity.HasOne(d => d.ServiceCategory)
-                    .WithMany(p => p.Resturants)
-                    .HasForeignKey(d => d.ServiceCategoryId)
-                    .HasConstraintName("FK_Resturant _ServiceCategory");
+                //entity.HasOne(d => d.ServiceCategory)
+                //    .WithMany(p => p.Resturants)
+                //    .HasForeignKey(d => d.ServiceCategoryId)
+                //    .HasConstraintName("FK_Resturant _ServiceCategory");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -463,25 +473,6 @@ namespace Caramel.Data
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("RoleId_RolePermission");
-            });
-
-            modelBuilder.Entity<ServiceCategory>(entity =>
-            {
-                entity.ToTable("ServiceCategory");
-
-                entity.Property(e => e.CategoryName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.ExtraInformation).HasMaxLength(255);
-
-                entity.Property(e => e.UpdatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -641,6 +632,9 @@ namespace Caramel.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("UserRole_UserId");
             });
+
+            modelBuilder.Entity<Customer>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
+            modelBuilder.Entity<Meal>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
 
             OnModelCreatingPartial(modelBuilder);
         }

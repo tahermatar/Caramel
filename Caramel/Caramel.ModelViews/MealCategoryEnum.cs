@@ -10,8 +10,12 @@ namespace Caramel.ModelViews
     public enum MealCategoryEnum
     {
 
+        [Description("All")]
         All = -1,
+
+        [Description("Cakes")]
         Cakes = 0,
+
         [Description("Cold Sweets")]
         ColdSweets = 1,
 
@@ -28,6 +32,9 @@ namespace Caramel.ModelViews
         IceCream = 5,
 
         [Description("Turkish Sweets")]
-        TurkishSweets = 6
+        TurkishSweets = 6,
+
+        [Description("Arabic Sweets")]
+        ArabicSweets = 7
     }
 }
