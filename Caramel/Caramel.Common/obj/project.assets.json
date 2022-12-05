@@ -88,19 +88,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DiaaAldin\\.nuget\\packages\\": {}
+    "C:\\Users\\Almajd-PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+      "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
       "projectName": "Caramel.Common",
-      "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
-      "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\obj\\",
+      "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Common\\Caramel.Common.csproj",
+      "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+      "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -150,7 +150,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

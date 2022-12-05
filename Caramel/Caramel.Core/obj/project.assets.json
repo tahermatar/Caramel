@@ -7256,19 +7256,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DiaaAldin\\.nuget\\packages\\": {}
+    "C:\\Users\\Almajd-PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+      "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
       "projectName": "Caramel.Core",
-      "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
-      "packagesPath": "C:\\Users\\DiaaAldin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Core\\obj\\",
+      "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Core\\Caramel.Core.csproj",
+      "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
+      "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DiaaAldin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7282,20 +7282,20 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
+            "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Common\\Caramel.Common.csproj": {
+              "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Common\\Caramel.Common.csproj"
             },
-            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
+            "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj": {
+              "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.DbModel\\Caramel.DbModel.csproj"
             },
-            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
+            "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj": {
+              "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.EmailService\\Caramel.EmailService.csproj"
             },
-            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
+            "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj": {
+              "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.Infrastructure\\Caramel.Infrastructure.csproj"
             },
-            "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
-              "projectPath": "C:\\Users\\DiaaAldin\\source\\repos\\Caramel\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
+            "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj": {
+              "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Final Project GSG\\CaramelProject\\Caramel\\Caramel.ModelViews\\Caramel.ModelViews.csproj"
             }
           }
         }
@@ -7342,7 +7342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
