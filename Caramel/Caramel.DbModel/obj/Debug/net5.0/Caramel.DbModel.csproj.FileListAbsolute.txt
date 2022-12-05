@@ -43,3 +43,18 @@ C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\re
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.pdb
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.genruntimeconfig.cache
 C:\Users\hp\source\repos\CaramelProj\Caramel\Caramel.DbModel\obj\Debug\net5.0\ref\Caramel.DbModel.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.deps.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.runtimeconfig.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.runtimeconfig.dev.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\bin\Debug\net5.0\Caramel.DbModel.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.csproj.AssemblyReference.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.AssemblyInfoInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.AssemblyInfo.cs
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.csproj.CoreCompileInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\refint\Caramel.DbModel.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\Caramel.DbModel.genruntimeconfig.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.DbModel\obj\Debug\net5.0\ref\Caramel.DbModel.dll

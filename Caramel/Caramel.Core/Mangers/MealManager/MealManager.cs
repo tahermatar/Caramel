@@ -2,20 +2,13 @@
 using Caramel.Common.Extinsions;
 using Caramel.Common.Helperr;
 using Caramel.Data;
-using Caramel.EmailService;
-using Caramel.Infrastructure;
 using Caramel.Models;
 using Caramel.ModelViews;
-using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Meal;
-using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
-using Org.BouncyCastle.Asn1.Ocsp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Caramel.Core.Mangers.MealManager
 {
@@ -24,21 +17,16 @@ namespace Caramel.Core.Mangers.MealManager
 
         private readonly CaramelDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IConfigurationSettings _configurationSettings;
-        private readonly IEmailSender _emailSender;
 
-
-
-        public MealManager(CaramelDbContext context, IMapper mapper, IEmailSender emailSender, IConfigurationSettings configurationSettings)
+        public MealManager(CaramelDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _emailSender = emailSender;
-            _configurationSettings = configurationSettings;
         }
 
 
         #region public
+
         public MealCreateModelView PutMeal(UserModelViewModel currentUser, MealCreateModelView vm)
         {
             var res = new Resturant();
@@ -56,7 +44,7 @@ namespace Caramel.Core.Mangers.MealManager
             }
 
             var url = "";
-            var image = "https://localhost:44309/api/v1/user/fileretrive/profilepic?filename=profileimages/85cd9e2c8cd1457b8cd53592ea7393f7Logo.png";
+            var image = "";
 
             if (!string.IsNullOrWhiteSpace(vm.ImageString))
             {
@@ -88,7 +76,7 @@ namespace Caramel.Core.Mangers.MealManager
                 item.Quantity = vm.Quantity;
                 item.UpdatedBy = currentUser.Id;
                 item.UpdatedDate = DateTime.UtcNow;
-                item.ServiceCategoryId = vm.ServiceCategoryId;  
+                item.ServiceCategoryId = (int)vm.ServiceCategory;  
                 item.Image = image;
                 item.MealCategoryId = (int)vm.MealCat;
 
@@ -105,7 +93,7 @@ namespace Caramel.Core.Mangers.MealManager
                     Quantity = vm.Quantity,
                     CreatedBy = res.Id,
                     CreatedDate = DateTime.UtcNow,
-                    ServiceCategoryId = vm.ServiceCategoryId,
+                    ServiceCategoryId = (int)vm.ServiceCategory,
                     Image = image,
                     MealCategoryId = (int)vm.MealCat
             }).Entity;
@@ -125,6 +113,7 @@ namespace Caramel.Core.Mangers.MealManager
         public MealResponse GetResturantAllMeal(UserModelViewModel currentUser,
                                                 int ResturantId,
                                                 MealCategoryEnum MealCat = MealCategoryEnum.All,
+                                                ServiceCategoryEnum ServiceCat = ServiceCategoryEnum.All,
                                                 int page = 1,
                                                 int pageSize = 10,
                                                 string sortColumn = "",
@@ -138,26 +127,30 @@ namespace Caramel.Core.Mangers.MealManager
             {
 
                 var resturantt = _context.Meals
-                                    .FirstOrDefault(a => a.Id == ResturantId)
-                                     ?? throw new ServiceValidationException(300,"Invalid Resturant id received");
+                                         .FirstOrDefault(a => a.ResturantId == ResturantId)
+                                         ?? throw new ServiceValidationException(300,"Invalid Resturant id received");
 
                 queryRes = _context.Meals
-                                         .Where(a => ((string.IsNullOrWhiteSpace(searchText)
-                                           || (a.MealName.Contains(searchText)
-                                           || a.Price.ToString().Contains(searchText)))
-                                           && (a.ResturantId == ResturantId)
-                                           && (MealCat == MealCategoryEnum.All
-                                            || a.MealCategoryId == (int)MealCat)
-                                           ));
+                                   .Where(a => ((string.IsNullOrWhiteSpace(searchText)
+                                   || (a.MealName.Contains(searchText)
+                                   || a.Price.ToString().Contains(searchText)))
+                                   && (a.ResturantId == ResturantId)
+                                   && (MealCat == MealCategoryEnum.All
+                                    || a.MealCategoryId == (int)MealCat)
+                                   && (ServiceCat == ServiceCategoryEnum.All
+                                    || a.ServiceCategoryId == (int)ServiceCat)
+                                   ));
             }
             else {
                 queryRes = _context.Meals
-                                            .Where(a => ((string.IsNullOrWhiteSpace(searchText)
-                                              || (a.MealName.Contains(searchText)
-                                              || a.Price.ToString().Contains(searchText)))
-                                              && (MealCat == MealCategoryEnum.All
-                                              || a.MealCategoryId == (int)MealCat)
-                                              ));
+                                   .Where(a => ((string.IsNullOrWhiteSpace(searchText)
+                                   || (a.MealName.Contains(searchText)
+                                   || a.Price.ToString().Contains(searchText)))
+                                   && (MealCat == MealCategoryEnum.All
+                                   || a.MealCategoryId == (int)MealCat)
+                                   && (ServiceCat == ServiceCategoryEnum.All
+                                   || a.ServiceCategoryId == (int)ServiceCat)
+                                   ));
             }
 
            
@@ -178,12 +171,24 @@ namespace Caramel.Core.Mangers.MealManager
                 Meals = _mapper.Map<PagedResult<MealResult>>(res)
             };
 
-            data.Meals.Sortable.Add("Title", "Title");
+            data.Meals.Sortable.Add("MealName", "Meal Name");
             data.Meals.Sortable.Add("CreatedDate", "Created Date");
             data.Meals.Filterable.Add("MealCategoryId", new FilterableKeyModel
             {
                 Title = "MealCategory",
                 Values = ((MealCategoryEnum[])Enum.GetValues(typeof(MealCategoryEnum)))
+                            .Select(c => new FilterableValueModel
+                            {
+                                Id = (int)c,
+                                Title = c.GetDescription().ToString()
+                            })
+                            .ToList()
+            });
+
+            data.Meals.Filterable.Add("ServiceCategoryId", new FilterableKeyModel
+            {
+                Title = "ServiceCategory",
+                Values = ((ServiceCategoryEnum[])Enum.GetValues(typeof(ServiceCategoryEnum)))
                             .Select(c => new FilterableValueModel
                             {
                                 Id = (int)c,
@@ -207,22 +212,22 @@ namespace Caramel.Core.Mangers.MealManager
         }
 
 
-        public bool DeleteMeal(UserModelViewModel currentUser, int id)
+        public void DeleteMeal(UserModelViewModel currentUser, int id)
         {
 
             var res = _context.Meals
                                     .FirstOrDefault(x => x.Id == id)
                                     ?? throw new ServiceValidationException("Meal not found");
 
-            if (currentUser.IsSuperAdmin || (res.ResturantId == currentUser.Id))
+            if ((res.ResturantId == currentUser.Id) || currentUser.IsSuperAdmin)
             {
-                res.Archived = 1;
+                res.Archived = true;
                 _context.SaveChanges();
-                return true;
             }
-
-            throw new ServiceValidationException(300 ,"you have no access to delete Other Resturant Meals");
-            
+            else 
+            { 
+                throw new ServiceValidationException(300, "you have no access to delete the restaurant meals");
+            }
         }
 
 

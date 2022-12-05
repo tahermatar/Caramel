@@ -22,3 +22,15 @@ C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\n
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\refint\Caramel.EmailService.dll
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.pdb
 C:\Users\DiaaAldin\source\repos\Caramel\Caramel\Caramel.EmailService\obj\Debug\net5.0\ref\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.deps.json
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\bin\Debug\net5.0\Caramel.EmailService.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.AssemblyReference.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.GeneratedMSBuildEditorConfig.editorconfig
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfoInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.AssemblyInfo.cs
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.csproj.CoreCompileInputs.cache
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\refint\Caramel.EmailService.dll
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\Caramel.EmailService.pdb
+E:\ASP.net GSG\Part_2 Projects\Final Project GSG\CaramelProject\Caramel\Caramel.EmailService\obj\Debug\net5.0\ref\Caramel.EmailService.dll

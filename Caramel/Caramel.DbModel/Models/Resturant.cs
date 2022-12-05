@@ -10,6 +10,7 @@ namespace Caramel.Models
         public Resturant()
         {
             Meals = new HashSet<Meal>();
+            Rates = new HashSet<Rate>();
         }
 
         public int Id { get; set; }
@@ -34,17 +35,12 @@ namespace Caramel.Models
         public int? OrderId { get; set; }
         public int IsChef { get; set; }
         public int? RateId { get; set; }
-
-        public virtual Order Order { get; set; }
-        public virtual Rate Rate { get; set; }
-        public virtual ServiceCategory ServiceCategory { get; set; }
-        public virtual ICollection<Meal> Meals { get; set; }
-
-
-
         public bool EmailConfirmed { get; set; }
         public string ConfirmationLink { get; set; }
         public int RoleId { get; set; }
 
+        public virtual Order Order { get; set; }
+        public virtual ICollection<Meal> Meals { get; set; }
+        public virtual ICollection<Rate> Rates { get; set; }
     }
 }

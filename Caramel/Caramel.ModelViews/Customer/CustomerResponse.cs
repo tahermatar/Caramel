@@ -10,7 +10,7 @@ namespace Caramel.ModelViews.Customer
 {
     public class CustomerResponse
     {
-        public PagedResult<CustomerResult> customers { get; set; }
+        public PagedResult<CustomerResult> Customer { get; set; }
         //public Dictionary<int, AddressResult> address { get; set; }
 
 

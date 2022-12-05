@@ -24,7 +24,13 @@ namespace Caramel.Controllers
         }
 
 
-        // GET: api/<RoleController>
+        [HttpPost]
+        public IActionResult CreateModule([FromBody] ModuleCreateViewModel vm)
+        {
+            return Ok(_roleManger.CreateModule(vm));
+        }
+
+
         [HttpGet]
         [CaramelAuthrize(Permissions = "sup2")]
         public IActionResult GetModule()
@@ -33,15 +39,6 @@ namespace Caramel.Controllers
         }
 
 
-        // POST api/<RoleController>
-        [HttpPost]
-        public IActionResult CreateModule([FromBody]ModuleCreateViewModel vm)
-        {
-            return Ok(_roleManger.CreateModule(vm));
-        }
-
-
-        // PUT api/<RoleController>/5
         [HttpPut("{id}")]
         public IActionResult Put([FromBody] ModuleCreateViewModel vm)
         {
@@ -49,20 +46,22 @@ namespace Caramel.Controllers
             return Ok(res);
         }
 
-        // DELETE api/<RoleController>/5
+
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteModule(int id)
         {
             _roleManger.DeleteModule(id);
             return Ok("Delete Success");
         }
 
 
+        [HttpPost]
+        public IActionResult CreatePermission([FromBody] PermissionCreateViewModel vm)
+        {
+            return Ok(_roleManger.CreatePermission(vm));
+        }
 
-        /////////////////
-        ///
 
-        // GET: api/<RoleController>
         [HttpGet]
         public IActionResult GetPermission()
         {
@@ -71,14 +70,6 @@ namespace Caramel.Controllers
         }
 
 
-        // POST api/<RoleController>
-        [HttpPost]
-        public IActionResult CreatePermission([FromBody] PermissionCreateViewModel vm)
-        {
-            return Ok(_roleManger.CreatePermission(vm));
-        }
-
-        // PUT api/<RoleController>/5
         [HttpPut("{id}")]
         public IActionResult UpdatePermission([FromBody] PermissionCreateViewModel vm)
         {
@@ -86,7 +77,7 @@ namespace Caramel.Controllers
             return Ok(res);
         }
 
-        // DELETE api/<RoleController>/5
+
         [HttpDelete("{id}")]
         public IActionResult DeletePermission(int id)
         {
@@ -95,12 +86,13 @@ namespace Caramel.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult CreateRole([FromBody] RoleCreateViewModel vm)
+        {
+            return Ok(_roleManger.CreateRole(vm));
+        }
 
 
-        /////////////////
-        ///
-
-        // GET: api/<RoleController>
         [HttpGet]
         public IActionResult GetRole()
         {
@@ -109,14 +101,6 @@ namespace Caramel.Controllers
         }
 
 
-        // POST api/<RoleController>
-        [HttpPost]
-        public IActionResult CreateRole([FromBody] RoleCreateViewModel vm)
-        {
-            return Ok(_roleManger.CreateRole(vm));
-        }
-
-        // PUT api/<RoleController>/5
         [HttpPut("{id}")]
         public IActionResult UpdateRole([FromBody] RoleCreateViewModel vm)
         {
@@ -124,7 +108,7 @@ namespace Caramel.Controllers
             return Ok(res);
         }
 
-        // DELETE api/<RoleController>/5
+
         [HttpDelete("{id}")]
         public IActionResult DeleteRole(int id)
         {
@@ -133,17 +117,20 @@ namespace Caramel.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult CreateRolePermition([FromBody] RolePermissionViewModel vm)
+        {
+            return Ok(_roleManger.CreateRolePermition(vm));
+        }
 
-        /////////////////
-        ///
 
-        // GET: api/<RoleController>
         [HttpGet]
         public IActionResult GetRolePermision()
         {
 
             return Ok(_roleManger.GetRolePermision());
         }
+
 
         [HttpGet]
         public IActionResult GetRolePermisionId(int RoleId)
@@ -152,14 +139,6 @@ namespace Caramel.Controllers
         }
 
 
-        // POST api/<RoleController>
-        [HttpPost]
-        public IActionResult CreateRolePermition([FromBody] RolePermissionViewModel vm)
-        {
-            return Ok(_roleManger.CreateRolePermition(vm));
-        }
-
-        // PUT api/<RoleController>/5
         [HttpPut("{id}")]
         public IActionResult UpdateRolePermition([FromBody] RolePermissionViewModel vm)
         {
@@ -167,7 +146,7 @@ namespace Caramel.Controllers
             return Ok(res);
         }
 
-        // DELETE api/<RoleController>/5
+
         [HttpDelete("{id}")]
         public IActionResult DeleteRolePermition(int id)
         {
@@ -176,17 +155,20 @@ namespace Caramel.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult CreateUserRole([FromBody] UserRoleModelView vm)
+        {
+            return Ok(_roleManger.CreateUserRole(vm));
+        }
 
-        /////////////////
-        ///
 
-        // GET: api/<RoleController>
         [HttpGet]
         public IActionResult GetUserRole()
         {
 
             return Ok(_roleManger.GetUserRole());
         }
+
 
         [HttpGet]
         public IActionResult GetUserRoleId(int UserId)
@@ -195,14 +177,6 @@ namespace Caramel.Controllers
         }
 
 
-        // POST api/<RoleController>
-        [HttpPost]
-        public IActionResult CreateUserRole([FromBody] UserRoleModelView vm)
-        {
-            return Ok(_roleManger.CreateUserRole(vm));
-        }
-
-        // PUT api/<RoleController>/5
         [HttpPut("{id}")]
         public IActionResult UpdateUserRole([FromBody] UserRoleModelView vm)
         {
@@ -210,7 +184,7 @@ namespace Caramel.Controllers
             return Ok(res);
         }
 
-        // DELETE api/<RoleController>/5
+
         [HttpDelete("{id}")]
         public IActionResult DeleteUserRole(int id)
         {
