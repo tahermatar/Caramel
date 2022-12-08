@@ -9,7 +9,7 @@ namespace Caramel.Models
     {
         public Order()
         {
-            Customers = new HashSet<Customer>();
+            //Customers = new HashSet<Customer>();
             Resturants = new HashSet<Resturant>();
         }
 
@@ -29,7 +29,7 @@ namespace Caramel.Models
         public int Status { get; set; }
 
         public virtual Meal Meal { get; set; }
-        public virtual ICollection<Customer> Customers { get; set; }
+        //public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Resturant> Resturants { get; set; }
     }
 }

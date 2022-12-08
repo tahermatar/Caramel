@@ -3,10 +3,8 @@ using Caramel.Core.Mangers.RateManager.cs;
 using Caramel.Core.Mangers.ResturantManager;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Resturant;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 
@@ -53,36 +51,14 @@ namespace Caramel.Controllers
         }
 
 
-        [Route("api/Resturant/UpdateProfile")]
-        [HttpPut]
+        [HttpGet]
+        [Route("api/Resturant/ViewProfile")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "Update_Resturant_Profile")]
-        public IActionResult UpdateProfile([FromBody] ResturantModelView vm)
+        [CaramelAuthrize(Permissions = "View_Resturant_Profile")]
+        public IActionResult ViewProfile()
         {
-            var user = _resturantManager.UpdateProfile(LoggedInUser, vm);
-            return Ok(user);
-        }
-
-
-        [Route("api/Resturant/UpdateRegistrationData")]
-        [HttpPut]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "Update_Registration_Data")]
-        public IActionResult EditRegistrationData([FromBody] ResturantRegViewModel reg)
-        {
-            var user = _resturantManager.UpdateRegistrationData(LoggedInUser, reg);
-            return Ok(user);
-        }
-
-
-        [Route("api/Resturant/UpdateResturantAddress")]
-        [HttpPut]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "Update_Resturant_Address")]
-        public IActionResult UpdateResturantAddress([FromBody] AddressResult reg)
-        {
-            var user = _resturantManager.UpdateResturantAddress(LoggedInUser, reg);
-            return Ok(user);
+            var res = _resturantManager.ViewProfile(LoggedInUser);
+            return Ok(res);
         }
 
 
@@ -96,30 +72,18 @@ namespace Caramel.Controllers
             return File(byteArray, "image/jpeg", filename);
         }
 
-
-        [Route("api/resturant/LogOut")]
         [HttpGet]
+        [Route("api/Resturant/GetResturant")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public IActionResult LogOut()
+        [CaramelAuthrize(Permissions = "View_Resturant")]
+        public IActionResult GetResturant(int id)
         {
-            var res = HttpContext.SignOutAsync();
+            var res = _resturantManager.GetResturant(id);
             return Ok(res);
         }
 
-
         [HttpGet]
-        [Route("api/Resturant/ViewProfile")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "View_Resturant_Profile")]
-        public IActionResult ViewProfile(int id)
-        {
-            var res = _resturantManager.ViewProfile(LoggedInUser, id);
-            return Ok(res);
-        }
-
-
-        [HttpGet]
-        [Route("api/Resturant/GetAll")]
+        [Route("api/Resturant/GetAllResturant")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "View_All_Resturant")]
         public IActionResult GetAll(int page = 1,
@@ -145,12 +109,45 @@ namespace Caramel.Controllers
                                                string sortDirection = "ascending",
                                                string searchText = "")
         {
-            return Ok(_rateManager.ViewResturantRate(LoggedInUser,
+            return Ok(_rateManager.ViewMyRate(LoggedInUser,
                                                     page,
                                                     pageSize,
                                                     sortColumn,
                                                     sortDirection,
                                                     searchText));
+        }
+
+
+        [Route("api/Resturant/UpdateProfile")]
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Update_Resturant_Profile")]
+        public IActionResult UpdateProfile([FromBody] ResturantModelView vm)
+        {
+            var user = _resturantManager.UpdateProfile(LoggedInUser, vm);
+            return Ok(user);
+        }
+
+
+        [Route("api/Resturant/UpdateResturantAddress")]
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Update_Resturant_Address")]
+        public IActionResult UpdateResturantAddress([FromBody] AddressResult reg)
+        {
+            var user = _resturantManager.UpdateResturantAddress(LoggedInUser, reg);
+            return Ok(user);
+        }
+
+
+        [Route("api/Resturant/UpdateRegistrationData")]
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Update_Registration_Data")]
+        public IActionResult EditRegistrationData([FromBody] ResturantUpdateRegModelView reg)
+        {
+            var user = _resturantManager.UpdateRegistrationData(LoggedInUser, reg);
+            return Ok(user);
         }
 
 

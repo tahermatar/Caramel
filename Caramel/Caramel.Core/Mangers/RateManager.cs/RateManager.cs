@@ -8,8 +8,6 @@ using Caramel.ModelViews.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.RateManager.cs
 {
@@ -23,33 +21,17 @@ namespace Caramel.Core.Mangers.RateManager.cs
             _mapper = mapper;
         }
 
-        public void DeleteRate(UserModelViewModel currentUser, int id)
-        {
-            var checkCoustomer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
-                                              ?? throw new ServiceValidationException("You have no access to delete this rating");
-
-            var checkRate = _context.Rates.FirstOrDefault(x => x.Id == id)
-                                        ?? throw new ServiceValidationException("The rating id does not exist");
-
-            if (checkRate.CustomerId == currentUser.Id && !currentUser.IsSuperAdmin)
-            {
-                checkRate.Archived = true;
-                _context.SaveChanges();
-            }
-            else
-            {
-                throw new ServiceValidationException(300,"You have no access to delete this rating Or " +
-                                                         "rating id does not exist in customer");
-            }
-
-        }
-
+        #region public
         public AddRateModelView PutRate(UserModelViewModel currentUser, AddRateModelView addRate)
         {
 
-            var order = _context.Orders
+            var checkCoustomerOrder = _context.Orders
                                 .FirstOrDefault(x => x.CustomerId == currentUser.Id)
-                                ?? throw new ServiceValidationException("you have no access to rate this restaurant");
+                                ?? throw new ServiceValidationException("You have no access to rate this restaurant");
+
+            var checkRestaurantOrder = _context.Orders
+                                .FirstOrDefault(x => x.CreatedBy == currentUser.Id && x.ResturantId == addRate.ResturantId)
+                                ?? throw new ServiceValidationException("You have no access to add or update rating for this restaurant");
 
             var resturant = new Resturant();
 
@@ -61,7 +43,7 @@ namespace Caramel.Core.Mangers.RateManager.cs
             {
                 resturant = _context.Resturants
                                     .FirstOrDefault(a => a.Id == addRate.ResturantId)
-                                    ?? throw new ServiceValidationException("you have no access to rate any restaurant");
+                                    ?? throw new ServiceValidationException("Restaurant not found to rate");
             }
 
             Rate rate = null;
@@ -95,11 +77,60 @@ namespace Caramel.Core.Mangers.RateManager.cs
             }
 
             resturant.Rates.Add(rate);
+            resturant.TotalRate = resturant.TotalRate + 1;
             resturant.UpdatedDate = DateTime.UtcNow;
             resturant.UpdatedBy = currentUser.Id;
 
             _context.SaveChanges();
             return _mapper.Map<AddRateModelView>(rate);
+        }
+
+        public RateResponse ViewMyRate(UserModelViewModel currentUser,
+                                              int page = 1,
+                                              int pageSize = 5,
+                                              string sortColumn = "",
+                                              string sortDirection = "ascending",
+                                              string searchText = "")
+        {
+
+            var checkResturant = _context.Resturants
+                                         .FirstOrDefault(x => x.Id == currentUser.Id)
+                                         ?? throw new ServiceValidationException("You have no access to view rating for this restaurant");
+
+            if (currentUser.IsSuperAdmin || (checkResturant.Id == currentUser.Id))
+            {
+
+                var rate = _context.Rates
+                                   .FirstOrDefault(x => x.ResturantId == currentUser.Id)
+                                   ?? throw new ServiceValidationException("There is no rating for this restaurant");
+            }
+
+            var queryRes = _context.Rates
+                                   .Where(a => (string.IsNullOrWhiteSpace(searchText)
+                                                || (a.Review.Contains(searchText)
+                                                || (a.RateNumber.ToString().Contains(searchText))))
+                                                && (a.ResturantId == currentUser.Id));
+
+            if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
+            {
+                queryRes = queryRes.OrderBy(sortColumn);
+            }
+            else if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("descending", StringComparison.InvariantCultureIgnoreCase))
+            {
+                queryRes = queryRes.OrderByDescending(sortColumn);
+            }
+
+            var res = queryRes.GetPaged(page, pageSize);
+
+            var data = new RateResponse
+            {
+                Rate = _mapper.Map<PagedResult<RateResult>>(res)
+            };
+
+            data.Rate.Sortable.Add("RateNumber", "Rate Number");
+            data.Rate.Sortable.Add("CreatedDate", "Created Date");
+
+            return data;
         }
 
         public RateResponse ViewCustomerRate(UserModelViewModel currentUser,
@@ -149,6 +180,8 @@ namespace Caramel.Core.Mangers.RateManager.cs
             return data;
         }
 
+        
+
         public RateResponse ViewResturantRate(UserModelViewModel currentUser,
                                               int page = 1,
                                               int pageSize = 5,
@@ -156,54 +189,6 @@ namespace Caramel.Core.Mangers.RateManager.cs
                                               string sortDirection = "ascending",
                                               string searchText = "")
         {
-
-            var checkResturant = _context.Resturants
-                                         .FirstOrDefault(x => x.Id == currentUser.Id)
-                                         ?? throw new ServiceValidationException("You have no access to view rating for this restaurant");
-
-            if (currentUser.IsSuperAdmin || (checkResturant.Id == currentUser.Id))
-            {
-
-                var rate = _context.Rates
-                                   .FirstOrDefault(x => x.ResturantId == currentUser.Id)
-                                   ?? throw new ServiceValidationException("There is no rating for this restaurant");
-            }
-
-            var queryRes = _context.Rates
-                                   .Where(a => (string.IsNullOrWhiteSpace(searchText)
-                                                || (a.Review.Contains(searchText)
-                                                || (a.RateNumber.ToString().Contains(searchText))))
-                                                && (a.ResturantId == currentUser.Id));
-
-            if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
-            {
-                queryRes = queryRes.OrderBy(sortColumn);
-            }
-            else if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("descending", StringComparison.InvariantCultureIgnoreCase))
-            {
-                queryRes = queryRes.OrderByDescending(sortColumn);
-            }
-
-            var res = queryRes.GetPaged(page, pageSize);
-
-            var data = new RateResponse
-            {
-                Rate = _mapper.Map<PagedResult<RateResult>>(res)
-            };
-
-            data.Rate.Sortable.Add("RateNumber", "Rate Number");
-            data.Rate.Sortable.Add("CreatedDate", "Created Date");
-
-            return data;
-
-        }
-
-        public RateResponse ViewResturantRateForUser(UserModelViewModel currentUser, int page = 1, int pageSize = 5, string sortColumn = "", string sortDirection = "ascending", string searchText = "")
-        {
-            var checkUser = _context.Users
-                                    .FirstOrDefault(x => x.Id == currentUser.Id)
-                                    ?? throw new ServiceValidationException("You have no access to view rating for any restaurant");
-
             var queryRes = _context.Rates
                                    .Where(a => (string.IsNullOrWhiteSpace(searchText)
                                                 || (a.Review.Contains(searchText)
@@ -240,5 +225,27 @@ namespace Caramel.Core.Mangers.RateManager.cs
 
             return data;
         }
+
+        public void DeleteRate(UserModelViewModel currentUser, int id)
+        {
+            var checkCoustomer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                                              ?? throw new ServiceValidationException("You have no access to delete this rating");
+
+            var checkRate = _context.Rates.FirstOrDefault(x => x.Id == id)
+                                        ?? throw new ServiceValidationException("The rating id does not exist");
+
+            if (checkRate.CustomerId == currentUser.Id && !currentUser.IsSuperAdmin)
+            {
+                checkRate.Archived = true;
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new ServiceValidationException(300, "You have no access to delete this rating Or " +
+                                                         "rating id does not exist in customer");
+            }
+        }
+
+        #endregion
     }
 }

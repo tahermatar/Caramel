@@ -1,5 +1,4 @@
-﻿using Caramel.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Caramel.ModelViews.Resturant
 {
-    public class ResturantViewAllModelView
+    public class ResturantUpdateModelView
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,10 +20,5 @@ namespace Caramel.ModelViews.Resturant
         public string Phone { get; set; }
         public double TotalRate { get; set; }
         public int Address { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string Road { get; set; }
-        public string ExtraAddressInformation { get; set; }
-
     }
 }

@@ -1,20 +1,17 @@
 ﻿using Caramel.Attributes;
 using Caramel.Core.Mangers.RoleManger;
-using Caramel.Data;
-using Caramel.Models;
 using Caramel.ModelViews.Role;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Caramel.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[CaramelAuthrize(Permissions = "Roles_Actions")]
+
     public class RoleController : ApiBaseController
     {
         private readonly IRoleManager _roleManger;
@@ -25,26 +22,26 @@ namespace Caramel.Controllers
 
 
         [HttpPost]
-        public IActionResult CreateModule([FromBody] ModuleCreateViewModel vm)
+        public IActionResult PutModule([FromBody] ModuleCreateViewModel vm)
         {
-            return Ok(_roleManger.CreateModule(vm));
+            return Ok(_roleManger.PutModule(LoggedInUser, vm));
         }
 
 
         [HttpGet]
-        [CaramelAuthrize(Permissions = "sup2")]
+        //[CaramelAuthrize(Permissions = "Roles_Actions")]
         public IActionResult GetModule()
         {
             return Ok(_roleManger.GetModule());
         }
 
 
-        [HttpPut("{id}")]
-        public IActionResult Put([FromBody] ModuleCreateViewModel vm)
-        {
-            var res = _roleManger.UpdateModule(vm);
-            return Ok(res);
-        }
+        //[HttpPut("{id}")]
+        //public IActionResult Put([FromBody] ModuleCreateViewModel vm)
+        //{
+        //    var res = _roleManger.UpdateModule(vm);
+        //    return Ok(res);
+        //}
 
 
         [HttpDelete("{id}")]

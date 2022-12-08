@@ -202,7 +202,7 @@ namespace Caramel.Core.Mangers.MealManager
         }
 
 
-        public MealModelView viewMeal(int id)
+        public MealModelView ViewMeal(int id)
         {
             var meal = _context.Meals
                                     .FirstOrDefault(a => a.Id == id)
@@ -229,7 +229,6 @@ namespace Caramel.Core.Mangers.MealManager
                 throw new ServiceValidationException(300, "you have no access to delete the restaurant meals");
             }
         }
-
 
         #endregion
     }

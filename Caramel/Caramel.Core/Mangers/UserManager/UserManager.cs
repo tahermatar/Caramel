@@ -25,22 +25,6 @@ namespace Caramel.Core.Mangers.UserManger
             _mapper = mapper;
         }
         #region public
-        public UserLoginResponseViewModel Login(UserLoginViewModel vm)
-        {
-
-            var user = _caramelDbContext.Users.FirstOrDefault(x => x.Email.ToLower().Equals(vm.Email.ToLower()));
-
-            if (user == null || !VerifyHashPassword(vm.Password, user.Password))
-            {
-                throw new ServiceValidationException(300, "User Is not valid Name or password");
-            }
-
-            var res = _mapper.Map<UserLoginResponseViewModel>(user);
-            res.Token = $"Bearer {GenerateJwtTaken(user)}";
-
-            return res;
-        }
-
         public UserLoginResponseViewModel SignUp(UserRegisterViewModel vm)
         {
 
@@ -60,7 +44,7 @@ namespace Caramel.Core.Mangers.UserManger
                 ConfirmPassword = hashed,
                 CreatedDate = DateTime.Now,
                 IsSuperAdmin = vm.IsSuperAdmin,
-                Archived = true,
+                Archived = false,
             };
             _caramelDbContext.Users.Add(res);
             _caramelDbContext.SaveChanges();
@@ -69,6 +53,22 @@ namespace Caramel.Core.Mangers.UserManger
             result.Token = $"Bearer {GenerateJwtTaken(res)}";
 
             return result;
+        }
+
+        public UserLoginResponseViewModel Login(UserLoginViewModel vm)
+        {
+
+            var user = _caramelDbContext.Users.FirstOrDefault(x => x.Email.ToLower().Equals(vm.Email.ToLower()));
+
+            if (user == null || !VerifyHashPassword(vm.Password, user.Password))
+            {
+                throw new ServiceValidationException(300, "User Is not valid Name or password");
+            }
+
+            var res = _mapper.Map<UserLoginResponseViewModel>(user);
+            res.Token = $"Bearer {GenerateJwtTaken(user)}";
+
+            return res;
         }
 
         public UserModelViewModel UpdateProfile(UserModelViewModel currentUser, UserModelViewModel request)
@@ -100,16 +100,16 @@ namespace Caramel.Core.Mangers.UserManger
         }
         public void DeleteUser(UserModelViewModel currentUser, int id)
         {
-            if (currentUser.Id == id)
-            {
-                throw new ServiceValidationException("you have no access to delete your self");
-            }
+            //if (currentUser.Id == id)
+            //{
+            //    throw new ServiceValidationException("you have no access to delete your self");
+            //}
 
             var user = _caramelDbContext.Users
                 .FirstOrDefault(x => x.Id == id)
                 ?? throw new ServiceValidationException("User not found");
 
-            user.Archived = false;
+            user.Archived = true;
 
             _caramelDbContext.SaveChanges();
         }

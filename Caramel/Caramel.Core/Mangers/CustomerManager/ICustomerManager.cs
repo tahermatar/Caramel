@@ -1,21 +1,26 @@
 ﻿using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.User;
-using System;
-using System.Collections.Generic;
 
 namespace Caramel.Core.Mangers.CustomerManger
 {
     public interface ICustomerManager : IManager
     {
         public CustomerLoginResponseViewModel Rigester(UserModelViewModel currentUser, CustomerRegisterViewModel vm);
-        public CustomerResponse GetAll(UserModelViewModel currentUser, int page = 1, int pageSize = 10, string sortColumn = "", string sortDirection = "ascending", string searchText = "");
-        CustomerResult Confirmation(UserModelViewModel currentUser,string ConfirmationLink);
+        CustomerResult Confirmation(UserModelViewModel currentUser, string ConfirmationLink);
         public CustomerLoginResponseViewModel Login(CustomerLoginViewModel vm);
-        public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser, CustomerUpdateModelView request);
-        public void DeleteCustomer(UserModelViewModel currentUser, int id);
+        public CustomerResult ViewProfile(UserModelViewModel currentUserm);
         public CustomerResult GetCustomer(int id);
-        public CustomerResult ViewProfile(UserModelViewModel currentUserm,int id);
+        public CustomerResponse GetAllCustomer(UserModelViewModel currentUser,
+                                               int page = 1,
+                                               int pageSize = 10,
+                                               string sortColumn = "",
+                                               string sortDirection = "ascending",
+                                               string searchText = "");
+        public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser,
+                                                     CustomerUpdateModelView request);
         public AddressResult PutAddress(UserModelViewModel currentUser, AddressResult request);
+        public void DeleteCustomer(UserModelViewModel currentUser, int id);
+        
 
 
 

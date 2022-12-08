@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
 
 namespace Caramel.Models
 {
@@ -9,8 +6,6 @@ namespace Caramel.Models
     {
         public Rate()
         {
-            Customers = new HashSet<Customer>();
-            //Resturants = new HashSet<Resturant>();
         }
 
         public int Id { get; set; }
@@ -25,7 +20,5 @@ namespace Caramel.Models
         public int? ResturantId { get; set; }
 
         public virtual Resturant Resturant { get; set; }
-        public virtual ICollection<Customer> Customers { get; set; }
-        //public virtual ICollection<Resturant> Resturants { get; set; }
     }
 }

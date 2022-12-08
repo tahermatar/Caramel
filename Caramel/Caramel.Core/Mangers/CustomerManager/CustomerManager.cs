@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Caramel.Common.Extinsions;
+using Caramel.Common.Helperr;
 using Caramel.Data;
 using Caramel.EmailService;
 using Caramel.Infrastructure;
@@ -38,7 +39,126 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         #region public
 
-        public CustomerResponse GetAll(UserModelViewModel currentUser,
+        public CustomerLoginResponseViewModel Rigester(UserModelViewModel currentUser,
+                                                       CustomerRegisterViewModel vm)
+        {
+            if (_context.Customers.Any(a => a.Email.ToLower().Equals(vm.Email.ToLower())))
+            {
+                throw new ServiceValidationException("Customer already exist");
+            }
+
+            var hashedPassword = HashPassword(vm.Password);
+
+            var url = "";
+            var image = "";
+
+            if (!string.IsNullOrWhiteSpace(vm.ImageString))
+            {
+                url = Helper.SaveImage(vm.ImageString, "profileimages");
+            }
+
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                var baseURL = "https://localhost:44309/";
+                vm.Image = @$"{baseURL}/api/v1/user/fileretrive/profilepic?filename={url}";
+                image = vm.Image;
+            }
+
+            //var cretorId = 0;
+            //if (currentUser != null)
+            //{
+            //    cretorId = currentUser.Id;
+            //}
+
+            var customer = _context.Customers.Add(new Customer
+            {
+                Name = vm.Name,
+                UserName = vm.UserName,
+                Email = vm.Email.ToLower(),
+                Password = hashedPassword,
+                ConfirmPassword = hashedPassword,
+                Image = image,
+                AddressId = 1,
+                Phone = "",
+                RoleId = 1,
+                //CreatedBy = cretorId,
+                CreatedDate = DateTime.Now,
+                ConfirmationLink = Guid.NewGuid().ToString().Replace("-", "").ToString()
+            }).Entity;
+
+            _context.SaveChanges();
+
+
+            var builder = new EmailBuilder(ActionInvocationTypeEnum.EmailConfirmation,
+                                new Dictionary<string, string>
+                                {
+                                    { "AssigneeName", $"{vm.Name}" },
+                                    { "Link", $"{customer.ConfirmationLink}" }
+                                }, "https://localhost:44309");
+
+            var message = new Message(new string[] { vm.Email }, builder.GetTitle(), builder.GetBody());
+            _emailSender.SendEmail(message);
+
+
+            var res = _mapper.Map<CustomerLoginResponseViewModel>(customer);
+            res.Token = $"Bearer {GenerateJwtTaken(customer)}";
+
+            return res;
+        }
+
+        public CustomerResult Confirmation(UserModelViewModel currentUser, string ConfirmationLink)
+        {
+            var customer = _context.Customers
+                           .FirstOrDefault(a => a.ConfirmationLink
+                                                    .Equals(ConfirmationLink)
+                                                && !a.EmailConfirmed)
+                       ?? throw new ServiceValidationException("Invalid or expired confirmation link received");
+
+            customer.EmailConfirmed = true;
+            customer.ConfirmationLink = string.Empty;
+            _context.SaveChanges();
+            return _mapper.Map<CustomerResult>(customer);
+        }
+
+        public CustomerLoginResponseViewModel Login(CustomerLoginViewModel vm)
+        {
+            var customer = _context.Customers.FirstOrDefault(x => x.Email.ToLower().Equals(vm.Email.ToLower()));
+
+            if (customer == null || !VerifyHashPassword(vm.Password, customer.Password))
+            {
+                throw new ServiceValidationException(300, "User Is not valid Name or password");
+            }
+
+            var res = _mapper.Map<CustomerLoginResponseViewModel>(customer);
+            res.Token = $"Bearer {GenerateJwtTaken(customer)}";
+
+            return res;
+        }
+
+        public CustomerResult ViewProfile(UserModelViewModel currentUser)
+        {
+
+            var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                          ?? throw new ServiceValidationException("You have no access to view this coustomer");
+
+            if (customer == null)
+            {
+                throw new ServiceValidationException("User not found");
+            }
+
+            return _mapper.Map<CustomerResult>(customer);
+        }
+
+        public CustomerResult GetCustomer(int id)
+        {
+            var res = _context.Customers
+                              .FirstOrDefault(a => a.Id == id)
+                              ?? throw new ServiceValidationException("Invalid customer id received");
+
+            return _mapper.Map<CustomerResult>(res);
+        }
+
+        public CustomerResponse GetAllCustomer(UserModelViewModel currentUser,
                                            int page = 1,
                                            int pageSize = 5,
                                            string sortColumn = "",
@@ -87,110 +207,94 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         }
 
-        public CustomerLoginResponseViewModel Rigester(UserModelViewModel currentUser,CustomerRegisterViewModel vm)
-        {
-            if (_context.Customers
-                              .Any(a => a.Email.ToLower().Equals(vm.Email.ToLower())))
-            {
-                throw new ServiceValidationException("Customer already exist");
-            }
-
-            var hashedPassword = HashPassword(vm.Password);
-
-            var cretorId = 0;
-            if (currentUser != null)
-            {
-                cretorId = currentUser.Id;
-            }
-
-            var customer = _context.Customers.Add(new Customer
-            {
-                Name = vm.Name,
-                UserName = vm.UserName,
-                Email = vm.Email.ToLower(),
-                Password = hashedPassword,
-                ConfirmPassword = hashedPassword,
-                AddressId = 1,
-                Phone = "",
-                RoleId = 1,
-                CreatedBy = cretorId,
-                CreatedDate = DateTime.Now,
-                ConfirmationLink = Guid.NewGuid().ToString().Replace("-", "").ToString()
-            }).Entity;
-
-            _context.SaveChanges();
-
-            
-            var builder = new EmailBuilder(ActionInvocationTypeEnum.EmailConfirmation,
-                                new Dictionary<string, string>
-                                {
-                                    { "AssigneeName", $"{vm.Name}" },
-                                    { "Link", $"{customer.ConfirmationLink}" }
-                                }, "https://localhost:44309");
-
-            var message = new Message(new string[] { vm.Email }, builder.GetTitle(), builder.GetBody());
-            _emailSender.SendEmail(message);
-
-
-            var res = _mapper.Map<CustomerLoginResponseViewModel>(customer);
-            res.Token = $"Bearer {GenerateJwtTaken(customer)}";
-
-            return res;
-        }
-
-        public CustomerResult Confirmation(UserModelViewModel currentUser, string ConfirmationLink)
-        {
-            var customer = _context.Customers
-                           .FirstOrDefault(a => a.ConfirmationLink
-                                                    .Equals(ConfirmationLink)
-                                                && !a.EmailConfirmed )
-                       ?? throw new ServiceValidationException("Invalid or expired confirmation link received");
-
-            customer.EmailConfirmed = true;
-            customer.ConfirmationLink = string.Empty;
-            _context.SaveChanges();
-            return _mapper.Map<CustomerResult>(customer);
-        }
-
-
-        public CustomerLoginResponseViewModel Login(CustomerLoginViewModel vm)
-        {
-
-            var customer = _context.Customers.FirstOrDefault(x => x.Email.ToLower().Equals(vm.Email.ToLower()));
-
-            if (customer == null || !VerifyHashPassword(vm.Password, customer.Password))
-            {
-                throw new ServiceValidationException(300, "User Is not valid Name or password");
-            }
-
-            var res = _mapper.Map<CustomerLoginResponseViewModel>(customer);
-            res.Token = $"Bearer {GenerateJwtTaken(customer)}";
-
-            return res;
-        }
-
-
-        public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser, CustomerUpdateModelView request)
+        public CustomerUpdateModelView UpdateProfile(UserModelViewModel currentUser,
+                                                     CustomerUpdateModelView request)
         {
             var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
-                ?? throw new ServiceValidationException("User not found");
+                            ?? throw new ServiceValidationException("You have no access to update this customer");
 
             if (customer == null)
             {
                 throw new ServiceValidationException("User not found");
             }
 
+            var url = "";
+
+            if (!string.IsNullOrWhiteSpace(request.ImageString))
+            {
+                url = Helper.SaveImage(request.ImageString, "profileimages");
+            }
+
+            var image = "";
+
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                var baseURL = "https://localhost:44309/";
+                request.Image = @$"{baseURL}/api/v1/user/fileretrive/profilepic?filename={url}";
+                image = request.Image;
+
+            }
+
+
             customer.UserName = request.UserName;
-            customer.UpdatedDate = DateTime.Now;
-            customer.UpdatedBy = currentUser.Id;
             customer.Email = request.Email;
             customer.Phone = request.Phone;
+            customer.Image = image;
+            customer.UpdatedDate = DateTime.Now;
+            customer.UpdatedBy = currentUser.Id;
 
 
             _context.SaveChanges();
             return _mapper.Map<CustomerUpdateModelView>(customer);
         }
 
+        public AddressResult PutAddress(UserModelViewModel currentUser,
+                                        AddressResult request)
+        {
+
+            var customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                             ?? throw new ServiceValidationException("You have no access to add or update address for this customer");
+
+            Address item = null;
+
+            if (request.Id > 0)
+            {
+                item = _context.Addresses
+                                .FirstOrDefault(a => a.Id == request.Id)
+                                 ?? throw new ServiceValidationException("Invalid Address id received");
+
+
+                item.City = request.City;
+                item.Country = request.Country;
+                item.Road = request.Road;
+                item.ExtraInformation = request.ExtraInformation;
+
+            }
+
+            else
+            {
+
+                item = _context.Addresses.Add(new Address
+                {
+                    City = request.City,
+                    Country = request.Country,
+                    Road = request.Road,
+                    ExtraInformation = request.ExtraInformation
+
+                }).Entity;
+
+                _context.SaveChanges();
+
+            }
+
+            customer.AddressId = item.Id;
+            customer.Address = item;
+            customer.UpdatedDate = DateTime.UtcNow;
+            customer.UpdatedBy = currentUser.Id;
+
+            _context.SaveChanges();
+            return _mapper.Map<AddressResult>(item);
+        }
 
         public void DeleteCustomer(UserModelViewModel currentUser, int id)
         {
@@ -222,98 +326,6 @@ namespace Caramel.Core.Mangers.CustomerManger
 
             //user.Archived = 1;
             //_context.SaveChanges();
-        }
-
-
-        public CustomerResult GetCustomer(int id)
-        {
-            var res = _context.Customers
-                                   .FirstOrDefault(a => a.Id == id)
-                                    ?? throw new ServiceValidationException("Invalid User id received");
-
-            return _mapper.Map<CustomerResult>(res);
-        }
-
-
-        public AddressResult PutAddress(UserModelViewModel currentUser,
-                                        AddressResult request)
-        {
-
-            var customer = new Customer();
-            if (currentUser.IsSuperAdmin)
-                { 
-                     customer = _context.Customers.FirstOrDefault(x => x.Id == request.UserId)
-                                 ?? throw new ServiceValidationException("Customer not found");
-
-                if (customer == null)
-                {
-                    throw new ServiceValidationException("User not found");
-                }
-            }
-
-            else {
-                 customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
-                             ?? throw new ServiceValidationException("Customer not found");
-            }
-
-            Address item = null;
-
-            if (request.Id > 0)
-            {
-                item = _context.Addresses
-                                .FirstOrDefault(a => a.Id == request.Id)
-                                 ?? throw new ServiceValidationException("Invalid Address id received");
-
-
-                item.City = request.City;
-                item.Country = request.Country;
-                item.Road = request.Road;
-                item.ExtraInformation = request.ExtraInformation;
-
-            }
-            else
-            {
-
-                item = _context.Addresses.Add(new Address
-                {
-                    City = request.City,
-                    Country = request.Country,
-                    Road = request.Road,
-                    ExtraInformation = request.ExtraInformation
-
-                }).Entity;
-
-                _context.SaveChanges();
-
-            }
-
-            customer.AddressId = item.Id;
-            customer.Address = item;
-            customer.UpdatedDate = DateTime.UtcNow;
-            customer.UpdatedBy = currentUser.Id;
-
-            _context.SaveChanges();
-            return _mapper.Map<AddressResult>(item);
-        }
-
-
-        public CustomerResult ViewProfile(UserModelViewModel currentUser, int id)
-        {
-            var customer = new Customer();
-            if (currentUser.IsSuperAdmin) { 
-               customer = _context.Customers.FirstOrDefault(x => x.Id == id)
-                    ?? throw new ServiceValidationException("User not found");
-
-                if (customer == null)
-                {
-                    throw new ServiceValidationException("User not found");
-                }
-            }
-            else { 
-                customer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
-                    ?? throw new ServiceValidationException("User not found");
-            }
-            return _mapper.Map<CustomerResult>(customer);   
         }
 
         #endregion

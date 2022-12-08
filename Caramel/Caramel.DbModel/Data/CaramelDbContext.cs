@@ -1,8 +1,5 @@
-﻿using System;
-using Caramel.DbModel.Models;
-using Caramel.Models;
+﻿using Caramel.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -23,12 +20,9 @@ namespace Caramel.Data
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Meal> Meals { get; set; }
-       // public virtual DbSet<MealCategory> MealCategories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Rate> Rates { get; set; }
         public virtual DbSet<Resturant> Resturants { get; set; }
-        //public virtual DbSet<ServiceCategory> ServiceCategories { get; set; }
-
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
@@ -38,8 +32,6 @@ namespace Caramel.Data
         public virtual DbSet<Userpermissionview> Userpermissionviews { get; set; }
         public virtual DbSet<ViewOrderViewModel> ViewOrderViewModel { get; set; }
 
-
-        public virtual DbSet<Blog> Blogs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //if (!optionsBuilder.IsConfigured)
@@ -52,31 +44,13 @@ namespace Caramel.Data
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Blog>(entity =>
-            {
-                entity.ToTable("blogs");
-                entity.HasIndex(e => e.Id);
-                entity.HasIndex(e => e.CreatedId, "FK_blogs_users");
-                entity.Property(e => e.Title)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-                entity.Property(e => e.Content)
-                   .HasMaxLength(255)
-                   .IsUnicode(false);
-                entity.Property(e => e.Status).HasColumnType("int");
-
-                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
-                entity.Property(e => e.Archived).HasColumnType("int");
-
-                entity.HasOne(d => d.User).WithMany(p => p.Blogs).HasConstraintName("FK_blogs_users");
-
-
-            });
-
             modelBuilder.Entity<Address>(entity =>
             {
                 entity.ToTable("Address");
+
+                entity.Property(e => e.ResturantId)
+                      .HasColumnType("int")
+                      .HasDefaultValueSql("((''))");
 
                 entity.Property(e => e.City)
                     .IsRequired()
@@ -85,7 +59,6 @@ namespace Caramel.Data
                 entity.Property(e => e.Country)
                     .IsRequired()
                     .HasMaxLength(50);
-
 
                 entity.Property(e => e.ExtraInformation).HasMaxLength(255);
 
@@ -98,6 +71,8 @@ namespace Caramel.Data
                 entity.ToTable("Customer");
 
                 entity.Property(e => e.ConfirmPassword).HasMaxLength(255);
+
+                entity.Property(e => e.Image).HasColumnType("nvarchar(255)");
 
                 entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
@@ -134,16 +109,6 @@ namespace Caramel.Data
                     .HasForeignKey(d => d.AddressId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Customer_Address");
-
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.Customers)
-                    .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK_Customer_Order1");
-
-                entity.HasOne(d => d.Rate)
-                    .WithMany(p => p.Customers)
-                    .HasForeignKey(d => d.RateId)
-                    .HasConstraintName("FK_Customer_Rate");
             });
 
             modelBuilder.Entity<Meal>(entity =>
@@ -364,7 +329,7 @@ namespace Caramel.Data
 
                 entity.Property(e => e.Phone).HasColumnType("nvarchar(50)");
 
-                entity.Property(e => e.TotalRate).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TotalRate).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
@@ -390,16 +355,6 @@ namespace Caramel.Data
                     .WithMany(p => p.Resturants)
                     .HasForeignKey(d => d.OrderId)
                     .HasConstraintName("FK_Resturant _Order1");
-
-                //entity.HasOne(d => d.Rate)
-                //    .WithMany(p => p.Resturants)
-                //    .HasForeignKey(d => d.RateId)
-                //    .HasConstraintName("FK_Resturant _Rate");
-
-                //entity.HasOne(d => d.ServiceCategory)
-                //    .WithMany(p => p.Resturants)
-                //    .HasForeignKey(d => d.ServiceCategoryId)
-                //    .HasConstraintName("FK_Resturant _ServiceCategory");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -633,8 +588,12 @@ namespace Caramel.Data
                     .HasConstraintName("UserRole_UserId");
             });
 
+            modelBuilder.Entity<User>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
             modelBuilder.Entity<Customer>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
+            modelBuilder.Entity<Resturant>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
             modelBuilder.Entity<Meal>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
+            modelBuilder.Entity<Order>().HasQueryFilter(a => !a.Archived || IgnoreFilter);
+            
 
             OnModelCreatingPartial(modelBuilder);
         }

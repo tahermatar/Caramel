@@ -1,8 +1,4 @@
 using AutoMapper;
-using Caramel.Core.Mangers.BlogManger;
-using Caramel.Core.Mangers.CommonManger;
-using Caramel.Core.Mangers.ResturantManager;
-using Caramel.Core.Mangers.RoleManger;
 using Caramel.Data;
 using Caramel.EmailService;
 using Caramel.Extenstions;
@@ -47,7 +43,6 @@ namespace Caramel
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -59,14 +54,6 @@ namespace Caramel
 
             services.AddDbContext<CaramelDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CaramelConnection")));
-
-
-            /*
-            services.AddScoped<IUserManger, UserManger>();
-            services.AddScoped<ICommonManager, CommonManager>();
-            services.AddScoped<IBlogManager, BlogManager>();
-            services.AddScoped<IResturantManager, ResturantManager>();
-            services.AddScoped<IRoleManger, RoleManger>();*/
 
             services.AddSingleton(sp => _mapperConfiguration.CreateMapper());
 

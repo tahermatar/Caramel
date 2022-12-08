@@ -5,12 +5,9 @@ using Caramel.Models;
 using Caramel.ModelViews;
 using Caramel.ModelViews.Order;
 using Caramel.ModelViews.User;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Caramel.Core.Mangers.OrderManager
 {
@@ -23,6 +20,42 @@ namespace Caramel.Core.Mangers.OrderManager
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        public CreateOrderViewModel CreateMealOrder(UserModelViewModel currentUser, CreateOrderViewModel vm)
+        {
+            var checkCustomer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id)
+                                ?? throw new ServiceValidationException("Order just for customer");
+
+            var checkMealExist = _context.Meals.FirstOrDefault(x => x.Id == vm.MealId)
+                                 ?? throw new ServiceValidationException("Meal not Exist");
+
+            var checkResturuntExist = _context.Resturants.FirstOrDefault(x => x.Id == vm.ResturantId)
+                                      ?? throw new ServiceValidationException("Resturaant not Exist");
+
+            var Meal = _context.Meals.Where(x => x.Id == vm.MealId).FirstOrDefault();
+
+            float TotalPrice = (float)(Meal.Price * vm.Quantity);
+
+            var data = new Order
+            {
+                CustomerId = currentUser.Id,
+                Quantity = vm.Quantity,
+                TotalPrice = TotalPrice,
+                DateOfOrder = DateTime.Now,
+                DateOfExecution = DateTime.Now.AddMinutes(30),
+                MealId = vm.MealId,
+                CreatedDate = DateTime.Now,
+                CreatedBy = currentUser.Id,
+                Archived = false,
+                ResturantId = vm.ResturantId,
+                Status = Convert.ToInt16(StatusEnum.InProgress)
+            };
+
+            _context.Orders.Add(data);
+            _context.SaveChanges();
+
+            return vm;
         }
 
         public List<ViewOrderViewModel> ViewMealOrder(UserModelViewModel currentUser)
@@ -57,41 +90,20 @@ namespace Caramel.Core.Mangers.OrderManager
             return queryRes;
         }
 
-        public CreateOrderViewModel CreateMealOrder(UserModelViewModel currentUser, CreateOrderViewModel vm)
+        public void FinishMealOrder(UserModelViewModel currentUser, int id)
         {
-            var checkCustomer = _context.Customers.FirstOrDefault(x => x.Id == currentUser.Id) 
-                                ?? throw new ServiceValidationException("Order just for customer");
+            var order = _context.Orders.FirstOrDefault(x => x.Id == id)
+                ?? throw new ServiceValidationException("Order not found");
 
-            var checkMealExist = _context.Meals.FirstOrDefault(x => x.Id == vm.MealId)
-                                 ?? throw new ServiceValidationException("Meal not Exist");
-
-            var checkResturuntExist = _context.Resturants.FirstOrDefault(x => x.Id == vm.ResturantId)
-                                      ?? throw new ServiceValidationException("Resturaant not Exist");
-
-            var Meal = _context.Meals.Where(x => x.Id == vm.MealId).FirstOrDefault();
-
-            float TotalPrice =  (float)(Meal.Price * vm.Quantity);
-
-            var data = new Order
+            if (order != null)
             {
-                CustomerId = currentUser.Id,
-                Quantity = vm.Quantity,
-                TotalPrice = TotalPrice,
-                DateOfOrder = DateTime.Now,
-                DateOfExecution = DateTime.Now.AddMinutes(30),
-                MealId = vm.MealId,
-                CreatedDate = DateTime.Now,
-                CreatedBy = currentUser.Id,
-                Archived = false,
-                ResturantId = vm.ResturantId,
-                Status = Convert.ToInt16(StatusEnum.InProgress)
-            };
+                order.Status = Convert.ToInt16(StatusEnum.Completed);
+                order.UpdatedBy = currentUser.Id;
+                order.Archived = true;
+                order.UpdatedDate = DateTime.Now;
 
-            _context.Orders.Add(data);
-            //var res = _mapper.Map<CreateOrderViewModel>(data);
-            _context.SaveChanges();
-
-            return vm;
+                _context.SaveChanges();
+            }
         }
 
         public void DeleteMealOrder(UserModelViewModel currentUser ,int id)
@@ -108,22 +120,6 @@ namespace Caramel.Core.Mangers.OrderManager
                 _context.SaveChanges();
             }
 
-        }
-
-        public void FinishMealOrder(UserModelViewModel currentUser, int id)
-        {
-            var order = _context.Orders.FirstOrDefault(x => x.Id == id)
-                ?? throw new ServiceValidationException("Order not found");
-
-            if (order != null)
-            {
-                order.Status = Convert.ToInt16(StatusEnum.Completed);
-                order.UpdatedBy = currentUser.Id;
-                order.Archived = true;
-                order.UpdatedDate = DateTime.Now;
-
-                _context.SaveChanges();
-            }
         }
     }
 }

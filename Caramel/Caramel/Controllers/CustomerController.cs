@@ -1,17 +1,12 @@
 ﻿using Caramel.Attributes;
 using Caramel.Core.Mangers.CustomerManger;
 using Caramel.Core.Mangers.RateManager.cs;
-using Caramel.Core.Mangers.UserManger;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Rate;
-using Caramel.ModelViews.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Caramel.Controllers
 {
@@ -69,6 +64,17 @@ namespace Caramel.Controllers
 
 
         [HttpGet]
+        [Route("api/Customer/ViewProfile")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "View_Profile")]
+        public IActionResult ViewProfile()
+        {
+            var res = _customerManager.ViewProfile(LoggedInUser);
+            return Ok(res);
+        }
+
+
+        [HttpGet]
         [Route("api/Customer/GetCustomer")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "View_Customer")]
@@ -80,21 +86,41 @@ namespace Caramel.Controllers
 
 
         [HttpGet]
-        [Route("api/Customer/GetAll")]
+        [Route("api/Customer/GetAllCustomer")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "View_All_Customer")]
-        public IActionResult GetAll(int page = 1,
-                                    int pageSize = 5,
-                                    string sortColumn = "",
-                                    string sortDirection = "ascending",
-                                    string searchText = "")
+        public IActionResult GetAllCustomer(int page = 1,
+                                            int pageSize = 5,
+                                            string sortColumn = "",
+                                            string sortDirection = "ascending",
+                                            string searchText = "")
         {
-            var res = _customerManager.GetAll(LoggedInUser,
-                                              page,
-                                              pageSize,
-                                              sortColumn,
-                                              sortDirection,
-                                              searchText);
+            var res = _customerManager.GetAllCustomer(LoggedInUser,
+                                                      page,
+                                                      pageSize,
+                                                      sortColumn,
+                                                      sortDirection,
+                                                      searchText);
+            return Ok(res);
+        }
+
+
+        [HttpGet]
+        [Route("api/Customer/ViewResturantRating")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "View_Resturant_Rating")]
+        public IActionResult ViewResturantRating(int page = 1,
+                                              int pageSize = 5,
+                                              string sortColumn = "",
+                                              string sortDirection = "ascending",
+                                              string searchText = "")
+        {
+            var res = _rateManager.ViewResturantRate(LoggedInUser,
+                                                    page,
+                                                    pageSize,
+                                                    sortColumn,
+                                                    sortDirection,
+                                                    searchText);
             return Ok(res);
         }
 
@@ -115,17 +141,6 @@ namespace Caramel.Controllers
                                                     sortColumn,
                                                     sortDirection,
                                                     searchText);
-            return Ok(res);
-        }
-
-
-        [HttpGet]
-        [Route("api/Customer/ViewProfile")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "View_Profile")]
-        public IActionResult ViewProfile(int id)
-        {
-            var res = _customerManager.ViewProfile(LoggedInUser, id);
             return Ok(res);
         }
 
@@ -165,23 +180,23 @@ namespace Caramel.Controllers
 
 
         [HttpDelete]
-        [Route("api/Customer/DeleteCustomer")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [CaramelAuthrize(Permissions = "Delete_Customer")]
-        public IActionResult Delete( int id)
-        {
-            _customerManager.DeleteCustomer(LoggedInUser, id);
-            return Ok("Delete Success");
-        }
-
-
-        [HttpDelete]
         [Route("api/Customer/DeleteRate")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [CaramelAuthrize(Permissions = "Delete_Rating")]
         public IActionResult DeleteRate(int id)
         {
             _rateManager.DeleteRate(LoggedInUser, id);
+            return Ok("Delete Success");
+        }
+
+
+        [HttpDelete]
+        [Route("api/Customer/DeleteCustomer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [CaramelAuthrize(Permissions = "Delete_Customer")]
+        public IActionResult Delete( int id)
+        {
+            _customerManager.DeleteCustomer(LoggedInUser, id);
             return Ok("Delete Success");
         }
     }

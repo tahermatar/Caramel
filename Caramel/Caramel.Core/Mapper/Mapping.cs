@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using Caramel.Common.Extinsions;
-using Caramel.DbModel.Models;
 using Caramel.Models;
-using Caramel.ModelViews.Blog;
 using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Meal;
-using Caramel.ModelViews.Order;
 using Caramel.ModelViews.Rate;
 using Caramel.ModelViews.Resturant;
 using Caramel.ModelViews.User;
@@ -14,16 +11,18 @@ namespace CarProject.Mapper
 {
     public class Mapping : Profile
     {
-        
         public Mapping()
         {
             CreateMap<User, UserLoginResponseViewModel>().ReverseMap();
-            CreateMap<BlogViewModel, Blog>().ReverseMap();
-            CreateMap<PagedResult<BlogViewModel>, PagedResult<Blog>>().ReverseMap();
             CreateMap<Resturant, ResturantLoginModelView>().ReverseMap();
             CreateMap<Resturant, ResturantLoginResponseModelView>().ReverseMap();
             CreateMap<Resturant, ResturantModelView>().ReverseMap();
+            CreateMap<Resturant, ResturantRegViewModel>().ReverseMap();
+            CreateMap<Resturant, ResturantViewAllModelView>().ReverseMap();
             CreateMap<Resturant, ResturantRegisterViewModel>().ReverseMap();
+            CreateMap<Resturant, ResturantUpdateModelView>().ReverseMap();
+            CreateMap<Resturant, ResturantResponse>().ReverseMap();
+            CreateMap<PagedResult<ResturantModelView>, PagedResult<Resturant>>().ReverseMap();
 
             CreateMap<Customer, CustomerLoginResponseViewModel>().ReverseMap();
             CreateMap<CustomerResult, Customer>().ReverseMap();
@@ -31,14 +30,13 @@ namespace CarProject.Mapper
             CreateMap<CustomerLoginResponseViewModel, Customer>().ReverseMap();
             CreateMap<CustomerUpdateModelView, Customer>().ReverseMap();
             CreateMap<PagedResult<CustomerResult>, PagedResult<Customer>>().ReverseMap();
-
-            CreateMap<AddressResult, Address>().ReverseMap(); 
+            
+            CreateMap<AddressResult, Address>().ReverseMap();
+            CreateMap<ResturantViewAllModelView, Address>().ReverseMap();
             CreateMap<Userpermissionview, Rolepermission>().ReverseMap();
 
             CreateMap<UserModelViewModel, User>().ReverseMap();
             CreateMap<UserModelViewModel, Resturant>().ReverseMap();
-            CreateMap<ResturantRegViewModel, Resturant>().ReverseMap();
-            CreateMap<ResturantViewAllModelView, Resturant>().ReverseMap();
 
             //CreateMap<CreateOrderViewModel, Order>().ReverseMap();
 

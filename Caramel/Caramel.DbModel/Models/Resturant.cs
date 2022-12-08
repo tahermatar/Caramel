@@ -33,7 +33,7 @@ namespace Caramel.Models
         public int? ServiceCategoryId { get; set; }
         public string WorkingTime { get; set; }
         public int? OrderId { get; set; }
-        public int IsChef { get; set; }
+        public bool IsChef { get; set; }
         public int? RateId { get; set; }
         public bool EmailConfirmed { get; set; }
         public string ConfirmationLink { get; set; }

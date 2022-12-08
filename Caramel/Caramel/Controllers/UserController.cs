@@ -22,7 +22,6 @@ namespace Caramel.Controllers
 
         [HttpPost]
         [Route("api/User/SignUp")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult SignUp([FromBody] UserRegisterViewModel vm)
         {
             var res = _userManager.SignUp(vm);
@@ -31,7 +30,6 @@ namespace Caramel.Controllers
 
         [HttpPost]
         [Route("api/User/Login")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult Login([FromBody] UserLoginViewModel vm)
         {
             var res = _userManager.Login(vm);
@@ -59,7 +57,7 @@ namespace Caramel.Controllers
                                               string sortDirection = "ascending",
                                               string searchText = "")
         {
-            var res = _rateManager.ViewResturantRateForUser(LoggedInUser,
+            var res = _rateManager.ViewResturantRate(LoggedInUser,
                                                     page,
                                                     pageSize,
                                                     sortColumn,
@@ -67,6 +65,8 @@ namespace Caramel.Controllers
                                                     searchText);
             return Ok(res);
         }
+
+
         [HttpDelete]
         [Route("api/User/Delete")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

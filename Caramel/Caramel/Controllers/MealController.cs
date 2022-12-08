@@ -1,12 +1,9 @@
 ﻿using Caramel.Attributes;
-using Caramel.Core.Mangers.CustomerManger;
 using Caramel.Core.Mangers.MealManager;
 using Caramel.ModelViews;
-using Caramel.ModelViews.Customer;
 using Caramel.ModelViews.Meal;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 
@@ -74,7 +71,7 @@ namespace Caramel.Controllers
         [Route("api/Meal/ViewMeal")]
         public IActionResult ViewMeal(int id)
         {
-            var res = _mealManager.viewMeal(id);
+            var res = _mealManager.ViewMeal(id);
             return Ok(res);
         }
 

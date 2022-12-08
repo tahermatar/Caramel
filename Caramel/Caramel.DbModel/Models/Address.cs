@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 #nullable disable
 
@@ -16,7 +15,8 @@ namespace Caramel.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Road { get; set; }
-        public string ExtraInformation { get; set; } 
+        public string ExtraInformation { get; set; }
+        public int ResturantId { get; set; }
 
         public virtual ICollection<Customer> Customers { get; set; }
     }

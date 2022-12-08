@@ -1,7 +1,6 @@
 ﻿using Caramel.ModelViews;
 using Caramel.ModelViews.Meal;
 using Caramel.ModelViews.User;
-using System.Collections.Generic;
 
 namespace Caramel.Core.Mangers.MealManager
 {
@@ -18,7 +17,7 @@ namespace Caramel.Core.Mangers.MealManager
                                                 string sortDirection = "ascending",
                                                 string searchText = "");
 
-        public MealModelView viewMeal(int id);
+        public MealModelView ViewMeal(int id);
         public void DeleteMeal(UserModelViewModel currentUser, int id);
     }
 }
