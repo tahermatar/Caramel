@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Caramel.Core.Mangers.CustomerManger
 {
-    public interface ICustomerManager : IManger
+    public interface ICustomerManager : IManager
     {
         public CustomerLoginResponseViewModel Rigester(UserModelViewModel currentUser, CustomerRegisterViewModel vm);
         public CustomerResponse GetAll(UserModelViewModel currentUser, int page = 1, int pageSize = 10, string sortColumn = "", string sortDirection = "ascending", string searchText = "");

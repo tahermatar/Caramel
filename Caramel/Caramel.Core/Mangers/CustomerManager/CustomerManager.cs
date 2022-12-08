@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Caramel.Common.Extinsions;
-using Caramel.Common.Helperr;
 using Caramel.Data;
 using Caramel.EmailService;
 using Caramel.Infrastructure;
@@ -10,7 +9,6 @@ using Caramel.ModelViews.Enums;
 using Caramel.ModelViews.Static;
 using Caramel.ModelViews.User;
 using Microsoft.IdentityModel.Tokens;
-using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -47,46 +45,45 @@ namespace Caramel.Core.Mangers.CustomerManger
                                            string sortDirection = "ascending",
                                            string searchText = "")
             {
-               /* var customerList = _context.Customers.ToList();
-                return _mapper.Map<List<CustomerResponse>>(customerList);
-               */
-
-            var queryRes = _context.Customers
-                                    .Where(a => (string.IsNullOrWhiteSpace(searchText)
-                                                || (a.UserName.Contains(searchText)
-                                                || a.Email.Contains(searchText))));
-
-            if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
-            {
-                queryRes = queryRes.OrderBy(sortColumn);
-            }
-            else if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("descending", StringComparison.InvariantCultureIgnoreCase))
-            {
-                queryRes = queryRes.OrderByDescending(sortColumn);
-            }
-
-            var res = queryRes.GetPaged(page, pageSize);
-
-            /*
-            var Address = res.Data
-                             .Select(a => a.AddressId)
-                             .Distinct()
-                             .ToList();
-
-            var users = _context.Addresses
-                                 .Where(a => Address.Contains(a.Id))
-                                 .ToDictionary(a => a.Id, x => _mapper.Map<AddressResult>(x));
+            /* var customerList = _context.Customers.ToList();
+             return _mapper.Map<List<CustomerResponse>>(customerList);
             */
-            var data = new CustomerResponse
-            {
-                customers = _mapper.Map<PagedResult<CustomerResult>>(res),
-                //address = users
-            };
+                var queryRes = _context.Customers
+                                        .Where(a => (string.IsNullOrWhiteSpace(searchText)
+                                                    || (a.UserName.Contains(searchText)
+                                                    || a.Email.Contains(searchText))));
 
-            data.customers.Sortable.Add("Title", "Title");
-            data.customers.Sortable.Add("CreatedDate", "Created Date");
+                if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("ascending", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    queryRes = queryRes.OrderBy(sortColumn);
+                }
+                else if (!string.IsNullOrWhiteSpace(sortColumn) && sortDirection.Equals("descending", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    queryRes = queryRes.OrderByDescending(sortColumn);
+                }
 
-            return data;
+                var res = queryRes.GetPaged(page, pageSize);
+
+
+                //var addressIds = res.Data
+                //                 .Select(a => a.AddressId)
+                //                 .Distinct()
+                //                 .ToList();
+
+                //var users = _context.Addresses
+                //                     .Where(a => addressIds.Contains(a.Id))
+                //                     .ToDictionary(a => a.Id, x => _mapper.Map<AddressResult>(x));
+
+                var data = new CustomerResponse
+                {
+                    Customer = _mapper.Map<PagedResult<CustomerResult>>(res),
+                    //address = users
+                };
+
+                data.Customer.Sortable.Add("UserName", "User Name");
+                data.Customer.Sortable.Add("CreatedDate", "Created Date");
+
+                return data;
 
         }
 
@@ -197,21 +194,34 @@ namespace Caramel.Core.Mangers.CustomerManger
 
         public void DeleteCustomer(UserModelViewModel currentUser, int id)
         {
-            var user = new Customer();
 
-            if (currentUser.IsSuperAdmin) {
-                   user = _context.Customers
-                                            .FirstOrDefault(x => x.Id == id)
-                                             ?? throw new ServiceValidationException("User not found");
-            }
-            else
+            if (currentUser.Id != id)
             {
-                throw new ServiceValidationException("you have no access to delete your self");
+                throw new ServiceValidationException("you have no access to delete this customers");
             }
-            
 
-            user.Archived = 1;
+            var coustomer = _context.Customers
+                                             .FirstOrDefault(x => x.Id == id)
+                                             ?? throw new ServiceValidationException("Customer not found");
+
+            coustomer.Archived = true;
             _context.SaveChanges();
+
+            //var user = new Customer();
+
+            //if (currentUser.IsSuperAdmin) {
+            //       user = _context.Customers
+            //                                .FirstOrDefault(x => x.Id == id)
+            //                                 ?? throw new ServiceValidationException("User not found");
+            //}
+            //else
+            //{
+            //    throw new ServiceValidationException("you have no access to delete your self");
+            //}
+
+
+            //user.Archived = 1;
+            //_context.SaveChanges();
         }
 
 

@@ -67,18 +67,10 @@ namespace Caramel.Core.Mangers.RoleManger
         {
             var chick = _context.Modules.FirstOrDefault( x => x.MId == id)
                 ?? throw new ServiceValidationException("Module not found");
-            chick.Archived = false;
+            chick.Archived = true;
             _context.SaveChanges();
 
         }
-
-        /// <summary>
-        /// /////////////////////////////////
-        /// </summary>
-        /// 
-
-
-
         public List<Permission> GetPermission()
         {
             var res = _context.Permissions.Where(x => x.Archived == true).ToList();
@@ -134,12 +126,6 @@ namespace Caramel.Core.Mangers.RoleManger
             chick.Archived = false;
             _context.SaveChanges();
         }
-
-        /// <summary>
-        /// /////////////////////////////////
-        /// </summary>
-        /// 
-
 
         public List<Role> GetRole()
         {
