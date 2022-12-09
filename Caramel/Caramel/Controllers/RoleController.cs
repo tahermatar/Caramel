@@ -22,26 +22,25 @@ namespace Caramel.Controllers
 
 
         [HttpPost]
-        public IActionResult PutModule([FromBody] ModuleCreateViewModel vm)
+        public IActionResult CreateModule([FromBody] ModuleCreateViewModel vm)
         {
-            return Ok(_roleManger.PutModule(LoggedInUser, vm));
+            return Ok(_roleManger.CreateModule(LoggedInUser, vm));
         }
 
 
         [HttpGet]
-        //[CaramelAuthrize(Permissions = "Roles_Actions")]
         public IActionResult GetModule()
         {
             return Ok(_roleManger.GetModule());
         }
 
 
-        //[HttpPut("{id}")]
-        //public IActionResult Put([FromBody] ModuleCreateViewModel vm)
-        //{
-        //    var res = _roleManger.UpdateModule(vm);
-        //    return Ok(res);
-        //}
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody] ModuleCreateViewModel vm)
+        {
+            var res = _roleManger.UpdateModule(vm);
+            return Ok(res);
+        }
 
 
         [HttpDelete("{id}")]

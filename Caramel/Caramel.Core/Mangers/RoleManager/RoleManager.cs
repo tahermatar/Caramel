@@ -19,65 +19,68 @@ namespace Caramel.Core.Mangers.RoleManger
         }
 
         //Module
-        public Module PutModule(UserModelViewModel currentUser, ModuleCreateViewModel vm)
+        public Module CreateModule(UserModelViewModel currentUser, ModuleCreateViewModel vm)
         {
-            //var chick = _context.Modules.FirstOrDefault(x => x.Name == vm.Name && x.Archived.Equals(true));
-
-            //if (chick != null)
+            //if (!currentUser.IsSuperAdmin)
             //{
-            //    throw new ServiceValidationException(300, "Module Already Exist");
+            //    throw new ServiceValidationException(300, "You have no access to add or update module");
             //}
-            //var module = new Module
-            //{
-            //    Name = vm.Name,
-            //    Key = vm.Key,
-            //    CreatedUtc = DateTime.Now,
-            //    LastUpdatedUtc = DateTime.MinValue,
-            //    Archived = true
-            //};
 
-            //_context.Modules.Add(module);
-            //_context.SaveChanges();
+            var chick = _context.Modules.FirstOrDefault(x => x.Name == vm.Name 
+                                                                    && x.Archived.Equals(false));
 
-            //return module;
-
-            if (!currentUser.IsSuperAdmin)
+            if (chick != null)
             {
-                throw new ServiceValidationException(300, "You have no access to add or update module");
+                throw new ServiceValidationException(300, "Module Already Exist");
             }
-            Module module = null;
-
-            if (vm.MId > 0)
+            var module = new Module
             {
-                module = _context.Modules.FirstOrDefault(x => x.MId == vm.MId && x.Archived.Equals(false))
-                                        ?? throw new ServiceValidationException(300, "Invalid module id received");
-
-                module.Name = vm.Name;
-                module.Key = vm.Key;
-                module.LastUpdatedUtc = DateTime.Now;
-                module.Archived = false;
-            }
-
-            else
-            {
-                module = _context.Modules.FirstOrDefault(x => x.Name == vm.Name /*&& x.Archived.Equals(false)*/)
-                                        ?? throw new ServiceValidationException(300, "Module already exist");
-
-                module = _context.Modules.Add(new Module
-                {
-                    Name = vm.Name,
-                    Key = vm.Key,
-                    CreatedUtc = DateTime.Now,
-                    LastUpdatedUtc = DateTime.MinValue
-                }).Entity;
-
-                _context.SaveChanges();
-            }
+                Name = vm.Name,
+                Key = vm.Key,
+                CreatedUtc = DateTime.Now,
+                LastUpdatedUtc = DateTime.MinValue,
+                Archived = true
+            };
 
             _context.Modules.Add(module);
             _context.SaveChanges();
 
             return module;
+
+            
+            //Module module = null;
+
+            //if (vm.MId > 0)
+            //{
+            //    module = _context.Modules.FirstOrDefault(x => x.MId == vm.MId && x.Archived.Equals(false))
+            //                            ?? throw new ServiceValidationException(300, "Invalid module id received");
+
+            //    module.Name = vm.Name;
+            //    module.Key = vm.Key;
+            //    module.LastUpdatedUtc = DateTime.Now;
+            //    module.Archived = false;
+            //}
+
+            //else
+            //{
+            //    module = _context.Modules.FirstOrDefault(x => x.Name == vm.Name /*&& x.Archived.Equals(false)*/)
+            //                            ?? throw new ServiceValidationException(300, "Module already exist");
+
+            //    module = _context.Modules.Add(new Module
+            //    {
+            //        Name = vm.Name,
+            //        Key = vm.Key,
+            //        CreatedUtc = DateTime.Now,
+            //        LastUpdatedUtc = DateTime.MinValue
+            //    }).Entity;
+
+            //    _context.SaveChanges();
+            //}
+
+            //_context.Modules.Add(module);
+            //_context.SaveChanges();
+
+            //return module;
         }
 
         public List<Module> GetModule()
@@ -86,21 +89,21 @@ namespace Caramel.Core.Mangers.RoleManger
             return res;
         }
 
-        //public Module UpdateModule(ModuleCreateViewModel vm)
-        //{
-        //    var chick = _context.Modules.FirstOrDefault(x => x.MId == vm.MId)
-        //   ?? throw new ServiceValidationException("Module not found");
+        public Module UpdateModule(ModuleCreateViewModel vm)
+        {
+            var chick = _context.Modules.FirstOrDefault(x => x.MId == vm.MId)
+           ?? throw new ServiceValidationException("Module not found");
 
 
-        //    chick.Name = vm.Name;
-        //    chick.Key = vm.Key;
-        //    chick.LastUpdatedUtc = DateTime.Now;
+            chick.Name = vm.Name;
+            chick.Key = vm.Key;
+            chick.LastUpdatedUtc = DateTime.Now;
 
-        //    _context.SaveChanges();
+            _context.SaveChanges();
 
-        //    return chick;
+            return chick;
 
-        //}
+        }
         public void DeleteModule(int id)
         {
             var chick = _context.Modules.FirstOrDefault( x => x.MId == id)
@@ -115,7 +118,7 @@ namespace Caramel.Core.Mangers.RoleManger
         public Permission CreatePermission(PermissionCreateViewModel vm)
         {
             var chick = _context.Permissions.FirstOrDefault(x => x.Title == vm.Title
-                       && x.ModuleId.Equals(vm.ModuleId) && x.Archived.Equals(true));
+                       && x.ModuleId.Equals(vm.ModuleId) && x.Archived.Equals(false));
 
             if (chick != null)
             {
@@ -142,7 +145,7 @@ namespace Caramel.Core.Mangers.RoleManger
 
         public List<Permission> GetPermission()
         {
-            var res = _context.Permissions.Where(x => x.Archived == true).ToList();
+            var res = _context.Permissions.Where(x => x.Archived == false).ToList();
             return res;
         }
 
@@ -162,11 +165,12 @@ namespace Caramel.Core.Mangers.RoleManger
 
             return chick;
         }
+
         public void DeletePermission(int id)
         {
             var chick = _context.Permissions.FirstOrDefault(x => x.PId == id)
                 ?? throw new ServiceValidationException("Permissions not found");
-            chick.Archived = false;
+            chick.Archived = true;
             _context.SaveChanges();
         }
 
@@ -174,7 +178,8 @@ namespace Caramel.Core.Mangers.RoleManger
         //Role
         public Role CreateRole(RoleCreateViewModel vm)
         {
-            var chick = _context.Roles.FirstOrDefault(x => x.RoleName == vm.RoleName && x.Archived.Equals(true));
+            var chick = _context.Roles.FirstOrDefault(x => x.RoleName == vm.RoleName
+                                                                      && x.Archived.Equals(false));
 
             if (chick != null)
             {
@@ -185,7 +190,7 @@ namespace Caramel.Core.Mangers.RoleManger
             {
                 RoleName = vm.RoleName,
                 CreatedUtc = DateTime.Now,
-                Archived = true,
+                Archived = false,
 
             };
 
@@ -197,7 +202,7 @@ namespace Caramel.Core.Mangers.RoleManger
 
         public List<Role> GetRole()
         {
-            var res = _context.Roles.Where(x => x.Archived == true).ToList();
+            var res = _context.Roles.Where(x => x.Archived == false).ToList();
             return res;
         }
 
@@ -218,7 +223,7 @@ namespace Caramel.Core.Mangers.RoleManger
         {
             var chick = _context.Roles.FirstOrDefault(x => x.RId == id)
                        ?? throw new ServiceValidationException("Role not found");
-            chick.Archived = false;
+            chick.Archived = true;
             _context.SaveChanges();
         }
 
@@ -227,7 +232,7 @@ namespace Caramel.Core.Mangers.RoleManger
         public List<Rolepermission> CreateRolePermition(RolePermissionViewModel vm)
         {
             var chick = _context.Rolepermissions.FirstOrDefault(x => x.RoleId.Equals(vm.RoleId)
-            && x.PermissionId.Equals(vm.PermissionId) && x.Archived.Equals(true));
+            && x.PermissionId.Equals(vm.PermissionId) && x.Archived.Equals(false));
 
             if (chick != null)
             {
@@ -242,7 +247,7 @@ namespace Caramel.Core.Mangers.RoleManger
                     RoleId = vm.RoleId,
                     PermissionId = item,
                     CreatedUtc = DateTime.Now,
-                    Archived = true
+                    Archived = false
                 };
                 _context.Rolepermissions.Add(rolePermission);
                 _context.SaveChanges();
@@ -255,19 +260,19 @@ namespace Caramel.Core.Mangers.RoleManger
 
         public List<Rolepermission> GetRolePermision()
         {
-            var res = _context.Rolepermissions.Where(x => x.Archived == true).ToList();
+            var res = _context.Rolepermissions.Where(x => x.Archived == false).ToList();
             return res;
         }
 
         public List<Rolepermission> GetRolePermision(int RoleId)
         {
-            var res = _context.Rolepermissions.Where(x => x.RoleId.Equals(RoleId)&& x.Archived.Equals(true)).ToList();
+            var res = _context.Rolepermissions.Where(x => x.RoleId.Equals(RoleId)&& x.Archived.Equals(false)).ToList();
             return res;
         }
 
         public List<Rolepermission> UpdateRolePermition(RolePermissionViewModel vm)
         {
-            var chick = _context.Rolepermissions.Where(x => x.RoleId.Equals(vm.RoleId) && x.Archived.Equals(true))
+            var chick = _context.Rolepermissions.Where(x => x.RoleId.Equals(vm.RoleId) && x.Archived.Equals(false))
                       ?? throw new ServiceValidationException("Role Permissions not found");
 
             foreach (var item in chick)
@@ -276,7 +281,7 @@ namespace Caramel.Core.Mangers.RoleManger
             }
 
             var chickExsist = _context.Rolepermissions.FirstOrDefault(x => x.RoleId.Equals(vm.RoleId)
-                              && x.PermissionId.Equals(vm.PermissionId) && x.Archived.Equals(true));
+                              && x.PermissionId.Equals(vm.PermissionId) && x.Archived.Equals(false));
             if (chickExsist != null)
             {
                 throw new ServiceValidationException(300, "Role Permition Already Exist");
@@ -292,7 +297,7 @@ namespace Caramel.Core.Mangers.RoleManger
                     PermissionId = item,
                     CreatedUtc = DateTime.Now,
                     LastUpdatedUtc = DateTime.Now,
-                    Archived = true
+                    Archived = false
                 };
                 _context.Rolepermissions.Add(rolePermission);
                 _context.SaveChanges();
@@ -309,7 +314,7 @@ namespace Caramel.Core.Mangers.RoleManger
 
             foreach (var item in chick)
             {
-                item.Archived = false;
+                item.Archived = true;
                 item.LastUpdatedUtc = DateTime.Now;
                 _context.SaveChanges();
             }
@@ -319,7 +324,9 @@ namespace Caramel.Core.Mangers.RoleManger
         //User Role
         public Userrole CreateUserRole(UserRoleModelView vm)
         {
-            var chick = _context.Userroles.FirstOrDefault(x => x.UserId.Equals(vm.UserId) && x.RoleId.Equals(vm.RoleId) && x.Archived.Equals(true));
+            var chick = _context.Userroles.FirstOrDefault(x => x.UserId.Equals(vm.UserId) 
+                                                            && x.RoleId.Equals(vm.RoleId) 
+                                                            && x.Archived.Equals(false));
 
             if (chick != null)
             {
@@ -331,7 +338,7 @@ namespace Caramel.Core.Mangers.RoleManger
                 UserId = vm.UserId,
                 RoleId = vm.RoleId,
                 CreatedUtc = DateTime.Now,
-                Archived = true,
+                Archived = false,
 
             };
 
@@ -343,19 +350,21 @@ namespace Caramel.Core.Mangers.RoleManger
 
         public List<Userrole> GetUserRole()
         {
-            var res = _context.Userroles.Where(x => x.Archived == true).ToList();
+            var res = _context.Userroles.Where(x => x.Archived == false).ToList();
             return res;
         }
 
         public List<Userrole> GetUserRoleId(int UserId)
         {
-            var res = _context.Userroles.Where(x => x.UserId.Equals(UserId) && x.Archived.Equals(true)).ToList();
+            var res = _context.Userroles.Where(x => x.UserId.Equals(UserId)
+                                                 && x.Archived.Equals(false)).ToList();
             return res;
         }
 
         public Userrole UpdateUserRole(UserRoleModelView vm)
         {
-            var chick = _context.Userroles.FirstOrDefault(x => x.UserId.Equals(vm.UserId)  &&  x.RoleId.Equals(vm.RoleId))
+            var chick = _context.Userroles.FirstOrDefault(x => x.UserId.Equals(vm.UserId) 
+                                                           &&  x.RoleId.Equals(vm.RoleId))
                        ?? throw new ServiceValidationException("Role not found");
 
             chick.RoleId = vm.RoleId;
@@ -371,7 +380,7 @@ namespace Caramel.Core.Mangers.RoleManger
             var chick = _context.Userroles.FirstOrDefault(x => x.Id == Id)
                       ?? throw new ServiceValidationException("Role not found");
 
-            chick.Archived = false;
+            chick.Archived = true;
             _context.SaveChanges();
         }
 

@@ -44,17 +44,18 @@ namespace Caramel.Controllers
                 }
 
                 var commonManager = HttpContext.RequestServices.GetService(typeof(ICommonManager)) as ICommonManager;
-                //if (id > 1000 && id < 10000)
-                //{
-                //    _loggedInUser = commonManager.GetCustomerRole(new UserModelViewModel { Id = id });
+                if (id > 1000 && id < 10000)
+                {
+                    _loggedInUser = commonManager.GetCustomerRole(new UserModelViewModel { Id = id });
 
-                //}else if (id > 10000)
-                //{
-                //    _loggedInUser = commonManager.GetResturanRole(new UserModelViewModel { Id = id });
+                }
+                else if (id > 10000)
+                {
+                    _loggedInUser = commonManager.GetResturanRole(new UserModelViewModel { Id = id });
 
-                //}
-                //else 
-                _loggedInUser = commonManager.GetUserRole(new UserModelViewModel { Id = id });
+                }
+                else
+                    _loggedInUser = commonManager.GetUserRole(new UserModelViewModel { Id = id });
 
                 return _loggedInUser;
             }

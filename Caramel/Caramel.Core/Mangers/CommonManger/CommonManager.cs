@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Caramel.Common.Extinsions;
 using Caramel.Data;
+using Caramel.Models;
 using Caramel.ModelViews.User;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Caramel.Core.Mangers.CommonManger
@@ -32,41 +34,41 @@ namespace Caramel.Core.Mangers.CommonManger
             return _mapper.Map<UserModelViewModel>(dbuser);
         }
 
-        //public UserModelViewModel GetResturanRole(UserModelViewModel resturant)
-        //{
-        //    var dbresturant = _context.Resturants.FirstOrDefault(x => x.Id == resturant.Id)
-        //        ?? throw new ServiceValidationException("User Is not valid");
-            
+        public UserModelViewModel GetResturanRole(UserModelViewModel resturant)
+        {
+            var dbresturant = _context.Resturants.FirstOrDefault(x => x.Id == resturant.Id)
+                ?? throw new ServiceValidationException("User Is not valid");
 
-        //    var mappedUser = new UserModelViewModel
-        //    {
-        //        Id = dbresturant.Id,
-        //        UserName = dbresturant.UserName,
-        //        Email = dbresturant.Email,
-        //    };
-        //    //mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == resturant.Id).ToList();
-        //    mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 4).ToList());
 
-        //    return _mapper.Map<UserModelViewModel>(dbresturant);
-        //}
+            var mappedUser = new UserModelViewModel
+            {
+                Id = dbresturant.Id,
+                UserName = dbresturant.UserName,
+                Email = dbresturant.Email,
+            };
+            //mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == resturant.Id).ToList();
+            mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 4).ToList());
 
-        //public UserModelViewModel GetCustomerRole(UserModelViewModel customer)
-        //{
-        //    var dbcustomer = _context.Customers.FirstOrDefault(x => x.Id == customer.Id)
-        //        ?? throw new ServiceValidationException("User Is not valid");
+            return _mapper.Map<UserModelViewModel>(dbresturant);
+        }
 
-        //    var mappedUser = new UserModelViewModel
-        //    {
-        //        Id = dbcustomer.Id,
-        //        UserName = dbcustomer.UserName,
-        //        Email = dbcustomer.Email,
-        //    };
+        public UserModelViewModel GetCustomerRole(UserModelViewModel customer)
+        {
+            var dbcustomer = _context.Customers.FirstOrDefault(x => x.Id == customer.Id)
+                ?? throw new ServiceValidationException("User Is not valid");
 
-        //    mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 1).ToList());
-        //    // mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
+            var mappedUser = new UserModelViewModel
+            {
+                Id = dbcustomer.Id,
+                UserName = dbcustomer.UserName,
+                Email = dbcustomer.Email,
+            };
 
-        //    return mappedUser;
-        //}
+            mappedUser.Permissions = _mapper.Map<List<Userpermissionview>>(_context.Rolepermissions.Where(x => x.RoleId == 1).ToList());
+            // mappedUser.Permissions = _context.Userpermissionviews.Where(x => x.UserId == customer.Id).ToList();
+
+            return mappedUser;
+        }
 
 
     }

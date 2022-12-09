@@ -7,9 +7,9 @@ namespace Caramel.Core.Mangers.RoleManger
 {
     public interface IRoleManager
     {
-        Module PutModule(UserModelViewModel currentUser, ModuleCreateViewModel vm);
+        Module CreateModule(UserModelViewModel currentUser, ModuleCreateViewModel vm);
         List<Module> GetModule();
-        //Module UpdateModule(ModuleCreateViewModel vm);
+        Module UpdateModule(ModuleCreateViewModel vm);
         void DeleteModule(int id);
 
         Permission CreatePermission(PermissionCreateViewModel vm);
